@@ -7,6 +7,7 @@
     </head>
 
     <body>
-        <h1>Test Site</h1>
+        <h1>Test Site test</h1>
+        <img src="./images/paul.png"/>
     </body>
 </html>
