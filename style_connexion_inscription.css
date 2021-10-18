@@ -1,0 +1,66 @@
+@font-face {
+    font-family: qwigley;
+    src: url('./Assets/Fonts/Qwigley-Regular.ttf');
+}
+
+@font-face {
+    font-family: Quicksand-Bold;
+    src: url('/Assets/Fonts/Quicksand-Bold.ttf');
+}
+
+@font-face {
+    font-family: Quicksand-SemiBold;
+    src: url('Assets/Fonts/Quicksand-SemiBold.ttf');
+}
+
+body{
+    font-family: quicksand
+}
+
+body, html, main, h1{
+    margin: 0px;
+    padding: 0px;
+}
+
+main, body, html{
+    width: 100%;
+    height: 100%;
+}
+
+main{
+    background: url("./Assets/images/background_blurred.jpg") no-repeat center center ;
+    background-size: cover;
+}
+
+h1.aircare{
+    font-size: 150px;
+    font-family: qwigley;
+    text-align: center;
+    color: white;
+}
+
+.wrapper{
+    display: table;
+    width: 100%;
+    height: 100%;
+}
+
+.content{
+    text-align: center;
+    padding: 20px 5% 15px;
+	display:table;
+	width: 30%;
+	background:#cecece ;
+	box-shadow: 0 0 40px rgba(0, 0, 0, 255);
+	margin-left: auto;
+    margin-right: auto;
+    margin-top: -0.75em;
+	font-size:19.5px;
+    border-radius: 8px;
+    opacity: 0.86;
+}
+
+.connexion {
+    font-size: 30px;
+    font-family: Quicksand-SemiBold;
+}
