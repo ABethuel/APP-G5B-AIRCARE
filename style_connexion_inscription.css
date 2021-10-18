@@ -37,6 +37,7 @@ h1.aircare{
     font-family: qwigley;
     text-align: center;
     color: white;
+    box-shadow: 0 0 0px rgba(0, 0, 0, 255);
 }
 
 .wrapper{
@@ -51,7 +52,7 @@ h1.aircare{
 	display:table;
 	width: 30%;
 	background:#cecece ;
-	box-shadow: 0 0 40px rgba(0, 0, 0, 255);
+	box-shadow: 0 0 80px rgba(0, 0, 0, 255);
 	margin-left: auto;
     margin-right: auto;
     margin-top: -0.75em;
