@@ -15,6 +15,7 @@
                 <h1 class="aircare">AirCare</h1> <!-- Titre de page -->
                 <div class="content"> <!-- Contenu du bloc de connexion/inscription -->
                     <h1 class="connexion">Connexion</h1>
+
                     <div class="form_connexion">
                         <form action=""> <!-- Donnés à saisir pour connexion -->
                             <label for="email">Adresse email</label> <!-- Texte au dessus du champ de saisie -->
@@ -36,6 +37,7 @@
                         
                         </form>
                     </div>
+                    <p>test</p>
                 </div>
             </div>
         </main>
