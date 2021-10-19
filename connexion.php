@@ -37,6 +37,15 @@
                         
                         </form>
                     </div> 
+
+                    <!-- Texte sous le formulaire -->
+                    <div class="text_under">
+                        <p class="no_account">Pas encore de compte ?</br> 
+                        <a href="inscription.php" class="inscription_link">Inscrivez vous</a>
+                        </br>Ou</br>
+                        <a href="index.php" class="inscription_link">Consulter sans compte</a></p>
+                    </div>
+
                 </div>
             </div>
         </main>
