@@ -36,8 +36,7 @@
                             </div>
                         
                         </form>
-                    </div>
-                    <p>test</p>
+                    </div> 
                 </div>
             </div>
         </main>
