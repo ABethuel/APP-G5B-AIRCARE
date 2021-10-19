@@ -1,4 +1,4 @@
-@font-face {
+@font-face {              /** Ajouter police depuis dossier **/
     font-family: qwigley;
     src: url('./Assets/Fonts/Qwigley-Regular.ttf');
 }
@@ -11,6 +11,11 @@
 @font-face {
     font-family: Quicksand-SemiBold;
     src: url('Assets/Fonts/Quicksand-SemiBold.ttf');
+}
+
+@font-face {
+    font-family: Quicksand-Medium;
+    src: url('Assets/Fonts/Quicksand-Medium.ttf');
 }
 
 body{
@@ -47,7 +52,6 @@ h1.aircare{
 }
 
 .content{
-    text-align: center;
     padding: 20px 5% 15px;
 	display:table;
 	width: 30%;
@@ -64,4 +68,93 @@ h1.aircare{
 .connexion {
     font-size: 30px;
     font-family: Quicksand-SemiBold;
+    text-align: center;
 }
+
+input[type=text], select {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0 14px;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-family: Quicksand-SemiBold;
+  }
+
+  input[type=password], select {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0 14px;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-family: Quicksand-SemiBold;
+  }
+  
+  input[type=submit] {
+    width: 100%;
+    background-color: #2254B5;
+    color: white;
+    padding: 12px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    opacity: 1;
+    margin-top: 3%;
+    font-family: Quicksand-SemiBold;
+    font-size: medium;
+  }
+  
+  input[type=submit]:hover {
+    background-color: #1697F4;
+    
+  }
+
+  form{
+      margin-top: 6%;
+  }
+
+  label{
+      font-family: Quicksand-SemiBold;
+  }
+
+  input[type=checkbox] {
+      width: 12.5px;
+      height: 12.5px;
+      margin-left: -0.02%;
+      margin-top: 1.5%;
+      margin-bottom: 3%;
+  }
+
+  input[type=checkbox]:checked {
+      background-color: #2254B5;
+  }
+
+  .remember_user {
+      font-size: 18px;
+  }
+
+  .help{
+    color: #514B4B;
+    text-decoration: none;
+    font-size: 18px;
+    font-family: Quicksand-SemiBold;
+  }
+
+  .help:hover{
+      color: #808080;
+  }
+
+  .remember_help{
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+  }
+
+
+
+
+  

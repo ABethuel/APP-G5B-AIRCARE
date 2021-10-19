@@ -15,10 +15,31 @@
                 <h1 class="aircare">AirCare</h1> <!-- Titre de page -->
                 <div class="content"> <!-- Contenu du bloc de connexion/inscription -->
                     <h1 class="connexion">Connexion</h1>
-                    <p class="subtitle">Ceci est du texte</p>
+                    <div class="form_connexion">
+                        <form action=""> <!-- Donnés à saisir pour connexion -->
+                            <label for="email">Adresse email</label> <!-- Texte au dessus du champ de saisie -->
+                            <input type="text" id="email" name="adress_email" placeholder="Saisir votre adresse email">
+
+                            <label for="password">Mot de passe</label>
+                            <input type="password" id="password" name="password_user" placeholder="Saisir votre mot de passe">
+
+                            <input type="submit" value="Se connecter"> <!-- Bouton se connecter -->
+
+                            <div class="remember_help">
+                                <!-- Bouton se souvenir de moi -->
+                                <div>
+                                    <input type="checkbox" id="remember" name="remember">
+                                    <label class="remember_user" for="chekbox">Se souvenir de moi</label>
+                                </div>
+                                <a href="#" class="help">Besoin d'aide ?</a>
+                            </div>
+                        
+                        </form>
+                    </div>
                 </div>
             </div>
         </main>
+
     </body>
 
 </html>
