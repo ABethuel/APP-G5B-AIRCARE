@@ -1,0 +1,54 @@
+@font-face {              /** Ajouter police depuis dossier **/
+    font-family: qwigley;
+    src: url('./Assets/Fonts/Qwigley-Regular.ttf');
+}
+
+@font-face {
+    font-family: Quicksand-Bold;
+    src: url('/Assets/Fonts/Quicksand-Bold.ttf');
+}
+
+@font-face {
+    font-family: Quicksand-SemiBold;
+    src: url('Assets/Fonts/Quicksand-SemiBold.ttf');
+}
+
+@font-face {
+    font-family: Quicksand-Medium;
+    src: url('Assets/Fonts/Quicksand-Medium.ttf');
+}
+
+nav{
+    display: flex;
+    justify-content: space-between;
+    background-color: #F5F5F5;
+    padding: 15px 20px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 255);
+    margin-top: -0.55%;
+    margin-left: -0.55%;
+    margin-right: -0.55%;
+}
+
+.left {
+    margin-left: 8%;
+}
+
+.left img.logo {
+    width: 15%;
+    height: 15%;
+}
+
+.left .menu {
+    display:flex;
+    justify-content: space-between;
+}
+
+.menu a {
+    margin-left: 1%;
+    color: #213C70;
+    text-decoration: none;
+}
+
+.menu a:hover {
+    color: #4C79D0;
+}
