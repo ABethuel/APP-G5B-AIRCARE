@@ -18,24 +18,24 @@
     src: url('Assets/Fonts/Quicksand-Medium.ttf');
 }
 
+
 nav{
     display: flex;
     justify-content: space-between;
     background-color: #F5F5F5;
     padding: 15px 20px;
     box-shadow: 0 0 20px rgba(0, 0, 0, 255);
-    margin-top: -0.55%;
-    margin-left: -0.55%;
-    margin-right: -0.55%;
+    display: flex;
 }
+
 
 .left {
     margin-left: 8%;
 }
 
 .left img.logo {
-    width: 15%;
-    height: 15%;
+    width: 11%;
+    height: 11%;
 }
 
 .left .menu {
@@ -47,8 +47,44 @@ nav{
     margin-left: 1%;
     color: #213C70;
     text-decoration: none;
+    font-size: 14px;
 }
 
 .menu a:hover {
     color: #4C79D0;
 }
+
+.research_input {
+    width: 23%;
+    border: 1px solid #213C70;
+    border-radius: 6px;
+    font-size: 14px;
+    font-family: Quicksand-SemiBold;
+    padding: 2.5px;
+    margin-top: 2%;
+  }
+
+  .right img.profil{
+    width: 3%;
+    height: 3%;
+    vertical-align: middle;
+    margin-right: 2%;
+  }
+
+  .connexion a{
+      text-decoration: none;
+      font-size: 15px;
+      font-family: Quicksand-SemiBold;
+      vertical-align: middle;
+      color: black;
+  }
+
+  .connexion a:hover{
+      text-decoration: underline;
+  }
+
+  .right{
+      text-align: right;
+      margin-right: 8%;
+      margin-top: .5%;
+  }

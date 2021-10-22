@@ -10,13 +10,10 @@
     <body>
 
         <?php include_once('./Components/header.php'); ?>
-        <div class="section1">
-            <h1>Test Site test</h1>
-        </div>
+        <section class="first_section">
+            <div class="wrapper">
 
-        <section>
-            <h1>Test section</h1>
-            
+            </div>
         </section>
     </body>
 </html>
