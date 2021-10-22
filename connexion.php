@@ -12,7 +12,7 @@
 
         <main>  <!-- On place le contenu de la page connexion/inscription dans le header-->
             <div class="wrapper">
-                <h1 class="aircare">AirCareTEst</h1> <!-- Titre de page -->
+                <h1 class="aircare">AirCare</h1> <!-- Titre de page -->
                 <div class="content"> <!-- Contenu du bloc de connexion/inscription -->
                     <h1 class="connexion">Connexion</h1>
 
