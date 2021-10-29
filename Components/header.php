@@ -1,6 +1,6 @@
 <!-- header.php 
 
-Header des différentes pages à ajouter à chaque page le contenent -->
+Header à ajouter sur chaque page le nécéssitant-->
 
 <nav>
     <div class="left">

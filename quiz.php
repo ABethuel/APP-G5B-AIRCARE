@@ -2,9 +2,9 @@
 <html>
     <head>
         <meta charset="utf-8" />
-        <link rel="stylesheet" href="style_capteurs.css">
+        <link rel="stylesheet" href="style_quiz.css">
         <link rel="icon" type="image/png" href="./Assets/images/logo.png"/> <!-- icone du site onglet du navigateur -->
-        <title>Capteurs</title>
+        <title>Quiz</title>
     </head>
 
     <?php include_once('./Components/header.php'); ?>
