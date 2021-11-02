@@ -13,7 +13,11 @@
 
         <section class="first_section">
             <div class="wrapper">
-
+                <div class="text_index">
+                    <h3 class="text_project">INNOVER POUR VOTRE PROJET</h3>
+                    <h2 class="text_success">INNOVER POUR VOTRE SUCCES</h2>
+                    <h1 class="text_aircare">INNOVER AVEC AIRCAIRE</h1>
+                </div>
             </div>
         </section>
 
