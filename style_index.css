@@ -47,10 +47,24 @@ section, body, html{
 .text_index{
     text-align: center;
     padding-top: 10%;
+    color: #F3F3F3;
+    text-shadow: 2px 2px #4c4d4a;
 }
 
 .text_project{
+    font-size: small;
 }
 
+.text_success{
+    font-size: large;
+    
+}
 
-
+.text_aircare{
+    font-size: xx-large;
+}
+    
+hr{
+    background-color: #213c70;
+    width: 20% ;
+}

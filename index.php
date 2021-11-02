@@ -18,6 +18,7 @@
                     <h2 class="text_success">INNOVER POUR VOTRE SUCCES</h2>
                     <h1 class="text_aircare">INNOVER AVEC AIRCAIRE</h1>
                 </div>
+                <hr>
             </div>
         </section>
 
