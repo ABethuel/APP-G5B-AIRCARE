@@ -66,5 +66,7 @@ section, body, html{
     
 hr{
     background-color: #213c70;
+    height: 2px;
     width: 20% ;
+    border:none
 }

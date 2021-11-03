@@ -36,3 +36,38 @@ footer {
 .link_footer:hover {
     text-decoration: underline;
 }
+
+.social_media_footer{
+    display: flex;
+    justify-content: center;
+    padding-top: 2%;
+}
+
+.twitter_logo{
+    width : 46px;
+    height: 46px;
+    padding: 30px;
+    padding-bottom: 0px;
+}
+
+.instagram_logo{
+    width : 46px;
+    height: 46px;
+    padding: 30px;
+    padding-bottom: 0px;
+}
+
+.facebook_logo{
+    width : 46px;
+    height: 46px;
+    padding: 30px;
+    padding-bottom: 0px;
+}
+
+.hr_footer {
+    margin-top: 2%;
+    width: 10%;
+    height: 0.7px;
+    background-color: white;
+    border: none;
+}
