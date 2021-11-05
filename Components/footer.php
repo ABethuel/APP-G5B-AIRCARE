@@ -11,7 +11,7 @@ Footer à ajouter sur chaque page le nécéssitant -->
             <a class="link_footer" href="../information.php">Qui sommes nous</a> 
             <p>Adresse : 10 rue de Vanves </br> 92130 Issy-les-Moulinaux</p> 
             <p>Horaires : </br> Du lundi au vendredi </br> de 10 à 19h</p> 
-            <a class="link_footer" href="https://www.amazon.com/">Acheter notre produit</a>
+            <a class="link_footer" target="_blank" href="https://www.amazon.com/">Acheter notre produit</a>
         </div>
 
         <div class="help_footer">
@@ -30,9 +30,9 @@ Footer à ajouter sur chaque page le nécéssitant -->
 
     <!-- Ici on met nos réseaux sociaux -->
     <div class="social_media_footer">
-        <a href="#"><img class="twitter_logo" src="../Assets/images/logo_twitter.png"></a>
-        <a href="#"><img class="instagram_logo" src="../Assets/images/logo_instagram2.png"></a>
-        <a href="#"><img class="facebook_logo" src="../Assets/images/logo_facebook.png"></a>
+        <a href="#" target="_blank"><img class="twitter_logo" src="../Assets/images/logo_twitter.png"></a>
+        <a href="#" target="_blank"><img class="instagram_logo" src="../Assets/images/logo_instagram2.png"></a>
+        <a href="#" target="_blank"><img class="facebook_logo" src="../Assets/images/logo_facebook.png"></a>
     </div>
 
     <hr class="hr_footer">

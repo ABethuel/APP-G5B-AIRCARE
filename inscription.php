@@ -41,7 +41,7 @@
                             
                             <div>
                                 <input type="checkbox" id="remember" name="remember">
-                                <label class="cgu" for="chekbox">J'ai lu et j'accepte les <a href="#" class="cgu_link">conditions générales d'utilisation</a></label>
+                                <label class="cgu" for="chekbox">J'ai lu et j'accepte les <a href="cgu.php" target="_blank" class="cgu_link">conditions générales d'utilisation</a></label>
                             </div>
 
                             <input type="submit" value="S'inscrire"> <!-- Bouton se connecter -->
