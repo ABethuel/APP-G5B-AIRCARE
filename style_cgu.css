@@ -1,4 +1,3 @@
-
 @import url("./Components/style_header.css");
 @import url("./Components/style_footer.css");
 @font-face {              /** Ajouter police depuis dossier **/
@@ -21,7 +20,6 @@
     src: url('Assets/Fonts/Quicksand-Medium.ttf');
 }
 
-
 body {
     font-family: Quicksand-SemiBold;
     background-color: #F3F3F3;
@@ -34,38 +32,19 @@ section, body, html{
     height: 100%;
 }
 
-.first_section{
-    background: url("./Assets/images/background_blurred.jpg") no-repeat center center ;
-    background-size: cover;
+.cgu_content{
+    padding-top: 5%;
+    margin: 18%;
+    margin-top: 5%;
 }
 
-.wrapper{
-    width: 100%;
-    height: 100%;
+h1{
+    font-size: x-large;
+    padding-bottom: 2%;
 }
 
-.text_index{
-    text-align: center;
-    padding-top: 10%;
-    color: #F3F3F3;
-    text-shadow: 2px 2px #4c4d4a;
-}
-
-.text_project{
-    font-size: small;
-}
-
-.text_success{
+h2{
     font-size: large;
-}
-
-.text_aircare{
-    font-size: xx-large;
-}
-    
-hr{
-    background-color: #213c70;
-    height: 2px;
-    width: 20% ;
-    border:none
+    padding-bottom: 1%;
+    padding-top: 2%;
 }

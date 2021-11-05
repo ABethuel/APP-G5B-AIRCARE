@@ -24,7 +24,7 @@ Footer à ajouter sur chaque page le nécéssitant -->
         <div class="conditions_footer">
             <h3>CONDITIONS</h3>
             <p><a class="link_footer" href="#">Mentions légales</a></p>
-            <p><a class="link_footer" href="#">CGU</a></p>
+            <p><a class="link_footer" href="../cgu.php">CGU</a></p>
         </div>
     </div>
 
