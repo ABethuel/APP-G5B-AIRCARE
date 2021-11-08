@@ -43,7 +43,7 @@
                         <p class="no_account">Pas encore de compte ?</br> 
                         <a href="inscription.php" class="inscription_link">Inscrivez vous</a>
                         </br>Ou</br>
-                        <a href="index.php" class="inscription_link">Consulter sans compte</a></p>
+                        <a href="index.php" class="inscription_link">Consulter sans compte</a></p> <!-- Coucou c'est Clemence-->
                     </div>
 
                 </div>
