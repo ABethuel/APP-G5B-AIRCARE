@@ -1,6 +1,6 @@
 
 <!DOCTYPE html>
-<html>
+<html lang="fr">
     
     <head>
         <meta charset="utf-8" />
@@ -24,9 +24,13 @@
                     <h2>Lorem Ipsum</h2>
                     <?php
                         // on génère aléatoirement une partie contenant entre 2 et 6 paragraphes grâce ç l'API loripsum.api
-                        $content = 'http://loripsum.net/api/' . random_int(2, 6). '/medium';
+                    try {
+                        $content = 'http://loripsum.net/api/' . random_int(2, 6) . '/medium';
                         echo file_get_contents($content); // on affiche les paragraphes
-                    } 
+                    } catch (Exception $e) {
+                        echo 'error lorem ipsum';
+                    }
+                    }
             ?>
         </div>
 
