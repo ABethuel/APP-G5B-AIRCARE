@@ -69,3 +69,35 @@ hr{
     width: 20% ;
     border:none
 }
+
+.bouton{
+    background-color: #213c70 ;
+    width: 18%;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 3%;
+    border-radius: 14px;
+    padding-top: .8%;
+    padding-bottom: .8%;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 255);
+    transition: transform .3s ;
+}
+.bouton:hover{
+    transform: scale(1.1);
+    background-color: #3463b9 ;
+}
+
+
+.bouton a{
+    color: #F3F3F3 ;
+    text-decoration: none;
+    font-size: medium;
+}
+
+.text_index2{
+    color: #bcbaba;
+    text-align: center;
+    font-size: small;
+    margin-top: 3%;
+}

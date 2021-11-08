@@ -19,6 +19,12 @@
                     <h1 class="text_aircare">INNOVER AVEC AIRCAIRE</h1>
                 </div>
                 <hr>
+                <h4 class= "text_index2" >
+                Pour en savoir plus sur la qualité de l'air environnant.
+                </h4>
+                <div class="bouton">
+                    <a href="information.php">Comment ca marche ?</a>
+                </div>
             </div>
         </section>
 
