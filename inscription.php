@@ -1,3 +1,7 @@
+<?php 
+require('./authentication/signup_action.php');
+?>
+
 <!DOCTYPE html>
 <html>
 
@@ -17,12 +21,14 @@
                     <h1 class="inscription">Inscription</h1>
 
                     <div class="form_connexion">
-                        <form action=""> <!-- Donnés à saisir pour connexion -->
+                        <form action="" method="POST"> <!-- Donnés à saisir pour connexion -->
+
+                            <?php  if(isset($errorMsg)) {echo '<p>'.$errorMsg.'</p>';} ?> <!-- Si le formulaire envoyé n'est pas correctement rempli, alors on affiche un message d'erreur-->
 
                             <div class="name">
                                 <div>
                                     <label class="inscription_label" for="lname">Nom</label> <!-- Texte au dessus du champ de saisie -->
-                                    <input type="text" id="lname" name="lastname" placeholder="Saisir votre nom">
+                                    <input type="text" id="lname" name="last_name" placeholder="Saisir votre nom">
                                 </div>
                                 <div>
                                     <label class="inscription_label" for="fname">Prénom</label> <!-- Texte au dessus du champ de saisie -->
@@ -31,7 +37,7 @@
                             </div>
 
                             <label class="inscription_label" for="email">Adresse email</label> <!-- Texte au dessus du champ de saisie -->
-                            <input type="text" id="email" name="adress_email" placeholder="Saisir votre adresse email">
+                            <input type="email" id="email" name="adress_email" placeholder="Saisir votre adresse email">
 
                             <label class="inscription_label" for="password">Mot de passe</label>
                             <input type="password" id="password" name="password_user" placeholder="Saisir votre mot de passe">
@@ -44,7 +50,7 @@
                                 <label class="cgu" for="chekbox">J'ai lu et j'accepte les <a href="cgu.php" target="_blank" class="cgu_link">conditions générales d'utilisation</a></label>
                             </div>
 
-                            <input type="submit" value="S'inscrire"> <!-- Bouton se connecter -->
+                            <input type="submit" value="S'inscrire" name="validate_user"> <!-- Bouton se connecter -->
                         
                         </form>
                     </div> 
