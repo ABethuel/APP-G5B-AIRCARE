@@ -6,7 +6,7 @@ Header à ajouter sur chaque page le nécéssitant-->
     <nav>
         <div class="left">
             <div>
-                <a><img class="logo" src="../Assets/images/logo.png"></a>
+                <a href="../index.php"><img class="logo" src="../Assets/images/logo.png"></a>
             </div>
             <div class="menu">
                 <a href="../index.php">ACCEUIL</a>

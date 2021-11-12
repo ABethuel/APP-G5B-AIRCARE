@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Base de données : `db_aircare`
+CREATE DATABASE `db_aircaire` ;
 --
 
 -- --------------------------------------------------------
@@ -27,8 +27,7 @@ SET time_zone = "+00:00";
 -- Structure de la table `captors`
 --
 
-DROP TABLE IF EXISTS `captors`;
-CREATE TABLE IF NOT EXISTS `captors` (
+CREATE TABLE `db_aircaire`.`captors`  (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `title` varchar(255) NOT NULL,
   `description` text NOT NULL,
@@ -50,8 +49,7 @@ CREATE TABLE IF NOT EXISTS `captors` (
 -- Structure de la table `messages`
 --
 
-DROP TABLE IF EXISTS `messages`;
-CREATE TABLE IF NOT EXISTS `messages` (
+CREATE TABLE `db_aircaire`.`messages` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `content` text NOT NULL,
   `date` datetime NOT NULL,
@@ -66,8 +64,7 @@ CREATE TABLE IF NOT EXISTS `messages` (
 -- Structure de la table `news`
 --
 
-DROP TABLE IF EXISTS `news`;
-CREATE TABLE IF NOT EXISTS `news` (
+CREATE TABLE `db_aircaire`.`news` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `image` varchar(355) NOT NULL,
   `title` varchar(255) NOT NULL,
@@ -81,19 +78,18 @@ CREATE TABLE IF NOT EXISTS `news` (
 -- Déchargement des données de la table `news`
 --
 
-INSERT INTO `news` (`id`, `image`, `title`, `description`, `link`, `user_id`) VALUES
-(1, 'https://www.respire-asso.org/wp-content/uploads/2016/03/Tout-savoir-sur-lair-respire.jpg', 'Qualité de l\'air', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque nec rutrum augue. Donec nisl nulla, facilisis non velit eget, venenatis volutpat nisi. Nullam at sem et odio posuere varius id elementum nulla. Nam egestas porta nulla ut posuere. Integer vestibulum id nibh ut sodales. Nunc lacinia mauris malesuada nulla varius, sit amet euismod urna sagittis. Integer fringilla elit sit amet arcu luctus cursus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac', 'https://www.francebleu.fr/infos/environnement/lair-que-vous-respirez-en-gironde-est-il-de-bonne-qualite-1571236617', 3),
+INSERT INTO `db_aircaire`.`news` (`id`, `image`, `title`, `description`, `link`, `user_id`) VALUES
+(1, 'https://www.respire-asso.org/wp-content/uploads/2016/03/Tout-savoir-sur-lair-respire.jpg', "Qualité de l'air", 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque nec rutrum augue. Donec nisl nulla, facilisis non velit eget, venenatis volutpat nisi. Nullam at sem et odio posuere varius id elementum nulla. Nam egestas porta nulla ut posuere. Integer vestibulum id nibh ut sodales. Nunc lacinia mauris malesuada nulla varius, sit amet euismod urna sagittis. Integer fringilla elit sit amet arcu luctus cursus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac', 'https://www.francebleu.fr/infos/environnement/lair-que-vous-respirez-en-gironde-est-il-de-bonne-qualite-1571236617', 3),
 (3, 'https://urbanlab.parisandco.paris/var/site/storage/images/_aliases/social_network_image/1/3/3/0/40331-3-fre-FR/Qualite-Air-couleurs-2.png', 'Lorem ipsum', 'Suspendisse pretium, turpis nec efficitur posuere, nisl diam condimentum lacus, sit amet egestas purus massa id erat. Praesent non sodales metus. Maecenas est lectus, fringilla ac libero eu, commodo pellentesque arcu. Phasellus commodo nisi non tempus elementum. Maecenas congue laoreet leo convallis rutrum.', 'https://actualite.lachainemeteo.com/actualite-meteo/2020-03-28/qualite-de-l-air-degradee-ce-week-end-au-nord-54577', 2),
 (4, 'https://www.maslacq.fr/mod_turbolead/upload//image/contenu/qualitair.jpg', 'Lorem ipsum', 'Etiam eu gravida diam. Sed fermentum dolor risus, a finibus elit semper sed. Nulla justo ligula, tempus vel lacus sit amet, vestibulum fermentum arcu. Quisque aliquet dui eget luctus aliquam. Quisque vulputate ipsum massa, ac malesuada diam imperdiet at. Duis eget accumsan ex. Donec hendrerit, ante vitae finibus tempus, metus odio mattis nibh, et dignissim quam urna vel enim.', 'https://www.maslacq.fr/qualite-de-l-air.php', 4);
 
 -- --------------------------------------------------------
 
 --
--- Structure de la table `quiz`
+-- Structure de la table `
 --
 
-DROP TABLE IF EXISTS `quiz`;
-CREATE TABLE IF NOT EXISTS `quiz` (
+CREATE TABLE `db_aircaire`.`quiz` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `title` varchar(255) NOT NULL,
   `theme` varchar(255) NOT NULL,
@@ -108,8 +104,7 @@ CREATE TABLE IF NOT EXISTS `quiz` (
 -- Structure de la table `topics`
 --
 
-DROP TABLE IF EXISTS `topics`;
-CREATE TABLE IF NOT EXISTS `topics` (
+CREATE TABLE `db_aircaire`.`topics` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `title` varchar(255) NOT NULL,
   `date` datetime NOT NULL,
@@ -117,14 +112,9 @@ CREATE TABLE IF NOT EXISTS `topics` (
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
--- --------------------------------------------------------
 
---
--- Structure de la table `users`
---
 
-DROP TABLE IF EXISTS `users`;
-CREATE TABLE IF NOT EXISTS `users` (
+CREATE TABLE `db_aircaire`.`users` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `first_name` varchar(128) NOT NULL,
   `last_name` varchar(128) NOT NULL,
@@ -138,13 +128,14 @@ CREATE TABLE IF NOT EXISTS `users` (
 -- Déchargement des données de la table `users`
 --
 
-INSERT INTO `users` (`id`, `first_name`, `last_name`, `email`, `password`, `role`) VALUES
+INSERT INTO `db_aircaire`.`users` (`id`, `first_name`, `last_name`, `email`, `password`, `role`) VALUES
 (1, 'Adrien', 'Bethuel', 'adrien.bethuel@eleve.isep.fr', 'adrien', 'administrator'),
 (2, 'Thomas', 'Sourbe', 'thomas.sourbe@eleve.isep.fr', 'thomas', 'administrator'),
 (3, 'Clemence', 'Prehu', 'clemence.prehu@eleve.isep.fr', 'clemence', 'administrator'),
 (4, 'Alexis', 'Faivre d\'Arcier', 'alexis.faivre-darcier@eleve.isep.fr', 'alexis', 'administrator'),
 (5, 'Hassan', 'Tinnin', 'hassan.tinnin@eleve.isep.fr', 'hassan', 'administrator');
 COMMIT;
+
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
