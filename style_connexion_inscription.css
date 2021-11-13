@@ -343,7 +343,7 @@
     .error_msg{
         font-family: Quicksand-SemiBold;
         color: red;
-        font-size: large;
+        font-size: medium;
     }
 }
 
