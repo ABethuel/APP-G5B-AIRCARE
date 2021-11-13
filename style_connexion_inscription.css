@@ -176,6 +176,11 @@
         color: #6A6A6A;
         text-decoration: none;
     }
+    .error_msg{
+        font-family: Quicksand-SemiBold;
+        color: red;
+        font-size: medium;
+    }
 }
   
   
@@ -334,11 +339,17 @@
         color: #6A6A6A;
         text-decoration: none;
     }
+
+    .error_msg{
+        font-family: Quicksand-SemiBold;
+        color: red;
+        font-size: large;
+    }
 }
 
 
 body{
-    font-family: quicksand
+    font-family: Quicksand-Medium
 }
 
 body, html, main, h1{
