@@ -1,3 +1,8 @@
+<?php 
+require('./authentication/login_action.php');
+?>
+
+
 <!DOCTYPE html>
 <html>
 
@@ -17,14 +22,14 @@
                     <h1 class="connexion">Connexion</h1>
 
                     <div class="form_connexion">
-                        <form action=""> <!-- Donnés à saisir pour connexion -->
+                        <form action="" method="POST"> <!-- Donnés à saisir pour connexion -->
                             <label for="email">Adresse email</label> <!-- Texte au dessus du champ de saisie -->
                             <input type="text" id="email" name="adress_email" placeholder="Saisir votre adresse email">
 
                             <label for="password">Mot de passe</label>
                             <input type="password" id="password" name="password_user" placeholder="Saisir votre mot de passe">
 
-                            <input type="submit" value="Se connecter"> <!-- Bouton se connecter -->
+                            <input type="submit" value="Se connecter" name="validate_user"> <!-- Bouton se connecter -->
 
                             <div class="remember_help">
                                 <!-- Bouton se souvenir de moi -->
@@ -34,6 +39,13 @@
                                 </div>
                                 <a href="#" class="help">Besoin d'aide ?</a>
                             </div>
+
+                            <!-- Si le formulaire envoyé n'est pas correctement rempli, alors on affiche un message d'erreur-->
+                            <?php  if(isset($errorMsg)) {
+                                ?>
+                                <p class="error_msg"><?php echo $errorMsg ?></p>
+                                <?php
+                            } ?> 
                         
                         </form>
                     </div> 

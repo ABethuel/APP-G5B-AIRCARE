@@ -50,12 +50,12 @@ require('./authentication/signup_action.php');
 
                             <input type="submit" value="S'inscrire" name="validate_user"> <!-- Bouton se connecter -->
                         
+                            <!-- Si le formulaire envoyé n'est pas correctement rempli, alors on affiche un message d'erreur-->
                             <?php  if(isset($errorMsg)) {
                                 ?>
                                 <p class="error_msg"><?php echo $errorMsg ?></p>
                                 <?php
-                            } 
-                            ?> <!-- Si le formulaire envoyé n'est pas correctement rempli, alors on affiche un message d'erreur-->
+                            } ?> 
 
                         </form>
                     </div> 
