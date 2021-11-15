@@ -2,6 +2,22 @@
 
 Header à ajouter sur chaque page le nécéssitant-->
 
+<?php 
+require('./config/database.php');
+
+/** Si l'utilisateur est authentifier, on affiche son nom dans le header, 
+    Sinon on affiche un lien "se connecter" */
+
+function displayProfilOrConnexion(){
+    if ($_SESSION['auth']){
+        ?><a href="../connexion.php"><?php echo $_SESSION['first_name']; ?></a> <?php
+    }else{
+        ?><a href="../connexion.php">Se connecter</a><?php
+    }
+}
+
+?>
+
 <header>
     <nav>
         <div class="left">
