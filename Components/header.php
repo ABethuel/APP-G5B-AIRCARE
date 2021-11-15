@@ -1,18 +1,21 @@
 <!-- header.php 
-
 Header à ajouter sur chaque page le nécéssitant-->
 
 <?php 
+
 require('./config/database.php');
 
-/** Si l'utilisateur est authentifier, on affiche son nom dans le header, 
+/** Si l'utilisateur est authentifié, on affiche son nom dans le header, 
     Sinon on affiche un lien "se connecter" */
 
 function displayProfilOrConnexion(){
-    if ($_SESSION['auth']){
-        ?><a href="../connexion.php"><?php echo $_SESSION['first_name']; ?></a> <?php
+    $first_name  = $_SESSION['first_name'];
+    $last_name = $_SESSION['last_name'];
+
+    if ($_SESSION['auth'] == true){
+        echo $first_name, $last_name;
     }else{
-        ?><a href="../connexion.php">Se connecter</a><?php
+        echo '<a href="../connexion.php">Se connecter</a>';
     }
 }
 
@@ -30,6 +33,7 @@ function displayProfilOrConnexion(){
                 <a href="../liste_capteurs.php">CAPTEURS</a>
                 <a href="../forum_sujet.php">FORUM</a>
                 <a href="../quiz.php">QUIZ</a>
+
             </div>
         </div>
         <div class="right">
@@ -37,7 +41,8 @@ function displayProfilOrConnexion(){
             le php -->
             <div class="connexion">
                 <img class="profil" src="../Assets/images/profil_connexion.png">
-                <a href="../connexion.php">Se connecter</a>
+                <?php displayProfilOrConnexion();?>
+                <!--<a href="../connexion.php">Se connecter</a>-->
             </div> 
                 
             <div class="research">

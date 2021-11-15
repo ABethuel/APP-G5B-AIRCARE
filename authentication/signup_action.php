@@ -36,14 +36,14 @@ if(isset($_POST['validate_user'])){
                         $getInfosUser = $database->prepare("SELECT id, first_name, last_name, email, role  FROM users WHERE email = ?");
                         $getInfosUser->execute(array($user_email));
 
-                        $usersInfos = $getInfosUser->fetch();
+                        $userInfos = $getInfosUser->fetch();
 
                         $_SESSION['auth'] = true;
-                        $_SESSION['id'] = $usersInfos['id'];
-                        $_SESSION['first_name'] = $usersInfos['first_name'];
-                        $_SESSION['last_name'] = $usersInfos['last_name'];
-                        $_SESSION['email'] = $usersInfos['email'];
-                        $_SESSION['role'] = $usersInfos['role'];
+                        $_SESSION['id'] = $userInfos['id'];
+                        $_SESSION['first_name'] = $userInfos['first_name'];
+                        $_SESSION['last_name'] = $userInfos['last_name'];
+                        $_SESSION['email'] = $userInfos['email'];
+                        $_SESSION['role'] = $userInfos['role'];
 
                         header('Location: index.php');
 
