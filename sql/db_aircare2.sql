@@ -23,7 +23,7 @@ SET time_zone = "+00:00";
 
 -- --------------------------------------------------------
 
-CREATE DATABASE `db_aircaire` ;
+CREATE DATABASE `db_aircare` ;
 
 --
 -- Structure de la table `captors`
