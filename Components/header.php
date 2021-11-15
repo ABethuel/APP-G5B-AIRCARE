@@ -3,6 +3,7 @@ Header à ajouter sur chaque page le nécéssitant-->
 
 <?php 
 
+session_start();
 require('./config/database.php');
 
 /** Si l'utilisateur est authentifié, on affiche son nom dans le header, 
@@ -13,7 +14,7 @@ function displayProfilOrConnexion(){
     $last_name = $_SESSION['last_name'];
 
     if ($_SESSION['auth'] == true){
-        echo $first_name, $last_name;
+        echo $first_name . ' '. $last_name;
     }else{
         echo '<a href="../connexion.php">Se connecter</a>';
     }

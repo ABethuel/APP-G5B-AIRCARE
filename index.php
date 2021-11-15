@@ -1,13 +1,15 @@
 <?php
+session_start();
+
 function display_actu(){
+
     require("./config/database.php") ;
+    
     $sqlQuery = 'SELECT * FROM news';
     $newsStatement = $database->prepare($sqlQuery);
     $newsStatement->execute();
-    if(!isset($_SESSION)) 
-    { 
-        session_start(); 
-    } 
+    
+    
     $news = $newsStatement->fetchAll();
     foreach ($news as $actu){
     ?>
@@ -59,7 +61,8 @@ function display_actu(){
         <section class="second_section">
             <h1>Actualités : </h1>
             <div class="news">
-                 <?php display_actu(); ?>
+                <?php display_actu(); ?>
+            </div>
         </section>
 
         <?php include_once('./Components/footer.php'); ?>

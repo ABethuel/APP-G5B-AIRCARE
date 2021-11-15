@@ -1,5 +1,6 @@
 <?php 
 
+session_start();
 // On importe l'initialisaton de la database
 require('./config/database.php');
 
