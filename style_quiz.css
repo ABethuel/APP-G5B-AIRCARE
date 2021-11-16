@@ -28,40 +28,60 @@ section, body, html{
 
 body {
     font-family: Quicksand-SemiBold;
-    background-color: #F3F3F3;
     margin: 0px;
     padding: 0px;
 }
+
+.border{
+    border: 4px solid #2254B5;
+    border-radius: 25px;
+    padding: 30px;
+    background-color: #ebebeb;
+    border-width: medium;
+    box-shadow: 10px 10px 5px grey;
+}
+
 .titre{
-    padding-top: 7%;
+    padding-top: 1%;
     color: #111010;
     font-size: xx-large;
 }
 
 .content_text{
-    margin-left: 18%;
-    margin-right: 18%;
-    padding-top: 5%;
+    margin-left: 13%;
+    margin-right: 13%;
+    padding-top: 7%;
+}
+
+.titre2{
+    padding-top: 4%;
+    padding-left: 2.5%;
 }
 
 .bouton_quiz{
     padding-left: 18%;
-
+    padding-top: 1% ;
 }
 
 .button{
-    padding: 14px 40px;
-    margin: 5px 2px;
-    background-color: #2254B5;
-    color: white
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 14px;
+    padding: 15px 40px;
+    margin: 10px 10px;
+    background-color: #ebebeb;
+    color: #000000;
+    border: 2px solid #2254B5;
+    
+    
+    
 }
 
-.button:hover {background-color: #2254B5}
-
-.button:active {
+.button:hover{
+    transform: scale(1.07);
     background-color: #4D88FC;
-    box-shadow: 0 5px rgb(202, 196, 196);
-    transform: translateY(4px);
+    color: #f3f3f3;
 }
 
 
