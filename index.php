@@ -1,6 +1,7 @@
 <?php
 session_start();
 
+
 function display_actu(){
 
     require("./config/database.php") ;

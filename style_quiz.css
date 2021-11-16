@@ -32,3 +32,41 @@ body {
     margin: 0px;
     padding: 0px;
 }
+.titre{
+    padding-top: 7%;
+    color: #111010;
+    font-size: xx-large;
+}
+
+.content_text{
+    margin-left: 18%;
+    margin-right: 18%;
+    padding-top: 5%;
+}
+
+.bouton_quiz{
+    padding-left: 18%;
+
+}
+
+.button{
+    padding: 14px 40px;
+    margin: 5px 2px;
+    background-color: #2254B5;
+    color: white
+}
+
+.button:hover {background-color: #2254B5}
+
+.button:active {
+    background-color: #4D88FC;
+    box-shadow: 0 5px rgb(202, 196, 196);
+    transform: translateY(4px);
+}
+
+
+
+
+
+  
+
