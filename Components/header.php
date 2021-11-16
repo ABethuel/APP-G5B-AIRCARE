@@ -1,4 +1,4 @@
-<!-- header.php 
+)=<!-- header.php 
 Header à ajouter sur chaque page le nécéssitant-->
 
 <?php 
@@ -14,9 +14,19 @@ function displayProfilOrConnexion(){
     $last_name = $_SESSION['last_name'];
 
     if ($_SESSION['auth'] == true){
-        echo $first_name . ' '. $last_name;
+        ?>
+        <div class="connexion">
+            <img class="profil" src="../Assets/images/profil_connexion.png">
+            <a href="../connexion.php"><?php echo $first_name . ' '. $last_name; ?></a>
+        </div>
+        <?php
     }else{
-        echo '<a href="../connexion.php">Se connecter</a>';
+        ?>
+        <div class="connexion">
+            <img class="profil" src="../Assets/images/profil_connexion.png">
+            <a href="../connexion.php">Se connecter</a>
+        </div>
+        <?php
     }
 }
 
@@ -40,17 +50,18 @@ function displayProfilOrConnexion(){
         <div class="right">
             <!-- Bouton se connecter : changera d'apparence en fonction du statut de connexion avec 
             le php -->
-            <div class="connexion">
+            <?php displayProfilOrConnexion();?>
+
+            <!--<div class="connexion">
                 <img class="profil" src="../Assets/images/profil_connexion.png">
-                <?php displayProfilOrConnexion();?>
-                <!--<a href="../connexion.php">Se connecter</a>-->
-            </div> 
+                <a href="../connexion.php">Se connecter</a>
+            </div> -->
                 
-            <div class="research">
+            <!--<div class="research">
                 <form>
                     <input class="research_input" type="text" name="search" placeholder="Search">
                 </form>
-            </div> 
+            </div> -->
         
         </div>
     </nav>

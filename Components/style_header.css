@@ -68,27 +68,27 @@ nav{
     margin-top: 2%;
   }
 
-  .right img.profil{
+.right img.profil{
     width: 3%;
     height: 3%;
     vertical-align: middle;
     margin-right: 2%;
-  }
+}
 
-  .connexion a{
-      text-decoration: none;
-      font-size: 15px;
-      font-family: Quicksand-SemiBold;
-      vertical-align: middle;
-      color: black;
-  }
+.connexion a{
+    text-decoration: none;
+    font-size: 15px;
+    font-family: Quicksand-SemiBold;
+    vertical-align: middle;
+    color: black;
+}
 
-  .connexion a:hover{
-      text-decoration: underline;
-  }
+.connexion a:hover{
+    text-decoration: underline;
+}
 
-  .right{
-      text-align: right;
-      margin-right: 8%;
-      margin-top: .5%;
-  }
+.right{
+    text-align: right;
+    margin-right: 8%;
+    margin-top: .5%;
+}

@@ -5,7 +5,6 @@ session_start();
 require('./config/database.php');
 $_SESSION['auth'] = false;
 
-
 // On vérifie que le formulaire d'inscription est rempli
 if(isset($_POST['validate_user'])){
 

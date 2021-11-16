@@ -1,6 +1,8 @@
 <?php 
 
 session_start();
+$_SESSION['auth'] = false;
+
 // On importe l'initialisaton de la database
 require('./config/database.php');
 
