@@ -14,12 +14,13 @@ function display_actu(){
     $news = $newsStatement->fetchAll();
     foreach ($news as $actu){
     ?>
-        <div class="bloc_actu"> 
+       <a class="bloc" href=<?php echo $actu['link'];?>> <div class="bloc_actu" ?>
             <h1 class="title_actu"><?php echo $actu['title']; ?></p>
             <h2 class="description_actu"><?php echo $actu['description']; ?></p>
-            <h3 class="link_actu"><?php echo $actu['link']; ?></p>
+            <!--<h3 class="link_actu"><?//php echo $actu['link']; ?></p>-->
             <img class="image_actu" src=<?php echo $actu['image']; ?>>
         </div>
+        </a>
     <?php
     }
 }
@@ -60,9 +61,11 @@ function display_actu(){
         </section>
 
         <section class="second_section">
-            <h1>Actualités : </h1>
-            <div class="news">
-                <?php display_actu(); ?>
+            <div class="content_news">
+                <h1>Actualités : </h1>
+                <div class="news">
+                    <?php display_actu(); ?>
+                </div>
             </div>
         </section>
 
