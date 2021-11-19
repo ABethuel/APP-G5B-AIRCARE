@@ -66,7 +66,7 @@ nav{
     font-family: Quicksand-SemiBold;
     padding: 2.5px;
     margin-top: 2%;
-  }
+}
 
 .right img.profil{
     width: 3%;
@@ -75,7 +75,32 @@ nav{
     margin-right: 2%;
 }
 
-.connexion a{
+.connexion{
+    display: flex;
+}
+
+.connected{
+    display: flex;
+}
+
+.profil_circle{
+    background-color: #213C70;
+    padding: 12%;
+    border-radius: 100%;
+    
+}
+
+.first_letters{
+    color: white;
+    text-decoration: none;
+}
+
+.name_profile{
+    color: #213C70 ;
+    text-decoration: none;
+}
+
+.connexion a.connect_yourself{
     text-decoration: none;
     font-size: 15px;
     font-family: Quicksand-SemiBold;

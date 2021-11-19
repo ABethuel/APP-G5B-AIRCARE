@@ -10,21 +10,26 @@ require('./config/database.php');
     Sinon on affiche un lien "se connecter" */
 
 function displayProfilOrConnexion(){
-    $first_name  = $_SESSION['first_name'];
+    $first_name = $_SESSION['first_name'];
     $last_name = $_SESSION['last_name'];
+
+    $first_letter_fname = substr($first_name, 0, 1);
+    $first_letter_lname = substr($last_name, 0, 1);
 
     if ($_SESSION['auth'] == true){
         ?>
-        <div class="connexion">
-            <img class="profil" src="../Assets/images/profil_connexion.png">
-            <a href="../connexion.php"><?php echo $first_name . ' '. $last_name; ?></a>
+        <div class="connected">
+            <div class="profil_circle">
+                <a class="first_letters"><?php echo $first_letter_fname, $first_letter_lname; ?></a>
+            </div>
+            <a class="name_profile" href="../connexion.php"><?php echo $first_name . ' '. $last_name; ?></a>
         </div>
         <?php
     }else{
         ?>
         <div class="connexion">
             <img class="profil" src="../Assets/images/profil_connexion.png">
-            <a href="../connexion.php">Se connecter</a>
+            <a class="connect_yourself" href="../connexion.php">Se connecter</a>
         </div>
         <?php
     }
