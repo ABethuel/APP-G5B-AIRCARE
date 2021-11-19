@@ -23,6 +23,7 @@ function displayProfilOrConnexion(){
                 <a class="first_letters"><?php echo $first_letter_fname, $first_letter_lname; ?></a>
             </div>
             <a class="name_profile" href="../connexion.php"><?php echo $first_name . ' '. $last_name; ?></a>
+            <i class="arrow_header down_arrow"></i>
         </div>
         <?php
     }else{

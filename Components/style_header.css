@@ -77,27 +77,37 @@ nav{
 
 .connexion{
     display: flex;
+    justify-content: flex-end;
 }
 
 .connected{
     display: flex;
+    justify-content: flex-end;
 }
 
 .profil_circle{
     background-color: #213C70;
-    padding: 12%;
+    padding: 11%;
     border-radius: 100%;
-    
+    margin-right: 8%;
 }
 
 .first_letters{
     color: white;
     text-decoration: none;
+    text-align: center;
 }
 
 .name_profile{
     color: #213C70 ;
     text-decoration: none;
+    vertical-align: middle;
+    padding-top: 4%;
+    margin-right: 4%;
+}
+
+.name_profile:hover{
+    text-decoration: underline;
 }
 
 .connexion a.connect_yourself{
@@ -113,7 +123,24 @@ nav{
 }
 
 .right{
-    text-align: right;
+    text-align: center;
     margin-right: 8%;
     margin-top: .5%;
 }
+
+.arrow_header {
+    border: solid black;
+    border-width: 0 3px 3px 0;
+    display: inline-block;
+    padding: 2.5%;
+    vertical-align: middle;
+    height: 8px;
+    width: 38px;
+    margin-left: 10%;
+    margin-top: 7%;
+  }
+
+.down_arrow {
+    transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
+  }
