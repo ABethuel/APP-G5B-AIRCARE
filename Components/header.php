@@ -27,7 +27,7 @@ function displayProfilOrConnexion(){
                     <a class="name_profile"><?php echo $first_name . ' '. $last_name; ?></a>
                     <div class="dropdown-content">
                         <a href="../authentication/logout_action.php">Se déconnecter</a>
-                        <a href="#">Modifier son profil</a>
+                        <a href="../change_profile.php">Modifier son profil</a>
                     </div>
                 </div>
             </div>
