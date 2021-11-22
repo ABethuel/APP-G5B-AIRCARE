@@ -23,6 +23,7 @@
 
 
 body {
+    z-index: 1;
     font-family: Quicksand-SemiBold;
     background-color: #F3F3F3;
     margin: 0px;
@@ -126,10 +127,8 @@ hr{
 
 
 .content_news{
+    margin: 12% ;
     margin-top: 5%;
-    margin-bottom: 5%;
-    margin-left: 8%;
-    margin-right: 8%;
 }
 
 .bloc{
