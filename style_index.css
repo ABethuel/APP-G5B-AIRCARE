@@ -29,7 +29,7 @@ body {
     padding: 0px;
 }
 
-section, body, html{
+.first_section, body, html{
     width: 100%;
     height: 100%;
 
@@ -126,7 +126,12 @@ hr{
 
 
 .content_news{
-    margin: 12%;
+    margin-top: 5%;
+    margin-bottom: 5%;
+    margin-left: 8%;
+    margin-right: 8%;
 }
 
-    
+.bloc{
+    margin:4%
+}

@@ -14,7 +14,7 @@ function display_actu(){
     $news = $newsStatement->fetchAll();
     foreach ($news as $actu){
     ?>
-       <a class="bloc" href=<?php echo $actu['link'];?>> <div class="bloc_actu" ?>
+       <a class="bloc" target="_blank" href=<?php echo $actu['link'];?>> <div class="bloc_actu" ?>
             <h1 class="title_actu"><?php echo $actu['title']; ?></p>
             <h2 class="description_actu"><?php echo $actu['description']; ?></p>
             <!--<h3 class="link_actu"><?//php echo $actu['link']; ?></p>-->
