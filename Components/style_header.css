@@ -143,4 +143,30 @@ nav{
 .down_arrow {
     transform: rotate(45deg);
     -webkit-transform: rotate(45deg);
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #F5F5F5;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
   }
+  
+  .dropdown-content a {
+    color: black;
+    padding: 8px 12px;
+    text-decoration: none;
+    display: flex;
+    font-size: small;
+  }
+  
+  .dropdown-content a:hover {
+      background-color: #ddd;
+    }
+  
+  .dropdown:hover .dropdown-content {
+      display: block;
+    }
+  
