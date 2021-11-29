@@ -1,3 +1,33 @@
+<?php
+session_start();
+
+
+function display_actu(){
+
+    require("./config/database.php") ;
+    
+    $sqlQuery = 'SELECT * FROM news';
+    $newsStatement = $database->prepare($sqlQuery);
+    $newsStatement->execute();
+    
+    
+    $news = $newsStatement->fetchAll();
+    foreach ($news as $actu){
+    ?>
+       <a class="bloc" target="_blank" href=<?php echo $actu['link'];?>> <div class="bloc_actu" ?>
+            <h1 class="title_actu"><?php echo $actu['title']; ?></p>
+            <h2 class="description_actu"><?php echo $actu['description']; ?></p>
+            <!--<h3 class="link_actu"><?//php echo $actu['link']; ?></p>-->
+            <img class="image_actu" src=<?php echo $actu['image']; ?>>
+        </div>
+        </a>
+    <?php
+    }
+}
+?>
+
+
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -24,6 +54,17 @@
                 </h4>
                 <div class="bouton">
                     <a href="information.php">Comment ca marche ?</a>
+                </div>
+    
+                </div>
+            </div>
+        </section>
+
+        <section class="second_section">
+            <div class="content_news">
+                <h1>Actualités : </h1>
+                <div class="news">
+                    <?php display_actu(); ?>
                 </div>
             </div>
         </section>

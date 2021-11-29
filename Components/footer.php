@@ -18,7 +18,7 @@ Footer à ajouter sur chaque page le nécéssitant -->
             <h3>AIDE</h3>
             <p><a class="link_footer" href="../information.php">FAQ</a></p>
             <p><a class="link_footer" href="../forum.php">Forum</a></p>
-            <p><a class="link_footer" href="#">Nous contacter</a></p>
+            <p><a class="link_footer" href="../contact.php">Nous contacter</a></p>
         </div>
 
         <div class="conditions_footer">
@@ -31,7 +31,7 @@ Footer à ajouter sur chaque page le nécéssitant -->
     <!-- Ici on met nos réseaux sociaux -->
     <div class="social_media_footer">
         <a href="#" target="_blank"><img class="twitter_logo" src="../Assets/images/logo_twitter.png"></a>
-        <a href="#" target="_blank"><img class="instagram_logo" src="../Assets/images/logo_instagram2.png"></a>
+        <a href="https://www.instagram.com/aircare_corp/" target="_blank"><img class="instagram_logo" src="../Assets/images/logo_instagram2.png"></a>
         <a href="#" target="_blank"><img class="facebook_logo" src="../Assets/images/logo_facebook.png"></a>
     </div>
 

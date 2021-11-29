@@ -87,6 +87,18 @@
         font-family: Quicksand-SemiBold;
         font-size: 12px;
     }
+
+    input[type=email], select {
+        width: 100%;
+        padding: 10px 20px;
+        margin: 8px 0 14px;
+        display: inline-block;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+        font-family: Quicksand-SemiBold;
+        font-size: 12px;
+    }
     
     input[type=password], select {
         width: 100%;
@@ -164,6 +176,11 @@
         color: #6A6A6A;
         text-decoration: none;
     }
+    .error_msg{
+        font-family: Quicksand-SemiBold;
+        color: red;
+        font-size: 12px;
+    }
 }
   
   
@@ -226,6 +243,17 @@
     }
 
     input[type=text], select {
+        width: 100%;
+        padding: 12px 20px;
+        margin: 8px 0 14px;
+        display: inline-block;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+        font-family: Quicksand-SemiBold;
+    }
+
+    input[type=email], select {
         width: 100%;
         padding: 12px 20px;
         margin: 8px 0 14px;
@@ -311,11 +339,17 @@
         color: #6A6A6A;
         text-decoration: none;
     }
+
+    .error_msg{
+        font-family: Quicksand-SemiBold;
+        color: red;
+        font-size: medium;
+    }
 }
 
 
 body{
-    font-family: quicksand
+    font-family: Quicksand-Medium
 }
 
 body, html, main, h1{
