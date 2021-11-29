@@ -1,5 +1,5 @@
 <?php 
-session_start();
+require('./authentication/change_action.php')
 ?>
 
 <!DOCTYPE html>
@@ -19,24 +19,30 @@ session_start();
             <div class="form_change">
 
                 <!-- Formulaire de contact --> 
-                <form action="">
+                <form action="" method="POST">
 
-                    <label for="first_name">Prénom</label> 
+                    <label for="first_name">Nouveau prénom</label> 
                     <input class="input_change" type="text" id="first_name" name="first_name" placeholder=<?php echo $_SESSION['first_name']?>>
                     
-                    <label for="last_name">Nom</label> 
+                    <label for="last_name">Nouveau nom</label> 
                     <input class="input_change" type="text" id="last_name" name="last_name" placeholder=<?php echo $_SESSION['last_name']?>>
 
-                    <label for="email">Adresse email</label> <!-- Texte au dessus du champ de saisie -->
-                    <input class="input_change" change type="email" id="email" name="adress_email" placeholder=<?php echo $_SESSION['email']?>>
+                    <label for="new_email">Nouvelle adresse email</label> <!-- Texte au dessus du champ de saisie -->
+                    <input class="input_change" change type="new_email" id="new_email" name="new_email" placeholder=<?php echo $_SESSION['email']?>>
 
-                    <label for="actual_password">Mot de passe actuel</label>
-                    <input class="input_change" type="password" id="actual_password" name="actual_password" placeholder="Saisir votre mot de passe actuel">
+                    <label for="user_password">Nouveau mot de passe</label>
+                    <input class="input_change" type="password" id="user_password" name="user_password" placeholder="Saisir votre mot de passe actuel">
 
-                    <label for="new_password">Nouveau mot de passe</label>
-                    <input class="input_change" type="password" id="new_password" name="new_password" placeholder="Saisir votre nouveau mot de passe">
+                    <label for="confirm_password">Confirmer le mot de passe</label>
+                    <input class="input_change" type="password" id="confirm_password" name="confirm_password" placeholder="Saisir votre nouveau mot de passe">
                     
-                    <input type="submit" value="Modifier">
+                    <input type="submit" value="Modifier" name="change_user">
+                    <!-- Si le formulaire envoyé n'est pas correctement rempli, alors on affiche un message d'erreur-->
+                    <?php  if(isset($errorMsg)) {
+                        ?>
+                        <p class="error_msg"><?php echo $errorMsg ?></p>
+                        <?php
+                    } ?> 
                 </form>
             </div>
         </div>
