@@ -73,19 +73,25 @@ function display_actu(){
                 <!-- Formulaire de publication d'actualité --> 
                 <form action="" method="POST">
 
-                    <label for="Titre">Titre </label> <!-- Texte au dessus du champ de saisie -->
+                    <label for="titre">Titre </label> <!-- Texte au dessus du champ de saisie -->
                     <input class="input_public" type="text" id="titre" name="titre" placeholder="Saisir un titre">
 
                     <label for="description">Description</label>
                     <textarea class="public_desc" name="description" id="description" cols="6" rows="8" placeholder="Détailler l'actualité"></textarea>
                     
-                    <label for="Image">Image </label> <!-- Texte au dessus du champ de saisie -->
+                    <label for="image">Image </label> <!-- Texte au dessus du champ de saisie -->
                     <input class="input_public" type="url" id="image" name="image" placeholder="Saisir une image">
 
                     <label for="lien">Lien </label> 
                     <input class="input_public" type="url" id="lien" name="lien" placeholder="Saisir votre lien">
 
-                    <input type="submit" value="Publier">
+                    <input type="submit" value="Publier" name="validate">
+
+                    <?php  if(isset($errorMsg)) {
+                                ?>
+                                <p class="error_msg"><?php echo $errorMsg ?></p>
+                                <?php
+                            } ?> 
                 </form>
             </div>
         </section>
