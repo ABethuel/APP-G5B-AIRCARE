@@ -22,17 +22,24 @@
                     </div>
                         
                     <div class="bouton_quiz">
-                        <button class="button" href="quiz.php">Thématique1</button>
-                        <button class="button" href="quiz.php">Thématique2</button>
-                        <button class="button" href="quiz.php">Thématique3</button>
-                        <button class="button" href="quiz.php">Thématique4</button>
-                        <button class="button" href="quiz.php">Thématique5</button>  
+                        <button class="button active1" onclick="window.location.href='quiz.php';">Thématique1</button>
+                        <button class="button" onclick="window.location.href='quiz2.php';">Thématique2</button>
+                        <button class="button" onclick="window.location.href='quiz3.php';">Thématique3</button>
+                        <button class="button" onclick="window.location.href='quiz4.php';">Thématique4</button>
+                        <button class="button" onclick="window.location.href='quiz5.php';">Thématique5</button>  
                     </div>
+
+                    <h2 class="Questions">Question 1</h2>
+                    <p class="text_q1">
+                    Phasellus sodales id odio in rutrum. Mauris eget cursus justo, facilisis venenatis enim ?
+                    </p>
+
+                
                 
                     </div>
                 
             
-    <?php include_once('./Components/footer.php'); ?>
+            <?php include_once('./Components/footer.php'); ?>
 
     <body>
 

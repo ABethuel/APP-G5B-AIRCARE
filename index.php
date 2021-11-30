@@ -14,7 +14,7 @@ function display_actu(){
     $news = $newsStatement->fetchAll();
     foreach ($news as $actu){
     ?>
-       <a class="bloc" href=<?php echo $actu['link'];?>> <div class="bloc_actu" ?>
+       <a class="bloc" target="_blank" href=<?php echo $actu['link'];?>> <div class="bloc_actu" ?>
             <h1 class="title_actu"><?php echo $actu['title']; ?></p>
             <h2 class="description_actu"><?php echo $actu['description']; ?></p>
             <!--<h3 class="link_actu"><?//php echo $actu['link']; ?></p>-->
@@ -34,7 +34,7 @@ function display_actu(){
         <meta charset="utf-8" />
         <link rel="stylesheet" href="style_index.css">
         <link rel="icon" type="image/png" href="./Assets/images/logo.png"/> <!-- icone du site onglet du navigateur -->
-        <title>Acceuil</title>
+        <title>Accueil</title>
     </head>
 
     <body>
@@ -67,8 +67,30 @@ function display_actu(){
                     <?php display_actu(); ?>
                 </div>
             </div>
+            <div class="bloc_form">
+                <h1 class="ajouter une actu"> Ajouter une actualité </h1>
+
+                <!-- Formulaire de publication d'actualité --> 
+                <form action="" method="POST">
+
+                    <label for="Titre">Titre (obligatoire)</label> <!-- Texte au dessus du champ de saisie -->
+                    <input class="input_public" type="text" id="titre" name="titre" placeholder="Saisir un titre">
+
+                    <label for="sujet">Sujet</label> 
+                    <input class="input_public" type="text" id="sujet" name="title" placeholder="Saisir un sujet">
+
+                    <label for="description">Description</label>
+                    <textarea name="description" id="description" cols="6" rows="10" placeholder="Détailler l'actualité"></textarea>
+                    
+                    <label for="lien">Sujet</label> 
+                    <input class="input_public" type="url" id="lien" name="title" placeholder="Saisir votre lien">
+
+                    <input type="submit" value="Publier">
+                </form>
+            </div>
         </section>
 
         <?php include_once('./Components/footer.php'); ?>
+
     </body>
 </html>
