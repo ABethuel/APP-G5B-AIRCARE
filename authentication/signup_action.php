@@ -32,7 +32,7 @@ if(isset($_POST['validate_user'])){
 
                     if($checkUserExist->rowCount() == 0){
 
-                        $addUserOnDatabase = $database->prepare("INSERT INTO users(first_name, last_name, email, password, role)VALUES(?, ?, ?, ?, ?)");
+                        $addUserOnDatabase = $database->prepare("INSERT INTO users(first_name, last_name, email, password, role) VALUES(?, ?, ?, ?, ?)");
                         $addUserOnDatabase->execute(array($user_firstname, $user_lastname, $user_email, $user_password, $user_role ));
 
                         // On récupère les données de l'utilisateur (dont l'id) pour les stocker dans la session
