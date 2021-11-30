@@ -73,17 +73,17 @@ function display_actu(){
                 <!-- Formulaire de publication d'actualité --> 
                 <form action="" method="POST">
 
-                    <label for="Titre">Titre (obligatoire)</label> <!-- Texte au dessus du champ de saisie -->
+                    <label for="Titre">Titre </label> <!-- Texte au dessus du champ de saisie -->
                     <input class="input_public" type="text" id="titre" name="titre" placeholder="Saisir un titre">
 
-                    <label for="sujet">Sujet</label> 
-                    <input class="input_public" type="text" id="sujet" name="title" placeholder="Saisir un sujet">
-
                     <label for="description">Description</label>
-                    <textarea name="description" id="description" cols="6" rows="10" placeholder="Détailler l'actualité"></textarea>
+                    <textarea class="public_desc" name="description" id="description" cols="6" rows="8" placeholder="Détailler l'actualité"></textarea>
                     
-                    <label for="lien">Sujet</label> 
-                    <input class="input_public" type="url" id="lien" name="title" placeholder="Saisir votre lien">
+                    <label for="Image">Image </label> <!-- Texte au dessus du champ de saisie -->
+                    <input class="input_public" type="url" id="image" name="image" placeholder="Saisir une image">
+
+                    <label for="lien">Lien </label> 
+                    <input class="input_public" type="url" id="lien" name="lien" placeholder="Saisir votre lien">
 
                     <input type="submit" value="Publier">
                 </form>

@@ -128,9 +128,54 @@ hr{
 
 .content_news,.bloc_form{
     margin: 12% ;
+    margin-bottom: 5%;
     margin-top: 5%;
 }
 
 .bloc{
     margin:4%
+}
+
+.input_public , select {
+    width: 100%;
+    padding: 10px 20px;
+    margin: 8px 0 14px;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-family: Quicksand-SemiBold;
+    font-size: 14px;
+}
+
+textarea, select {
+    width: 100%;
+    padding: 10px 20px;
+    margin: 8px 0 14px;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-family: Quicksand-SemiBold;
+    font-size: 14px;
+}
+
+input[type=submit] {
+    width: 20%;
+    background-color: #2254B5;
+    color: white;
+    padding: 10px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    opacity: 1;
+    margin-top: 2.5%;
+    margin-bottom: 0%;
+    font-family: Quicksand-SemiBold;
+    font-size: 14px;
+}
+
+input[type=submit]:hover {
+    background-color: #1697F4;
 }

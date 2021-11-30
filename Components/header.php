@@ -39,7 +39,7 @@ function displayProfilOrConnexion(){
                 <a href="../index.php"><img class="logo" src="../Assets/images/logo.png"></a>
             </div>
             <div class="menu">
-                <a href="../index.php">ACCEUIL</a>
+                <a href="../index.php">ACCUEIL</a>
                 <a href="../information.php">INFORMATIONS</a>
                 <a href="../liste_capteurs.php">CAPTEURS</a>
                 <a href="../forum_sujet.php">FORUM</a>
