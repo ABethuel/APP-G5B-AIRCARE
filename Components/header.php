@@ -3,7 +3,10 @@ Header à ajouter sur chaque page le nécéssitant-->
 
 <?php 
 
-session_start();
+if (!isset($_SESSION)){
+    session_start();
+}
+
 require('./config/database.php');
 
 /** Si l'utilisateur est authentifié, on affiche son nom dans le header, 
