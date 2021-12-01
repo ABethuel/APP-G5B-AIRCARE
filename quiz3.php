@@ -23,11 +23,11 @@
                 </div>
                     
                 <div class="bouton_quiz">
-                        <button class="button" onclick="window.location.href='quiz.php';">Thématique1</button>
-                        <button class="button" onclick="window.location.href='quiz2.php';">Thématique2</button>
-                        <button class="button active3" onclick="window.location.href='quiz3.php';">Thématique3</button>
-                        <button class="button" onclick="window.location.href='quiz4.php';">Thématique4</button>
-                        <button class="button" onclick="window.location.href='quiz5.php';">Thématique5</button>  
+                        <button class="button" onclick="window.location.href='quiz.php';">Enjeux</button>
+                        <button class="button" onclick="window.location.href='quiz2.php';">Pollution de l'air à l'extérieur</button>
+                        <button class="button active3" onclick="window.location.href='quiz3.php';">Pollution de l'air à l'intérieur</button>
+                        <button class="button" onclick="window.location.href='quiz4.php';">Effets sur la santé</button>
+                        <button class="button" onclick="window.location.href='quiz5.php';">Engagements,stratégies et plans d'actions</button>  
                 </div>
 
                 <h2 class="Questions">Question 1</h2>
