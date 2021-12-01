@@ -68,6 +68,7 @@
                         
                         <div class="resultats1">
                         <button class="resultats_quiz1">Voir les résultats</button>
+                        </div>
                     </div>
             
             <?php include_once('./Components/footer.php'); ?>
