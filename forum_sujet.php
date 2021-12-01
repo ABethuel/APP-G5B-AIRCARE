@@ -1,3 +1,7 @@
+<?php
+include('./forum/publishTopicAction.php')
+?>
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -17,7 +21,7 @@
             <form action="" method="POST">
 
                 <label for="topic">Sujet</label> <!-- Texte au dessus du champ de saisie -->
-                <input class="add_topic_input" type="text" id="topic" name="topic" placeholder="Saisir votre sujet">
+                <input type="text" id="topic" name="topic" placeholder="Saisir votre sujet">
 
                 <label for="message">Message</label>
                 <textarea name="message" id="message" cols="6" rows="8" placeholder="Saisir votre message"></textarea>

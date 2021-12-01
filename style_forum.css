@@ -34,7 +34,7 @@ body {
 }
 
 .content{
-    padding-top: 5%;
+    padding-top: 3%;
     margin: 18%;
     margin-top: 5%;
     margin-bottom: 6%;
@@ -46,7 +46,7 @@ h1{
     margin-bottom: 3.2%;
 }
 
-.add_topic_input , select {
+input[type="text"] , select {
     width: 100%;
     padding: 10px 20px;
     margin: 8px 0 14px;
@@ -88,4 +88,10 @@ input[type=submit] {
 
 input[type=submit]:hover {
     background-color: #1697F4;
+}
+
+.error_msg{
+    font-family: Quicksand-SemiBold;
+    color: red;
+    font-size: medium;
 }
