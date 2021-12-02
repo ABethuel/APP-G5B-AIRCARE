@@ -1,5 +1,25 @@
 <?php
-include('./forum/publishTopicAction.php')
+include('./forum/publishTopicAction.php');
+
+function displayTopics(){
+    require("./config/database.php") ;
+
+    $sqlQuery = "SELECT * FROM topics ORDER BY id DESC";
+    $topicsStatement = $database->prepare($sqlQuery);
+    $topicsStatement->execute();
+
+    $topics = $topicsStatement->fetchAll();
+    foreach ($topics as $topic){
+        ?>
+        <a class="link_topic"  href='#'> 
+            <div class="topic_bloc" ?>
+                <h1 class="title_topic"><?php echo $topic['title']; ?></p>
+                <h2 class="date_topic"><?php echo $topic['date']; ?></p>
+            </div>
+        </a>
+    <?php
+    }
+}
 ?>
 
 <!DOCTYPE html>
@@ -15,7 +35,12 @@ include('./forum/publishTopicAction.php')
         <?php include_once('./Components/header.php'); ?>
 
         <div class="content">
-            <h1>Créer un sujet</h1>
+            <h1>Liste des sujets</h1>
+            <div class="topics">
+                <?php displayTopics(); ?>
+            </div>
+
+            <h1 class="create">Créer un sujet</h1>
 
             <!-- Formulaire d'ajout de sujet dans le forum --> 
             <form action="" method="POST">
