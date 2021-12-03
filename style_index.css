@@ -105,7 +105,6 @@ hr{
 }
 
 .bloc_actu{
-    padding: 20px 5% 15px;
     display:table;
     width: 100%;
     background:#eeeaea ;
@@ -114,6 +113,11 @@ hr{
     border-radius: 8px;
     opacity: 0.86;
     font-size:x-small;
+}
+
+.title_actu, .description_actu, .image_actu{
+    margin-left: 2%;
+    margin-top: 2%;
 }
 
 .bloc{
