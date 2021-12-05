@@ -12,9 +12,9 @@ function displayTopics(){
     foreach ($topics as $topic){
         ?>
         <a class="link_topic"  href='#'> 
-            <div class="topic_bloc" ?>
-                <h1 class="title_topic"><?php echo $topic['title']; ?></p>
-                <h2 class="date_topic"><?php echo $topic['date']; ?></p>
+            <div class="topic_bloc" >
+                <h1 class="title_topic"><?php echo $topic['title']; ?></h1>
+                <h2 class="date_topic"><?php echo 'Par ' . $topic['user_name'] . ' le ' . $topic['date']; ?></h2>
             </div>
         </a>
     <?php
