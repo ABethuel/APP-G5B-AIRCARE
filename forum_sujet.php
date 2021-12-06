@@ -9,15 +9,41 @@ function displayTopics(){
     $topicsStatement->execute();
 
     $topics = $topicsStatement->fetchAll();
-    foreach ($topics as $topic){
-        ?>
-        <a class="link_topic"  href='#'> 
-            <div class="topic_bloc" >
-                <h1 class="title_topic"><?php echo $topic['title']; ?></h1>
-                <h2 class="date_topic"><?php echo 'Par ' . $topic['user_name'] . ' le ' . $topic['date']; ?></h2>
-            </div>
-        </a>
-    <?php
+
+    if (isset($_GET['search']) && !empty($_GET['search'])){
+        $userSearch = $_GET['search'];
+
+        $topicsStatement = $database->prepare('SELECT * FROM topics WHERE title LIKE "%'.$userSearch.'%" ORDER BY id DESC');
+        $topicsStatement->execute();
+
+        $topics = $topicsStatement->fetchAll();
+
+        if ($topicsStatement->rowCount() == 0) {
+            echo "Aucun sujet ne correspond à cette recherche";
+        }else{
+            foreach ($topics as $topic){
+                ?>
+                <a class="link_topic"  href='#'> 
+                    <div class="topic_bloc" >
+                        <h1 class="title_topic"><?php echo $topic['title']; ?></h1>
+                        <h2 class="date_topic"><?php echo 'Par ' . $topic['user_name'] . ' le ' . $topic['date']; ?></h2>
+                    </div>
+                </a>
+            <?php
+            }
+        }
+
+    }else{
+        foreach ($topics as $topic){
+            ?>
+            <a class="link_topic"  href='#'> 
+                <div class="topic_bloc" >
+                    <h1 class="title_topic"><?php echo $topic['title']; ?></h1>
+                    <h2 class="date_topic"><?php echo 'Par ' . $topic['user_name'] . ' le ' . $topic['date']; ?></h2>
+                </div>
+            </a>
+        <?php
+        }
     }
 }
 ?>
@@ -35,7 +61,16 @@ function displayTopics(){
         <?php include_once('./Components/header.php'); ?>
 
         <div class="content">
-            <h1>Liste des sujets</h1>
+            <div class="top">
+                <h1>Liste des sujets</h1>
+                <form method="GET" action="">
+                    <div class="input">
+                        <input type="search" name="search" placeholder="Rechercher"/>
+                        <input type="submit" style="display: none" name="submit"/>
+                    </div>
+                </form>
+
+            </div>
             <div class="topics">
                 <?php displayTopics(); ?>
             </div>

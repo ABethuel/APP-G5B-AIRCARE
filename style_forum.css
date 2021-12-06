@@ -130,3 +130,19 @@ input[type=submit]:hover {
      padding-left: 2%;
      font-size: small;
  }
+
+ .top{
+     display: flex;
+     justify-content: space-between;
+     align-items:center;
+ }
+
+ input[type="search"] , select {
+    width: 100%;
+    padding: 5px 20px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    box-sizing: border-box;
+    font-family: Quicksand-SemiBold;
+    font-size: medium;
+}
