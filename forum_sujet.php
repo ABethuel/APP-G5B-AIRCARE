@@ -1,6 +1,7 @@
 <?php
 include('./forum/publishTopicAction.php');
 
+// test git  tyurty
 function displayTopics(){
     require("./config/database.php") ;
 
