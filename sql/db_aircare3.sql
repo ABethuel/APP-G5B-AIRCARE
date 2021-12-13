@@ -68,7 +68,7 @@ CREATE TABLE IF NOT EXISTS `db_aircare`.`messages` (
 --
 
 DROP TABLE IF EXISTS `db_aircare`.`news`;
-CREATE TABLE IF NOT EXISTS `news` (
+CREATE TABLE IF NOT EXISTS `db_aircare`.`news` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `image` varchar(355) NOT NULL,
   `title` varchar(255) NOT NULL,

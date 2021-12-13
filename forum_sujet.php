@@ -2,7 +2,7 @@
 include('./forum/publishTopicAction.php');
 
 function displayTopics(){
-    require("./config/database.php") ;
+    require("./config/database.php");
 
     $sqlQuery = "SELECT * FROM topics ORDER BY id DESC";
     $topicsStatement = $database->prepare($sqlQuery);
@@ -10,17 +10,21 @@ function displayTopics(){
 
     $topics = $topicsStatement->fetchAll();
 
+    // On cherche à savoir si l'input search est saisi
     if (isset($_GET['search']) && !empty($_GET['search'])){
         $userSearch = $_GET['search'];
 
         $topicsStatement = $database->prepare('SELECT * FROM topics WHERE title LIKE "%'.$userSearch.'%" ORDER BY id DESC');
         $topicsStatement->execute();
-
+        
         $topics = $topicsStatement->fetchAll();
 
+        // Si aucun topic ne correspond à ce qu'a saisi l'utilisateur, on affiche un erreur
         if ($topicsStatement->rowCount() == 0) {
             echo "Aucun sujet ne correspond à cette recherche";
-        }else{
+        
+        // Sinon on affiche ce qu'à demandé l'utilisateur
+        }else{ 
             foreach ($topics as $topic){
                 ?>
                 <a class="link_topic"  href='#'> 
@@ -33,6 +37,7 @@ function displayTopics(){
             }
         }
 
+    // Si le search est vide, on affiche tous les sujet
     }else{
         foreach ($topics as $topic){
             ?>
