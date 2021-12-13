@@ -1,5 +1,56 @@
 <?php
-include('./forum/publishTopicAction.php')
+include('./forum/publishTopicAction.php');
+
+function displayTopics(){
+    require("./config/database.php");
+
+    $sqlQuery = "SELECT * FROM topics ORDER BY id DESC";
+    $topicsStatement = $database->prepare($sqlQuery);
+    $topicsStatement->execute();
+
+    $topics = $topicsStatement->fetchAll();
+
+    // On cherche à savoir si l'input search est saisi
+    if (isset($_GET['search']) && !empty($_GET['search'])){
+        $userSearch = $_GET['search'];
+
+        $topicsStatement = $database->prepare('SELECT * FROM topics WHERE title LIKE "%'.$userSearch.'%" ORDER BY id DESC');
+        $topicsStatement->execute();
+        
+        $topics = $topicsStatement->fetchAll();
+
+        // Si aucun topic ne correspond à ce qu'a saisi l'utilisateur, on affiche un erreur
+        if ($topicsStatement->rowCount() == 0) {
+            echo "Aucun sujet ne correspond à cette recherche";
+        
+        // Sinon on affiche ce qu'à demandé l'utilisateur
+        }else{ 
+            foreach ($topics as $topic){
+                ?>
+                <a class="link_topic"  href='#'> 
+                    <div class="topic_bloc" >
+                        <h1 class="title_topic"><?php echo $topic['title']; ?></h1>
+                        <h2 class="date_topic"><?php echo 'Par ' . $topic['user_name'] . ' le ' . $topic['date']; ?></h2>
+                    </div>
+                </a>
+            <?php
+            }
+        }
+
+    // Si le search est vide, on affiche tous les sujet
+    }else{
+        foreach ($topics as $topic){
+            ?>
+            <a class="link_topic"  href='#'> 
+                <div class="topic_bloc" >
+                    <h1 class="title_topic"><?php echo $topic['title']; ?></h1>
+                    <h2 class="date_topic"><?php echo 'Par ' . $topic['user_name'] . ' le ' . $topic['date']; ?></h2>
+                </div>
+            </a>
+        <?php
+        }
+    }
+}
 ?>
 
 <!DOCTYPE html>
@@ -15,7 +66,21 @@ include('./forum/publishTopicAction.php')
         <?php include_once('./Components/header.php'); ?>
 
         <div class="content">
-            <h1>Créer un sujet</h1>
+            <div class="top">
+                <h1>Liste des sujets</h1>
+                <form method="GET" action="">
+                    <div class="input">
+                        <input type="search" name="search" placeholder="Rechercher"/>
+                        <input type="submit" style="display: none" name="submit"/>
+                    </div>
+                </form>
+
+            </div>
+            <div class="topics">
+                <?php displayTopics(); ?>
+            </div>
+
+            <h1 class="create">Créer un sujet</h1>
 
             <!-- Formulaire d'ajout de sujet dans le forum --> 
             <form action="" method="POST">
