@@ -33,7 +33,7 @@
                     <div class="questions">
                         
                         <h3 class="question1">1 - Quelle est la ville la plus polluée du monde en 2021 ?</h3>
-                        <img src="https://media.gqmagazine.fr/photos/5c76bb971109c51383975d1f/16:9/w_2560%2Cc_limit/GettyImages-927627552.jpg" width="600" height="300" class="center">
+                        <img class="image_question" src="https://media.gqmagazine.fr/photos/5c76bb971109c51383975d1f/16:9/w_2560%2Cc_limit/GettyImages-927627552.jpg" width="600" height="300" class="center">
                             <div class="button_question">
                                 <button class="reponse_question">Paris (France)</button>
                                 <button class="reponse_question">Lahore (Pakistan)</button>
@@ -42,7 +42,7 @@
                             </div>
                         
                         <h3 class="question2">2 - Quels sont les véhicules les plus polluants ?</h3>
-                        <img src="https://cdn.futura-sciences.com/buildsv6/images/wide1920/f/6/b/f6b9eb4bb1_50160005_particules-ultrafines-voitures.jpg" width="600" height="300" class="center">
+                        <img class="image_question" src="https://cdn.futura-sciences.com/buildsv6/images/wide1920/f/6/b/f6b9eb4bb1_50160005_particules-ultrafines-voitures.jpg" width="600" height="300" class="center">
                             <div class="button_question">
                                 <button class="reponse_question">Les véhicules utilisant de l'essence</button>
                                 <button class="reponse_question">Les véhicules utilisant du gazole</button>
@@ -50,7 +50,7 @@
                                 <button class="reponse_question">Les véhicules hybrides</button>
                             </div>
                         <h3 class="question3">3 - Quelle est la qualité de l'air à Paris ?</h3>
-                        <img src="https://cdn.wallpapersafari.com/61/56/QAKo6e.jpg" width="600" height="300" class="center">
+                        <img class="image_question" src="https://cdn.wallpapersafari.com/61/56/QAKo6e.jpg" width="600" height="300" class="center">
                             <div class="button_question">
                                 <button class="reponse_question">Bonne</button>
                                 <button class="reponse_question">Moyenne</button>
@@ -58,7 +58,7 @@
                                 <button class="reponse_question">Très mauvaise</button>
                             </div>
                         <h3 class="question4">4 - Que faut-il privilégier pour diminuer la pollution de l'air ?</h3>
-                        <img src="https://www.shbarcelona.fr/blog/fr/wp-content/uploads/2015/07/courir-rendrait-plus-intelligent-800x.jpg" width="600" height="300" class="center">
+                        <img class="image_question" src="https://www.shbarcelona.fr/blog/fr/wp-content/uploads/2015/07/courir-rendrait-plus-intelligent-800x.jpg" width="600" height="300" class="center">
                             <div class="button_question">
                                 <button class="reponse_question">La marche</button>
                                 <button class="reponse_question">La nage</button>
