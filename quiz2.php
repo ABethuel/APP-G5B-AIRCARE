@@ -39,7 +39,7 @@
                         <div class="title">1 - Quelle est la ville la plus polluée du monde en 2021 ?</div>
                     </header>
                     <section>
-                    <img src="https://cdn.futura-sciences.com/buildsv6/images/wide1920/f/6/b/f6b9eb4bb1_50160005_particules-ultrafines-voitures.jpg" width="600" height="300" class="center">
+                    <img class="image_questionquiz"src="https://cdn.futura-sciences.com/buildsv6/images/wide1920/f/6/b/f6b9eb4bb1_50160005_particules-ultrafines-voitures.jpg" >
                         <div class="option_list">
                             <div class="option">
                                 <span>Paris (France)</span>
