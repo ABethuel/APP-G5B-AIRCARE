@@ -19,42 +19,43 @@
                             </p>
                         </div>
                         <h1 class="titre2">Thématiques</h1>
-                    </div>
                         
-                    <div class="bouton_quiz">
-                        <button class="button active1" onclick="window.location.href='quiz.php';">Enjeux</button>
-                        <button class="button" onclick="window.location.href='quiz2.php';">Air extérieur</button>
-                        <button class="button" onclick="window.location.href='quiz3.php';">Air intérieur</button>
-                        <button class="button" onclick="window.location.href='quiz4.php';">Effets santé</button>
-                        <button class="button" onclick="window.location.href='quiz5.php';">Engagements</button>  
                     </div>
+                    
+                        <div class="bouton_quiz">
+                            <button class="button active1" onclick="window.location.href='quiz.php';">Enjeux</button>
+                            <button class="button" onclick="window.location.href='quiz2.php';">Air extérieur</button>
+                            <button class="button" onclick="window.location.href='quiz3.php';">Air intérieur</button>
+                            <button class="button" onclick="window.location.href='quiz4.php';">Effets santé</button>
+                            <button class="button" onclick="window.location.href='quiz5.php';">Engagements</button>  
+                        </div>
 
                     <div class="questions">
                         
-                        <h3 class="question1">1 - De combien de morts annuelles la pollution de l'air est-elle responsable en France?</h3>
-                        <img src="https://www.seneplus.com/sites/default/files/raw_photos/pollution-de-l-air-quelles-solutions-avons-nous-pour-l-eviter.jpg" width="600" height="300" class="center">
+                        <h3 class="question1">1 - Quelle est la ville la plus polluée du monde en 2021 ?</h3>
+                        <img src="https://media.gqmagazine.fr/photos/5c76bb971109c51383975d1f/16:9/w_2560%2Cc_limit/GettyImages-927627552.jpg" width="600" height="300" class="center">
                             <div class="button_question">
-                                <button class="reponse_question">Plus de 70 000, comme le tabac</button>
-                                <button class="reponse_question">Plus de 5O 000, comme l'alcool</button>
-                                <button class="reponse_question">Plus de 40 000</button>
-                                <button class="reponse_question">Environ 20 000</button>
+                                <button class="reponse_question">Paris (France)</button>
+                                <button class="reponse_question">Lahore (Pakistan)</button>
+                                <button class="reponse_question">Tokyo (Japon)</button>
+                                <button class="reponse_question">Lima (Pérou)</button>
                             </div>
                         
                         <h3 class="question2">2 - Quels sont les véhicules les plus polluants ?</h3>
                         <img src="https://cdn.futura-sciences.com/buildsv6/images/wide1920/f/6/b/f6b9eb4bb1_50160005_particules-ultrafines-voitures.jpg" width="600" height="300" class="center">
                             <div class="button_question">
-                                <button class="reponse_question">Les véhicules essence</button>
-                                <button class="reponse_question">Les véhicules diesel</button>
+                                <button class="reponse_question">Les véhicules utilisant de l'essence</button>
+                                <button class="reponse_question">Les véhicules utilisant du gazole</button>
                                 <button class="reponse_question">Les véhicules électriques</button>
-                                <button class="reponse_question">Je ne sais pas</button>
+                                <button class="reponse_question">Les véhicules hybrides</button>
                             </div>
-                        <h3 class="question3">3 - Certains constructeurs allemands ont tenté de prouver l'innocuité des Nox, les oxydes d'azote, avec des singes et des cobayes humains mais les moteurs diesel recrachent des substances encore plus nocives. Quelles sont-elles?</h3>
-                        <img src="https://www.actu-environnement.com/images/illustrations/news/29349_large.jpg" width="600" height="300" class="center">
+                        <h3 class="question3">3 - Quelle est la qualité de l'air à Paris ?</h3>
+                        <img src="https://cdn.wallpapersafari.com/61/56/QAKo6e.jpg" width="600" height="300" class="center">
                             <div class="button_question">
-                                <button class="reponse_question">Les Hap</button>
-                                <button class="reponse_question">Les Hop</button>
-                                <button class="reponse_question">Les Hip Hop</button>
-                                <button class="reponse_question">Voulone vlaka</button>
+                                <button class="reponse_question">Bonne</button>
+                                <button class="reponse_question">Moyenne</button>
+                                <button class="reponse_question">Dégradée</button>
+                                <button class="reponse_question">Très mauvaise</button>
                             </div>
                         <h3 class="question4">4 - Que faut-il privilégier pour diminuer la pollution de l'air ?</h3>
                         <img src="https://www.shbarcelona.fr/blog/fr/wp-content/uploads/2015/07/courir-rendrait-plus-intelligent-800x.jpg" width="600" height="300" class="center">

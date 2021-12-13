@@ -24,18 +24,51 @@
                     
                 <div class="bouton_quiz">
                         <button class="button " onclick="window.location.href='quiz.php';">Enjeux</button>
-                        <button class="button active2" onclick="window.location.href='quiz2.php';">Pollution de l'air à l'extérieur</button>
-                        <button class="button" onclick="window.location.href='quiz3.php';">Pollution de l'air à l'intérieur</button>
-                        <button class="button" onclick="window.location.href='quiz4.php';">Effets sur la santé</button>
-                        <button class="button" onclick="window.location.href='quiz5.php';">Engagements,stratégies et plans d'actions</button>  
+                        <button class="button active2" onclick="window.location.href='quiz2.php';">air extérieur</button>
+                        <button class="button" onclick="window.location.href='quiz3.php';">air intérieur</button>
+                        <button class="button" onclick="window.location.href='quiz4.php';">Effets santé</button>
+                        <button class="button" onclick="window.location.href='quiz5.php';">Engagements</button>  
                 </div>
 
-                <h2 class="Questions">Question 1</h2>
-                <p class="text_q1">
-                Phasellus sodales id odio in rutrum. Mauris eget cursus justo, facilisis venenatis enim ?
-                </p>
-            
+                <div class="start_btn">
+                    <button>Commencer le Quiz</button>
                 </div>
+
+                <div class="quiz_box">
+                    <header>
+                        <div class="title">1 - Quelle est la ville la plus polluée du monde en 2021 ?</div>
+                    </header>
+                    <section>
+                    <img src="https://cdn.futura-sciences.com/buildsv6/images/wide1920/f/6/b/f6b9eb4bb1_50160005_particules-ultrafines-voitures.jpg" width="600" height="300" class="center">
+                        <div class="option_list">
+                            <div class="option">
+                                <span>Paris (France)</span>
+                            </div>
+                            <div class="option">
+                                <span>Lahore (Pakistan)</span>
+                            </div>
+                            <div class="option">
+                                <span>Tokyo (Japon)</span>
+                            </div>
+                            <div class="option">
+                                <span>Lima (Pérou)</span>
+                            </div>
+                        </div>
+                    </section>
+                    <footer>
+                        <div class="num_que">
+                            <span>1 sur 4 questions</span>
+                        </div>
+                        <div class="next_que">
+                            <button>
+                                <span>Question Suivante</span>
+                            </button>
+                        </div>
+                    </footer>
+                </div>
+
+
+
             
         
         <?php include_once('./Components/footer.php'); ?>

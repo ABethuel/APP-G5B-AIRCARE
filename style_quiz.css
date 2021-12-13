@@ -30,7 +30,7 @@ body {
     font-family: Quicksand-SemiBold;
     margin: 0px;
     padding: 0px;
-
+    
 }
 
 .border{
@@ -63,8 +63,9 @@ body {
 .bouton_quiz{
     display: flex;
     padding-top: 1% ;
-    margin-left: 400px;
-    margin-right: auto;
+    margin-left: 22%;
+    align-content: center;
+    
 }
 
 .button{
@@ -156,7 +157,8 @@ img {
     display: block;
     margin-left: auto;
     margin-right: auto;
-    border-radius: 10px;
+
+    padding-top: 3%;
 }
 
 .resultats_quiz1{
@@ -178,6 +180,130 @@ img {
     color: #f3f3f3;
 }
 
+.start_btn{
+   padding-top: 15%;
+   padding-left: 44%;
+   padding-bottom: 15%; 
+}
+.start_btn button{
+    font-family: Quicksand-SemiBold;
+    font-size: large;
+    padding: 15px 30px;
+    background-color: #2254B5;  
+    color: #f3f3f3;
+    border: none;
+    cursor: pointer;
+    border-radius: 14px;
+    
+}
+.start_btn button:hover{
+    transform: scale(1.03);
+    background-color: #4D88FC;
+    color: #f3f3f3;
+}
 
-  
+.quiz_box{
+    width: 40%;
+    background: #ebebeb;
+    margin-left: 30%;
+    border-radius: 14px;
+    font-family: Quicksand-SemiBold;
+    font-size: large;
+    padding-bottom: 1%;
+    margin-bottom: 10%;
+}
+.quiz_box header{
+    height: 70px;
+    padding: 0 30px;
+    display: flex;
+    align-items: center;
+    box-shadow: 0 3px 5px 1px rgba(0, 0, 0, 0.1);
+}
+.quiz_box header .title{
+    font-size: 20px;
+    font-weight: 600;
+}
+.quiz_box section{
+    padding: 25px 30px 20px 30px;
+}
+.quiz_box section .option_list{
+    padding: 20px 0;
+    display: block;
+}
+.quiz_box section .option_list .option{
+    background: #DFDFDF;
+    border: grey;
+    border-radius: 7px;
+    padding: 8px 15px;
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    cursor: pointer;
+    width: 88%;
+}
+section .option_list .option :hover{
+    transform: scale(1.03);
+    color: #4D88FC;
+}
+.quiz_box footer{
+    padding: 0 30px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #ebebeb;
+}
+.quiz_box footer .num_que span{
+    display: flex;
+    user-select: none;
+}
+footer .num_que span p{
+    font-weight: 500;
+    padding: 0 5px;
+}
+footer .num_que span p:first-child{
+    padding-left: 0px;
+}
+.next_que button{
+    height: 40%;
+    padding: 10px 30px ;
+    font-size: 18px;
+    font-weight: 400;
+    border: black;
+    outline: none;
+    color: white;
+    background: #2254B5;
+    border-radius: 7px;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+.next_que button span {
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    transition: 0.5s;  
+}
+.next_que button span:after {
+    content: '\00bb';
+    position: absolute;
+    opacity: 0;
+    top: 0;
+    right: -20px;
+    transition: 0.3s; 
+}
+.next_que button:hover span {
+    padding-right: 25px; 
+}
+.next_que button:hover span:after {
+    opacity: 1;
+    right: 0;
+}
+.next_que button:hover{
+    background: #4D88FC;
+}
+img{
+    padding-right: 8%;
+    padding-bottom: 3%;
+    padding-top: 3%;
+}
 
