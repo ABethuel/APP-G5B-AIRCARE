@@ -11,23 +11,19 @@ if(isset($_POST['validate'])){
         {
 
             // On crée les variables contenant les données de l'utilisateur
-            $actu_titre = htmlspecialchars($_POST['titre']);
+            $actu_title = htmlspecialchars($_POST['titre']);
             $actu_image = htmlspecialchars($_POST['image']);
             $actu_description = htmlspecialchars($_POST['description']);
-            $actu_lien = htmlspecialchars($_POST['lien']);
+            $actu_link = htmlspecialchars($_POST['lien']);
 
+            $addActuOnDatabase = $database->prepare("INSERT INTO news(image, title, description,link)VALUES(?, ?, ?, ?)");
+            $addActuOnDatabase->execute(array($actu_image, $actu_title,$actu_description, $actu_link ));
 
-                $addActuOnDatabase = $database->prepare("INSERT INTO news(image, link, title, description)VALUES(?, ?, ?, ?)");
-                $addActuOnDatabase->execute(array($actu_titre, $actu_image,$actu_description, $actu_lien ));
-
-                header('Location: index.php');
-                }
-            }
-        else{
-            $errorMsg = "Veuillez compléter tous les champs" ;
+            $errorMsg = "valide";
         }
-
-
-
-
+        
+    else{
+        $errorMsg = "Veuillez compléter tous les champs" ;
+    }
+}
 ?>

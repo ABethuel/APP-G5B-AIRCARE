@@ -1,11 +1,13 @@
 <?php
 session_start();
+require("./actuality/add_actuality.php");
 
 
 function display_actu(){
 
     require("./config/database.php") ;
     
+
     $sqlQuery = 'SELECT * FROM news';
     $newsStatement = $database->prepare($sqlQuery);
     $newsStatement->execute();
@@ -15,7 +17,11 @@ function display_actu(){
     foreach ($news as $actu){
     ?>
        <a class="bloc" target="_blank" href=<?php echo $actu['link'];?>> 
+
             <div class="bloc_actu" ?>
+
+            <div class="bloc_actu" >
+
                 <h1 class="title_actu"><?php echo $actu['title']; ?></p>
                 <h2 class="description_actu"><?php echo $actu['description']; ?></p>
                 <!--<h3 class="link_actu"><?//php echo $actu['link']; ?></p>-->
