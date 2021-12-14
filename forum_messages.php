@@ -1,3 +1,8 @@
+<?php
+
+include('./forum/showMessageTopic.php');
+?>
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -7,8 +12,23 @@
         <title>Forum</title>
     </head>
 
-    <?php include_once('./Components/header.php'); ?>
+    <body>
 
-    <?php include_once('./Components/footer.php'); ?>
+        <?php include_once('./Components/header.php'); ?>
+
+        <div class="content">
+            <h1>Forum</h1>
+
+            <?php  
+                if(isset($errorMsg)) {
+                    ?>
+                    <p class="error_msg"><?php echo $errorMsg ?></p>
+                <?php
+            } ?> 
+        </div>
+
+        <?php include_once('./Components/footer.php'); ?>
+
+    </body>
 
 </html>
