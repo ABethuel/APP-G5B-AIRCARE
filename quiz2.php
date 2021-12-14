@@ -26,7 +26,7 @@
                 
                 <section>
                     
-                <h1 class="titre22">Thématiques</h1>
+                    <h1 class="titre22">Thématiques</h1>
                   
                     <div class="boutonq_quiz">
                         <button class="button" onclick="window.location.href='quiz.php';">Enjeux</button>
