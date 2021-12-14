@@ -13,7 +13,7 @@ let questions = [
     {
     numb: 2,
     question: "Quels sont les véhicules les plus polluants ?",
-    answer: "Les véhicules utilisant de l'essence",
+    answer: "Les véhicules utilisant du gazole",
     options: [
       "Les véhicules utilisant de l'essence",
       "Les véhicules utilisant du gazole",
@@ -35,10 +35,10 @@ let questions = [
     {
     numb: 4,
     question: "Que faut-il privilégier pour diminuer la pollution de l'air ?",
-    answer: "Le vélo",
+    answer: "La marche",
     options: [
       "La marche",
-      "La nage",
+      "La métro",
       "Le vélo",
       "Les transports publics"
     ]

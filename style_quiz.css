@@ -43,8 +43,33 @@ body {
     padding-top: 0%;
 }
 
-.titre{
+/** QUIZ4 Test **/
+.partie1{
+    border: 4px solid #2254B5;
+    border-radius: 25px;
+    background-color: #ebebeb;
+    border-width: medium;
+    box-shadow: 10px 10px 5px grey;
+    margin-left: 12%;
+    margin-right: 12%;
+    margin-top: 7%;
+    padding-right: 3%;
+    padding-left: 3%;
     padding-top: 1%;
+    padding-bottom: 1%;
+}
+.partie1 section{
+    padding-top: 2%;
+}
+.boutonq_quiz{
+    display: flex;
+    margin-left: 8%;
+    margin-right: 8%;
+    
+}
+
+.titre{
+    padding-top: 2%;
     color: #111010;
     font-size: xx-large;
 }
@@ -69,17 +94,17 @@ body {
 }
 
 .button{
-    margin-left: auto;
-    margin-right: auto;
+    
+    margin-left: 1%;
+    margin-right: 1%;
+    padding: 1%;
+    width: 80%;
     border-radius: 14px;
-    padding: 15px 40px;
-    margin: 10px 10px;
     background-color: #ebebeb;
     color: black;
     border: 2px solid #2254B5;
     box-shadow: 4px 4px 1px grey;
     font-family: Quicksand-SemiBold;
-    width: 200px;
     font-size: large;
     
 }
@@ -192,7 +217,8 @@ body {
 .start_btn button{
     font-family: Quicksand-SemiBold;
     font-size: large;
-    padding: 15px 30px;
+    padding: 2%;
+    width: 20%;
     background-color: #2254B5;  
     color: #f3f3f3;
     border: none;
@@ -206,7 +232,7 @@ body {
     background-color: #4D88FC;
     color: #f3f3f3;
 }
-
+/** box quiz ...........................................................................**/
 .quiz_box{
     width: 40%;
     background: #ebebeb;
@@ -228,19 +254,16 @@ body {
     font-size: 20px;
     font-weight: 600;
 }
-.image_questionquiz{
-    
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    width: 60%;
-    padding: auto;
-    
-    
 
+/** section............................................**/
+.image_questionquiz{
+    width: 60%;
+    display: block;
+    margin-left: 16%;
+    margin-right: 16%;
 }
 .quiz_box section{
-    padding: 25px 30px 20px 30px;
+    padding: 4.5%;
 }
 .quiz_box section .option_list{
     padding: 20px 0;
@@ -250,7 +273,7 @@ body {
     background: #DFDFDF;
     border: grey;
     border-radius: 7px;
-    padding: 8px 15px;
+    padding: 1.5%;
     margin-bottom: 15px;
     display: flex;
     align-items: center;
@@ -262,6 +285,9 @@ section .option_list .option :hover{
     transform: scale(1.03);
     color: #4D88FC;
 }
+
+/** section................................................**/
+/** footer..........................................................**/
 .quiz_box footer{
     padding: 0 30px;
     display: flex;
@@ -318,6 +344,26 @@ footer .num_que span p:first-child{
 .next_que button:hover{
     background: #4D88FC;
 }
+/** footer ................................................**/
+/** box quiz........................................................................................**/
 
+.result_box{
 
+    background: #ebebeb;
+    border-radius: 14px;
+    font-family: Quicksand-SemiBold;
+    font-size: large;
+    
+    display: flex;
+    text-align: center;
+    align-items: center;
+    flex-direction: column;
+    justify-content: space-between;
+    
+    margin-left: 34.5%;
+    margin-right: 34.5%;
+    margin-bottom: 10%;
+    width: 30%;
+    padding: 1%;
 
+}
