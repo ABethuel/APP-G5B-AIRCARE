@@ -146,3 +146,46 @@ input[type=submit]:hover {
     font-family: Quicksand-SemiBold;
     font-size: medium;
 }
+
+.message{
+    background-color: #E4E4E4;
+    width: 100%;
+    display: flex;
+    border-radius: 8px;
+}
+
+.profile_image{
+    width: 60%;
+    height: 60%;
+}
+
+.left_message{
+    display: table;
+    width: 22%;
+    padding: 1%;
+}
+
+.author{
+    font-size:medium;
+    font-family: Quicksand-Bold;
+    text-align: center;
+}
+
+.profile_image{
+    text-align: center;
+}
+
+.right_message{
+    padding:1%
+}
+
+.date{
+    color: #525252;
+    font-size:medium;
+    font-family: Quicksand-Bold;
+}
+
+.message_content{
+    font-size:medium;
+    font-family: Quicksand-Medium;
+}

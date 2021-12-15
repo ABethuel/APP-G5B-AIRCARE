@@ -17,10 +17,24 @@ include('./forum/showMessageTopic.php');
         <?php include_once('./Components/header.php'); ?>
 
         <div class="content">
-            <h1>Forum</h1>
 
             <?php  
-                if(isset($errorMsg)) {
+                if (isset($topic_date)){
+                    ?>
+                    <h1><?php echo $topic_title ?></h1>
+                    <div class="message">
+                        <div class="left_message">
+                            <p class="author"><?php echo $topic_author ?></p>
+                            <center><img class="profile_image" src="./Assets/images/profile_image.png" /></center>
+                        </div>
+                        <div class="right_message">
+                            <p class="date">Le <?php echo $topic_date ?></p>
+                            <p class="message_content"><?php echo $topic_message ?></p>
+                        </div>
+                    </div>
+                    <?php
+                }
+                else if (isset($errorMsg)) {
                     ?>
                     <p class="error_msg"><?php echo $errorMsg ?></p>
                 <?php
