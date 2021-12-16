@@ -1,6 +1,7 @@
 <?php
 
 include('./forum/showMessageTopic.php');
+include('./forum/publishAnswerAction.php')
 ?>
 
 <!DOCTYPE html>
@@ -32,6 +33,25 @@ include('./forum/showMessageTopic.php');
                             <p class="message_content"><?php echo $topic_message ?></p>
                         </div>
                     </div>
+
+                    </br>
+                    </br>
+                    </br>
+                    <form action="" method="POST">
+
+                        <label for="answer">Répondre</label>
+                        <textarea name="answer" id="answer" cols="6" rows="6" placeholder="Saisir votre réponse"></textarea>
+                        
+                        <input type="submit" value="Publier" name="validate_answer">
+
+                        <?php  
+                            if(isset($errorMsgAnswer)) {
+                                ?>
+                                <p class="error_msg"><?php echo $errorMsgAnswer ?></p>
+                            <?php
+                        } ?> 
+
+                    </form>
                     <?php
                 }
                 else if (isset($errorMsg)) {

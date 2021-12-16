@@ -161,7 +161,7 @@ input[type=submit]:hover {
 
 .left_message{
     display: table;
-    width: 22%;
+    flex:1;
     padding: 1%;
 }
 
@@ -173,10 +173,13 @@ input[type=submit]:hover {
 
 .profile_image{
     text-align: center;
+    width:50%;
+    height: 50%;
 }
 
 .right_message{
-    padding:1%
+    padding:1%;
+    flex:6
 }
 
 .date{
