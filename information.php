@@ -36,11 +36,11 @@
                 
 
                 <div class="conteneur3">
-                    <img class ="photo_profil" src="images/profil.png"/>
-                    <img class ="photo_profil" src="images/profil.png"/>
-                    <img class ="photo_profil" src="images/profil.png"/>
-                    <img class ="photo_profil" src="images/profil.png"/>
-                    <img class ="photo_profil" src="images/profil.png"/>
+                    <img class ="photo_profil" src="./Assets/images/info-profil.png"/>
+                    <img class ="photo_profil" src="./Assets/images/info-profil.png"/>
+                    <img class ="photo_profil" src="./Assets/images/info-profil.png"/>
+                    <img class ="photo_profil" src="./Assets/images/info-profil.png"/>
+                    <img class ="photo_profil" src="./Assets/images/info-profil.png"/>
                 
                 </div>
                 <div class="conteneur3">
