@@ -8,66 +8,66 @@
     </head>
     
     <body>
-        <?php include_once('./Components/header.php'); ?>
+        <div class="page">
+        
+            <div class="first_section">
+                <h1 class="text_produit">PRODUIT</h1>  
 
-        <section class="first_section">
-        <div class="wrapper">
-            <div class="text_index">
-            <h1 class="text_produit">PRODUIT</h1>  
-
-            <div id="conteneur">
-            <img class ="photo1"
-            src="./Assets/images/capteur-2.png"/>
-            <div class="text_photo1">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse eu purus placerat est pulvinar aliquet. Nam scelerisque bibendum ex ut sollicitudin. Etiam nec placerat est. Vivamus feugiat sapien sodales ultricies dapibus. </div>
-
-        </div>
-        <div id="conteneur2">
-            <img class ="photo2"
-            src="./Assets/images/capteur-2.png"/>
-            <div class="text_photo2">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse eu purus placerat est pulvinar aliquet. Nam scelerisque bibendum ex ut sollicitudin. Etiam nec placerat est. Vivamus feugiat sapien sodales ultricies dapibus. </div>
+                <div class="conteneur">
+                    
+                    <p class="text_photo1">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse eu purus placerat est pulvinar aliquet. Nam scelerisque bibendum ex ut sollicitudin. Etiam nec placerat est. Vivamus feugiat sapien sodales ultricies dapibus. 
+                    </p>
+                    <img class ="photo1" src= "images/capteur.png"/>
+                </div>
+                
+                <div class="conteneur2">
+                    <img class ="photo2" src="images/capteur.png"/>
+                    <div class="text_photo2">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse eu purus placerat est pulvinar aliquet. Nam scelerisque bibendum ex ut sollicitudin. Etiam nec placerat est. Vivamus feugiat sapien sodales ultricies dapibus. </div>
+                    </div>
             </div>
-</section>
-        <section class="second_section">
-        <div class="wrapper">
-        <div class="text_index2">
-        <h2 class="text_equipe">ÉQUIPE</h2>
-        <div class="text_principal">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse eu purus placerat est pulvinar aliquet. Nam scelerisque bibendum ex ut sollicitudin. Etiam nec placerat est. Vivamus feugiat sapien sodales ultricies dapibus. </div>
+            <div class="second_section">
 
-        </div>
+                <h2 class="text_equipe">ÉQUIPE</h2>
+                <p class="text_principal">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse eu purus placerat est pulvinar aliquet. Nam scelerisque bibendum ex ut sollicitudin. Etiam nec placerat est. Vivamus feugiat sapien sodales ultricies dapibus. 
+                </p>
+                
+
+                <div class="conteneur3">
+                    <img class ="photo_profil" src="images/profil.png"/>
+                    <img class ="photo_profil" src="images/profil.png"/>
+                    <img class ="photo_profil" src="images/profil.png"/>
+                    <img class ="photo_profil" src="images/profil.png"/>
+                    <img class ="photo_profil" src="images/profil.png"/>
+                
+                </div>
+                <div class="conteneur3">
+                    <p class="poste"> Nom Prénom <br> Poste </p>
+                    <p class="poste"> Nom Prénom <br> Poste </p>
+                    <p class="poste"> Nom Prénom <br> Poste </p>
+                    <p class="poste"> Nom Prénom <br> Poste </p>
+                    <p class="poste"> Nom Prénom <br> Poste </p>
+                
+                </div>
+
+
         
 
-        <div id="conteneur3">
-        <img class ="photo_profil3"
-        src="./Assets/images/info-profil.png"/>
-        <div class="text_profil3">Prénom Nom Post </div>
+            </div>
+            <div class="troi_section">
+                <h2 class="text_equipe">QUESTION FRÉQUENTES</h2>
+                <div class="dropdown">
+                    <h3 class="deroul"> Que font les capteurs ? </h3>
+                    <div class="dropdown-content">
+                        <p class="text">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse eu purus placerat est pulvinar aliquet. Nam scelerisque bibendum ex ut sollicitudin. Etiam nec placerat est. Vivamus feugiat sapien sodales ultricies dapibus. 
+                        </p>
+                    </div>
+                </div>
+            </div>
         </div>
-
-        <div id="conteneur4">
-        <img class ="photo_profil4"
-        src="./Assets/images/info-profil.png"/>
-        <div class="text_profil4">Prénom Nom Post </div>
-        </div>
-
-        <div id="conteneur5">
-        <img class ="photo_profil5"
-        src="./Assets/images/info-profil.png"/>
-        <div class="text_profil5">Prénom Nom Post </div>
-        </div>
-
-        <div id="conteneur6">
-        <img class ="photo_profil6"
-        src="./Assets/images/info-profil.png"/>
-        <div class="text_profil6">Prénom Nom Post </div>
-        </div>
-
-        <div id="conteneur7">
-        <img class ="photo_profil7"
-        src="./Assets/images/info-profil.png"/>
-        <div class="text_profil7">Prénom Nom Post </div>
-        </div>
-
-
-</section>
        
 </body>   
     
