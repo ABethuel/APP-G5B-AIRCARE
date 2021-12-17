@@ -18,11 +18,11 @@
                     <p class="text_photo1">
                         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse eu purus placerat est pulvinar aliquet. Nam scelerisque bibendum ex ut sollicitudin. Etiam nec placerat est. Vivamus feugiat sapien sodales ultricies dapibus. 
                     </p>
-                    <img class ="photo1" src= "images/capteur.png"/>
+                    <img class ="photo1" src= "./Assets/images/capteur-2.png"/>
                 </div>
                 
                 <div class="conteneur2">
-                    <img class ="photo2" src="images/capteur.png"/>
+                    <img class ="photo2" src="./Assets/images/capteur-2.png"/>
                     <div class="text_photo2">
                         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse eu purus placerat est pulvinar aliquet. Nam scelerisque bibendum ex ut sollicitudin. Etiam nec placerat est. Vivamus feugiat sapien sodales ultricies dapibus. </div>
                     </div>
