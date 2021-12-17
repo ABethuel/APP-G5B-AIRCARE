@@ -14,7 +14,7 @@ if (isset($_POST['validate_answer'])){
         $user_name = $_SESSION['first_name'] . ' ' . $_SESSION['last_name'];
         $topic_id = $_GET['id'];
 
-        $insertAnswerOnDb = $database->prepare('INSERT INTO message(content, date, user_id, user_name, topic_id) VALUES(?, ?, ?, ?, ?)');
+        $insertAnswerOnDb = $database->prepare('INSERT INTO messages(content, date, user_id, user_name, topic_id) VALUES(?, ?, ?, ?, ?)');
         $insertAnswerOnDb->execute(array($user_answer, $answer_date, $user_id, $user_name, $topic_id));
         
     }else{

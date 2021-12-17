@@ -1,7 +1,39 @@
 <?php
 
 include('./forum/showMessageTopic.php');
-include('./forum/publishAnswerAction.php')
+include('./forum/publishAnswerAction.php');
+
+
+function displayAnswerTopics(){
+    require("./config/database.php") ;
+
+    $id = $_GET["id"];
+    $answersStatement = $database->prepare("SELECT * FROM messages WHERE topic_id = ?");
+    $answersStatement->execute(array($id));
+
+    $answers = $answersStatement->fetchAll();
+
+    if ($answersStatement->rowCount() >= 0) {
+        foreach ($answers as $answer){
+            ?>
+                <div class="answer">
+                    <div class="left_message">
+                        <p class="author"><?php echo $answer['user_name']; ?></p>
+                        <center><img class="profile_image" src="./Assets/images/profile_image.png" /></center>
+                    </div>
+                    <div class="right_message">
+                        <p class="date">Le <?php echo $answer['date']; ?></p>
+                        <p class="message_content"><?php echo $answer['content']; ?></p>
+                    </div>
+                </div>
+            <?php
+        }
+    }else{
+        echo 'test de fonctionnement';
+        echo $id;
+    }
+
+}
 ?>
 
 <!DOCTYPE html>
@@ -32,6 +64,10 @@ include('./forum/publishAnswerAction.php')
                             <p class="date">Le <?php echo $topic_date ?></p>
                             <p class="message_content"><?php echo $topic_message ?></p>
                         </div>
+                    </div>
+
+                    <div class="topics">
+                        <?php displayAnswerTopics(); ?>
                     </div>
 
                     </br>

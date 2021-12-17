@@ -151,7 +151,8 @@ input[type=submit]:hover {
     background-color: #E4E4E4;
     width: 100%;
     display: flex;
-    border-radius: 8px;
+    border-radius: 8px 8px 0 0;
+    border-bottom: 2.5px solid #7a7a7a;
 }
 
 .profile_image{
@@ -191,4 +192,12 @@ input[type=submit]:hover {
 .message_content{
     font-size:medium;
     font-family: Quicksand-Medium;
+}
+
+.answer{
+    background-color: #E4E4E4;
+    width: 100%;
+    display: flex;
+    border-bottom: 2.5px solid #7a7a7a;
+
 }
