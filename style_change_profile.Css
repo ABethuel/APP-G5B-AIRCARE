@@ -32,27 +32,15 @@ section, body, html{
     height: 100%;
 }
 
-.contact_content{
-    padding-top: 5%;
+.change_content{
+    padding-top: 1%;
     margin: 18%;
-    margin-top: 5%;
+    margin-top: 3%;
     margin-bottom: 6%;
+
 }
 
-
-.input_contact , select {
-    width: 100%;
-    padding: 10px 20px;
-    margin: 8px 0 14px;
-    display: inline-block;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    box-sizing: border-box;
-    font-family: Quicksand-SemiBold;
-    font-size: 14px;
-}
-
-textarea, select {
+.input_change , select {
     width: 100%;
     padding: 10px 20px;
     margin: 8px 0 14px;
@@ -84,3 +72,8 @@ input[type=submit]:hover {
     background-color: #1697F4;
 }
 
+.error_msg{
+    font-family: Quicksand-SemiBold;
+    color: red;
+    font-size: medium;
+}

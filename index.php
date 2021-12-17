@@ -1,11 +1,13 @@
 <?php
 session_start();
+require("./actuality/add_actuality.php");
 
 
 function display_actu(){
 
     require("./config/database.php") ;
     
+
     $sqlQuery = 'SELECT * FROM news';
     $newsStatement = $database->prepare($sqlQuery);
     $newsStatement->execute();
@@ -14,12 +16,14 @@ function display_actu(){
     $news = $newsStatement->fetchAll();
     foreach ($news as $actu){
     ?>
-       <a class="bloc" target="_blank" href=<?php echo $actu['link'];?>> <div class="bloc_actu" ?>
-            <h1 class="title_actu"><?php echo $actu['title']; ?></p>
-            <h2 class="description_actu"><?php echo $actu['description']; ?></p>
-            <!--<h3 class="link_actu"><?//php echo $actu['link']; ?></p>-->
-            <img class="image_actu" src=<?php echo $actu['image']; ?>>
-        </div>
+       <a class="bloc" target="_blank" href=<?php echo $actu['link'];?>> 
+
+            <div class="bloc_actu" ?>
+                <h1 class="title_actu"><?php echo $actu['title']; ?></p>
+                <h2 class="description_actu"><?php echo $actu['description']; ?></p>
+                <!--<h3 class="link_actu"><?//php echo $actu['link']; ?></p>-->
+                <img class="image_actu" src=<?php echo $actu['image']; ?>>
+            </div>
         </a>
     <?php
     }
@@ -67,8 +71,36 @@ function display_actu(){
                     <?php display_actu(); ?>
                 </div>
             </div>
+            <div class="bloc_form">
+                <h1 class="ajouter une actu"> Ajouter une actualité </h1>
+
+                <!-- Formulaire de publication d'actualité --> 
+                <form action="" method="POST">
+
+                    <label for="titre">Titre </label> <!-- Texte au dessus du champ de saisie -->
+                    <input class="input_public" type="text" id="titre" name="titre" placeholder="Saisir un titre">
+
+                    <label for="description">Description</label>
+                    <textarea class="public_desc" name="description" id="description" cols="6" rows="8" placeholder="Détailler l'actualité"></textarea>
+                    
+                    <label for="image">Image </label> <!-- Texte au dessus du champ de saisie -->
+                    <input class="input_public" type="url" id="image" name="image" placeholder="Saisir une image">
+
+                    <label for="lien">Lien </label> 
+                    <input class="input_public" type="url" id="lien" name="lien" placeholder="Saisir votre lien">
+
+                    <input type="submit" value="Publier" name="validate">
+
+                    <?php  if(isset($errorMsg)) {
+                                ?>
+                                <p class="error_msg"><?php echo $errorMsg ?></p>
+                                <?php
+                            } ?> 
+                </form>
+            </div>
         </section>
 
         <?php include_once('./Components/footer.php'); ?>
+
     </body>
 </html>
