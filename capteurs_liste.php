@@ -29,7 +29,7 @@ function displayCaptors(){
                 <a class="link_captor"  href='capteur_detail.php?id=<?php echo $captor['id']; ?>'> 
                     <div class="topic_bloc" >
                         <h1 class="title_topic"><?php echo $captor['title']; ?></h1>
-                        <h2 class="date_topic"><?php echo 'Par ' . $captor['user_name'] . ' le ' . $captor['date']; ?></h2>
+                        <h2 class="date_topic"><?php echo 'Par ' . $captor['user_name'] . ' le ' . $captor['date'] . ' à ' . $captor['place']; ?></h2>
                     </div>
                 </a>
             <?php
@@ -45,8 +45,15 @@ function displayCaptors(){
                     <div class="image_captor">
                         <img src=<?php echo $captor['image'] ?> alt="image capteur" class="img_captor" />
                     </div>
-                    <div class="left_content">
-                        
+                    <div class="right_content">
+                        <div class="top_right">
+                            <h1 class="title_captor"><?php echo $captor['title'] ?></h1>
+                            <h2 class="user_captor"><?php echo 'Par ' . $captor['user_name'] . ' le ' . $captor['date'] . ' à ' . $captor['place']; ; ?></h2>
+                        </div>
+                        <div class="description_captor">
+                            <p><?php echo $captor['description'] ?></p>
+                        </div>
+
                     </div>
                 </div>
             </a>
@@ -90,6 +97,5 @@ function displayCaptors(){
         <?php include_once('./Components/footer.php'); ?>
 
     </body>
-
 
 </html>
