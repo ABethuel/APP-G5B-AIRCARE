@@ -1,5 +1,4 @@
 <?php
-
 require('./captors/showDetailCaptorAction.php')
 ?>
 
@@ -46,13 +45,39 @@ require('./captors/showDetailCaptorAction.php')
                                     <h1>Données sur les trois dernières heures</h1>
                                     <div class="bloc_percentage">
                                         <div class="percentage">
-                                            <p><?php echo $nitrogen_percentage; ?></p>
+                                            <div class="padding_bloc">
+                                                <div class="name_composant">
+                                                    <p>Dioxyde d'azote</p>
+                                                </div>
+                                                <div class="value">
+                                                    <p class><?php echo $nitrogen_percentage; ?></p>
+                                                    <p class="sign_percent">%</p>
+                                                </div>
+                                            </div>
                                         </div>
+
                                         <div class="percentage">
-                                            <p><?php echo $monoxide_percentage; ?></p>
+                                            <div class="padding_bloc">
+                                                <div class="name_composant">
+                                                    <p>Monoxyde de carbone</p>
+                                                </div>
+                                                <div class="value">
+                                                    <p><?php echo $monoxide_percentage; ?></p>
+                                                    <p class="sign_percent">%</p>
+                                                </div>
+                                            </div>
                                         </div>
+
                                         <div class="percentage">
-                                            <p><?php echo $particle_percentage; ?></p>
+                                            <div class="padding_bloc">
+                                                <div class="name_composant">
+                                                    <p>Particules fines</p>
+                                                </div>
+                                                <div class="value">
+                                                    <p><?php echo $particle_percentage; ?></p>
+                                                    <p class="sign_percent">%</p>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
