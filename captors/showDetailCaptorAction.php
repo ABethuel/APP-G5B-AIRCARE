@@ -58,6 +58,23 @@ if(isset($_GET['id']) && !empty($_GET['id'])){
             $nitrogen_value = $nitrogenInfos['value'];
             $nitrogen_percentage = $nitrogenInfos['percentage'];
 
+            //On récupère la qualité globale de l'air
+            $checkQuality = $database->prepare('SELECT * FROM air_quality WHERE id_captor = ? ORDER BY id DESC LIMIT 1');
+            $checkQuality->execute(array($idCaptor));
+
+            if ($checkQuality->rowCount() > 0) {
+
+                //Infos
+                $airInfos = $checkQuality->fetch();
+
+                $air_result = $airInfos['result'];
+                $air_place = $airInfos['place'];
+                $air_quality = $airInfos['quality'];
+
+            }else{
+                $errorMsg = "Erreur lors de la détermination de la qualité de l'air";
+            }
+
         }else{
             $errorMsg = "Aucune donnée n'existe pour ce capteur";
         }

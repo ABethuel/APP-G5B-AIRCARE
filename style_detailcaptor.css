@@ -140,3 +140,28 @@ h1{
     font-family:Quicksand-Bold;
     font-size: 42px;
 }
+
+.quality_bloc{
+    text-align: center;
+}
+
+.quality_text{
+    display: flex;
+    justify-content:center;
+}
+
+.text_before_quality{
+    font-family: Quicksand-Bold;
+    font-size: x-large;
+}
+
+.text_quality{
+    font-family: Quicksand-Bold;
+    font-size: x-large;
+    color: #2254B5
+}
+
+.disclaimer{
+    font-family: Quicksand-Bold;
+    color: #6A6A6A;
+}

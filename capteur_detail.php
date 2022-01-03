@@ -80,6 +80,21 @@ require('./captors/showDetailCaptorAction.php')
                                             </div>
                                         </div>
                                     </div>
+
+                                    <?php 
+                                        if(isset($air_quality)){
+                                            ?>
+                                                <div class="quality_bloc">
+                                                    <div class="quality_text">
+                                                        <p class="text_before_quality">Qualité de l'air :&nbsp</p>
+                                                        <p class="text_quality"><?php echo $air_quality; ?></p>
+                                                    </div>
+                                                    <p class="disclaimer">Les données sont exprimées en % de la valeur de référence</p>
+                                                </div>
+                                            <?php
+                                        } 
+                                    ?>
+                                        
                                 </div>
                             </div>
                         <?php
