@@ -5,9 +5,11 @@
         <link rel="stylesheet" href="style_info.css">
         <link rel="icon" type="image/png" href="./Assets/images/logo.png"/> <!-- icone du site onglet du navigateur -->
         <title>Informations</title>
+
     </head>
     
     <body>
+        <?php include_once('./Components/header.php'); ?>
         <div class="page">
         
             <div class="first_section">
@@ -68,7 +70,7 @@
                 </div>
             </div>
         </div>
-       
+        <?php include_once('./Components/footer.php'); ?>
 </body>   
     
 </html>

@@ -31,6 +31,14 @@ function displayProfilOrConnexion(){
                     <div class="dropdown-content">
                         <a href="../authentication/logout_action.php">Se déconnecter</a>
                         <a href="../change_profile.php">Modifier son profil</a>
+                        <?php 
+                            if ($_SESSION["role"]=="administrator")
+                            {
+                                ?>
+                                <a href="../back_office.php">Gérer le site</a>
+                                <?php
+                            }
+                        ?>
                     </div>
                 </div>
             </div>
