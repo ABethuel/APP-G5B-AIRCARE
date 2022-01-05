@@ -1,0 +1,34 @@
+
+@import url("./Components/style_header.css");
+@import url("./Components/style_footer.css");
+@font-face {              /** Ajouter police depuis dossier **/
+    font-family: qwigley;
+    src: url('./Assets/Fonts/Qwigley-Regular.ttf');
+}
+
+@font-face {
+    font-family: Quicksand-Bold;
+    src: url('/Assets/Fonts/Quicksand-Bold.ttf');
+}
+
+@font-face {
+    font-family: Quicksand-SemiBold;
+    src: url('Assets/Fonts/Quicksand-SemiBold.ttf');
+}
+
+@font-face {
+    font-family: Quicksand-Medium;
+    src: url('Assets/Fonts/Quicksand-Medium.ttf');
+}
+
+section, body, html{
+    width: 100%;
+    height: 100%;
+}
+
+body {
+    font-family: Quicksand-SemiBold;
+    background-color: #F3F3F3;
+    margin: 0px;
+    padding: 0px;
+}

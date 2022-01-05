@@ -1,0 +1,76 @@
+footer {
+    background-color: #2254B5;
+    width: 100%;
+}
+
+.creative_commons_footer {
+    text-align: center;
+    color: white;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.information_footer {
+    color: white;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.information_footer h3,
+h5 {
+    font-family: Quicksand-SemiBold;
+}
+
+.information_footer h5 {
+    font-family: Quicksand-SemiBold;
+}
+
+.aircare_info_footer a,
+p {
+    font-family: Quicksand-Medium;
+}
+
+.link_footer {
+    color: white;
+    text-decoration: none;
+}
+
+.link_footer:hover {
+    text-decoration: underline;
+}
+
+.social_media_footer {
+    display: flex;
+    justify-content: center;
+    padding-top: 2%;
+}
+
+.twitter_logo {
+    width: 46px;
+    height: 46px;
+    padding: 30px;
+    padding-bottom: 0px;
+}
+
+.instagram_logo {
+    width: 46px;
+    height: 46px;
+    padding: 30px;
+    padding-bottom: 0px;
+}
+
+.facebook_logo {
+    width: 46px;
+    height: 46px;
+    padding: 30px;
+    padding-bottom: 0px;
+}
+
+.hr_footer {
+    margin-top: 2%;
+    width: 10%;
+    height: 0.7px;
+    background-color: white;
+    border: none;
+}
