@@ -2,10 +2,12 @@
 
 // On importe l'initialisaton de la database
 require('./config/database.php');
+session_start();
 
 if(isset($_GET['id']) && !empty($_GET['id'])){
 
     $idCaptor = $_GET['id'];
+    $_SESSION['id_captor'] = $_GET['id'];
 
     $checkIfCaptorExists = $database->prepare("SELECT * FROM captors WHERE id = ?");
     $checkIfCaptorExists->execute(array($idCaptor));
@@ -70,6 +72,17 @@ if(isset($_GET['id']) && !empty($_GET['id'])){
                 $air_result = $airInfos['result'];
                 $air_place = $airInfos['place'];
                 $air_quality = $airInfos['quality'];
+
+                //On récupère toutes les valeurs de la qualité, pas uniquement la dernière
+                $checkAllQuality = $database->prepare('SELECT * FROM air_quality WHERE id_captor = ?');
+                $checkAllQuality->execute(array($idCaptor));
+
+                if ($checkAllQuality->rowCount() >= 3){
+                    
+                    $allAirInfos = $checkAllQuality->fetch();
+
+
+                }
 
             }else{
                 $errorMsg = "Erreur lors de la détermination de la qualité de l'air";
