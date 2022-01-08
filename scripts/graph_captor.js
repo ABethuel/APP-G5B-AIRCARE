@@ -46,6 +46,18 @@ $(document).ready(function(){
                                   return tooltipItem.yLabel;
                            }
                         }
+                    },
+                    scales: {
+                        xAxes: [{ 
+                            ticks: {
+                              fontColor: "#2254B5", 
+                            },
+                        }],
+                        yAxes: [{
+                            ticks:{
+                                fontColor: "#2254B5", 
+                            }
+                        }],
                     }
                 }
               });

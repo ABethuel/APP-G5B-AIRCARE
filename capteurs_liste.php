@@ -103,6 +103,29 @@ function displayCaptors(){
                 <?php displayCaptors(); ?>
             </div>
 
+            <h1>Ajouter un capteur</h1>
+
+            <!-- Formulaire d'ajout de capteur --> 
+            <form action="" method="POST">
+
+                <label for="title">Nom</label> <!-- Texte au dessus du champ de saisie -->
+                <input type="text" id="title" name="title" placeholder="Nom de votre capteur">
+
+                <label for="description">Description</label>
+                <textarea name="description" id="description" cols="6" rows="8" placeholder="Saisir une description du capteur"></textarea>
+                
+                <label for="image">Image</label> <!-- Texte au dessus du champ de saisie -->
+                <input type="text" id="image" name="image" placeholder="Rentrer une image">
+
+                <input type="submit" value="Ajouter" name="validate">
+
+                <?php  
+                    if(isset($errorMsg)) {
+                        ?>
+                        <p class="error_msg"><?php echo $errorMsg ?></p>
+                    <?php
+                } ?> 
+            </form>
         </div>
 
         <?php include_once('./Components/footer.php'); ?>
