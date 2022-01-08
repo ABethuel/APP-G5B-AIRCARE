@@ -85,13 +85,13 @@ h1{
 }
 
 .image_captor{
-    flex:1;
+    flex:2;
     padding: 7px;
     padding-bottom: 2px;
 }
 
 .right_content {
-    flex:4;
+    flex:5;
     padding : 10px;
     padding-top:0px;
     padding-bottom: 2px;
