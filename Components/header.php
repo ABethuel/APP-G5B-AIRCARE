@@ -35,7 +35,7 @@ function displayProfilOrConnexion(){
                             if ($_SESSION["role"]=="administrator")
                             {
                                 ?>
-                                <a href="../back_office.php">Gérer le site</a>
+                                <a href="../admin.php">Gérer le site</a>
                                 <?php
                             }
                         ?>
