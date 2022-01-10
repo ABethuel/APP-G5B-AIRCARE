@@ -85,7 +85,7 @@ h1{
 }
 
 .image_captor{
-    flex:1;
+    flex:2;
     padding: 7px;
     padding-bottom: 2px;
 }
@@ -171,6 +171,6 @@ input[type=submit]:hover {
 }
 
 .captors{
-    margin-bottom: 10%;
+    margin-bottom: 15%;
 }
 
