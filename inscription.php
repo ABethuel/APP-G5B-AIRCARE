@@ -9,6 +9,8 @@ require('./authentication/signup_action.php');
         <meta charset="utf-8" />
         <link rel="stylesheet" href="style_connexion_inscription.css">
         <link rel="icon" href="./Assets/images/logo.ico"/> <!-- icone du site onglet du navigateur -->
+        <script src="./scripts/authentification.js" ></script>
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
         <title>Inscription</title>
     </head>
 
@@ -21,7 +23,7 @@ require('./authentication/signup_action.php');
                     <h1 class="inscription">Inscription</h1>
 
                     <div class="form_connexion">
-                        <form action="" method="POST"> <!-- Donnés à saisir pour connexion -->
+                        <form id="form_connect" action="" method="POST"> <!-- Donnés à saisir pour connexion -->
 
                             <div class="name">
                                 <div>
@@ -50,6 +52,8 @@ require('./authentication/signup_action.php');
 
                             <input type="submit" value="S'inscrire" name="validate_user"> <!-- Bouton se connecter -->
                         
+                            <p class="error_msg" id="error"></p>
+
                             <!-- Si le formulaire envoyé n'est pas correctement rempli, alors on affiche un message d'erreur-->
                             <?php  if(isset($errorMsg)) {
                                 ?>
