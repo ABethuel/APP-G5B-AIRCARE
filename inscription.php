@@ -50,7 +50,7 @@ require('./authentication/signup_action.php');
                                 <label class="cgu" for="chekbox">J'ai lu et j'accepte les <a href="cgu.php" target="_blank" class="cgu_link">conditions générales d'utilisation</a></label>
                             </div>
 
-                            <input type="submit" value="S'inscrire" name="validate_user"> <!-- Bouton se connecter -->
+                            <input type="submit" value="S'inscrire" name="validate_user" onclick="displayErrorInscription()"> <!-- Bouton se connecter -->
                         
                             <p class="error_msg" id="error"></p>
 
