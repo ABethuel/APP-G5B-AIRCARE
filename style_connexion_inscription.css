@@ -181,6 +181,13 @@
         color: red;
         font-size: 12px;
     }
+
+    .error_password{
+        font-family: Quicksand-SemiBold;
+        color: red;
+        font-size: 12px;
+        padding:0
+    }
 }
   
   
@@ -344,6 +351,13 @@
         font-family: Quicksand-SemiBold;
         color: red;
         font-size: medium;
+    }
+
+    .error_password{
+        font-family: Quicksand-SemiBold;
+        color: red;
+        font-size: medium;
+        padding:0
     }
 }
 

@@ -10,6 +10,8 @@ require('./authentication/login_action.php');
         <meta charset="utf-8" />
         <link rel="stylesheet" href="style_connexion_inscription.css">
         <link rel="icon" href="./Assets/images/logo.ico"/> <!-- icone du site onglet du navigateur -->
+        <script src="./scripts/authentification.js" ></script>
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
         <title>Connexion</title>
     </head>
 
@@ -22,14 +24,14 @@ require('./authentication/login_action.php');
                     <h1 class="connexion">Connexion</h1>
 
                     <div class="form_connexion">
-                        <form action="" method="POST"> <!-- Donnés à saisir pour connexion -->
+                        <form id="form_connect" action="" method="POST"> <!-- Donnés à saisir pour connexion -->
                             <label for="email">Adresse email</label> <!-- Texte au dessus du champ de saisie -->
-                            <input type="text" id="email" name="adress_email" placeholder="Saisir votre adresse email">
+                            <input type="email" id="email" name="adress_email" placeholder="Saisir votre adresse email">
 
                             <label for="password">Mot de passe</label>
                             <input type="password" id="password" name="password_user" placeholder="Saisir votre mot de passe">
 
-                            <input type="submit" value="Se connecter" name="validate_user"> <!-- Bouton se connecter -->
+                            <input type="submit" value="Se connecter" name="validate_user" onclick="displayErrorConnexion()" /> <!-- Bouton se connecter -->
 
                             <div class="remember_help">
                                 <!-- Bouton se souvenir de moi -->
@@ -40,10 +42,12 @@ require('./authentication/login_action.php');
                                 <a href="#" class="help">Besoin d'aide ?</a>
                             </div>
 
+                            <p class="error_msg" id="error"></p>
+
                             <!-- Si le formulaire envoyé n'est pas correctement rempli, alors on affiche un message d'erreur-->
                             <?php  if(isset($errorMsg)) {
                                 ?>
-                                <p class="error_msg"><?php echo $errorMsg ?></p>
+                                <p class="error_msg" ><?php echo $errorMsg ?></p>
                                 <?php
                             } ?> 
                         
