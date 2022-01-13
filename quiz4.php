@@ -41,43 +41,12 @@
                 </div>
 
             <!-- Button commencer le quiz -->
-                <div class="start_btn"> 
-                    <button>Commencer le Quiz</button>
+                
+                <div class ="container">
+                    <button class="startbutton" onclick="window.location.href='/quiz4game.php';">Commencer le Quiz</button>
                 </div>
 
-            <!-- Box du quiz -->
-                <div class="quiz_box"> 
-                    <header>
-                        <div class="title">1 - Quelle est la ville la plus polluée du monde en 2021 ?</div>
-                    </header>
-                    <section>
-                    <img class="image_questionquiz"src="https://cdn.futura-sciences.com/buildsv6/images/wide1920/f/6/b/f6b9eb4bb1_50160005_particules-ultrafines-voitures.jpg" >
-                        <div class="option_list">
-                            <div class="option">
-                                <span>Paris (France)</span>
-                            </div>
-                            <div class="option">
-                                <span>Lahore (Pakistan)</span>
-                            </div>
-                            <div class="option">
-                                <span>Tokyo (Japon)</span>
-                            </div>
-                            <div class="option">
-                                <span>Lima (Pérou)</span>
-                            </div>
-                        </div>
-                    </section>
-                    <footer>
-                        <div class="num_que">
-                            <span>1 sur 4 questions</span>
-                        </div>
-                        <div class="next_que"> 
-                            <button>
-                                <span>Question Suivante</span>
-                            </button>
-                        </div>
-                    </footer>
-                </div>
+            
         
         <?php include_once('./Components/footer.php'); ?>
 

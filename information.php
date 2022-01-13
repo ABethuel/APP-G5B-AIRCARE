@@ -10,13 +10,13 @@ function displayFAQ () {
         ?>
 
             <div class="dropdown">
-                <h3 class="deroul"> <?php echo $FAQ["question"]?> </h3>
+                    <h3 class="deroul"> <?php echo $FAQ["question"]?> </h3>
                 <div class="dropdown-content">
                     <p class="text"> <?php echo $FAQ["answer"]?>
-                    </p>
+                        </p>
                 </div>
             </div>
-
+            
         <?php
     }
 }
@@ -31,6 +31,8 @@ function displayFAQ () {
     </head>
     
     <body>
+
+    <?php include_once('./Components/header.php'); ?>
         <div class="page">
         
             <div class="first_section">
@@ -41,11 +43,11 @@ function displayFAQ () {
                     <p class="text_photo1">
                         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse eu purus placerat est pulvinar aliquet. Nam scelerisque bibendum ex ut sollicitudin. Etiam nec placerat est. Vivamus feugiat sapien sodales ultricies dapibus. 
                     </p>
-                    <img class ="photo1" src= "images/capteur.png"/>
+                    <img class ="photo1" src= "./Assets/images/capteur-2.png"/>
                 </div>
                 
                 <div class="conteneur2">
-                    <img class ="photo2" src="images/capteur.png"/>
+                    <img class ="photo2" src="./Assets/images/capteur-2.png"/>
                     <div class="text_photo2">
                         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse eu purus placerat est pulvinar aliquet. Nam scelerisque bibendum ex ut sollicitudin. Etiam nec placerat est. Vivamus feugiat sapien sodales ultricies dapibus. </div>
                     </div>
@@ -59,11 +61,11 @@ function displayFAQ () {
                 
 
                 <div class="conteneur3">
-                    <img class ="photo_profil" src="images/profil.png"/>
-                    <img class ="photo_profil" src="images/profil.png"/>
-                    <img class ="photo_profil" src="images/profil.png"/>
-                    <img class ="photo_profil" src="images/profil.png"/>
-                    <img class ="photo_profil" src="images/profil.png"/>
+                    <img class ="photo_profil" src="./Assets/images/profil_connexion.png"/>
+                    <img class ="photo_profil" src="./Assets/images/profil_connexion.png"/>
+                    <img class ="photo_profil" src="./Assets/images/profil_connexion.png"/>
+                    <img class ="photo_profil" src="./Assets/images/profil_connexion.png"/>
+                    <img class ="photo_profil" src="./Assets/images/profil_connexion.png"/>
                 
                 </div>
                 <div class="conteneur3">
@@ -85,7 +87,7 @@ function displayFAQ () {
                 <?php displayFAQ()?>
             </div>
         </div>
-       
+        <?php include_once('./Components/footer.php'); ?>
 </body>   
     
 </html>

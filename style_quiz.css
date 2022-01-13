@@ -241,7 +241,8 @@ body {
     font-family: Quicksand-SemiBold;
     font-size: large;
     padding-bottom: 1%;
-    margin-bottom: 10%;
+    margin-bottom: 9%;
+    margin-top: 12%;
 }
 .quiz_box header{
     height: 70px;
@@ -262,9 +263,7 @@ body {
     margin-left: 16%;
     margin-right: 16%;
 }
-.quiz_box section{
-    padding: 4.5%;
-}
+
 .quiz_box section .option_list{
     padding: 20px 0;
     display: block;
@@ -366,4 +365,90 @@ footer .num_que span p:first-child{
     width: 30%;
     padding: 1%;
 
+}
+
+.last_buttons{
+    font-family: Quicksand-SemiBold;
+    font-size: large;
+    padding: 2%;
+    
+    
+}
+
+/**................... quiz4 edit..........**/
+
+
+.container{
+    padding-top: 11%;
+    padding-left: 44.5%;
+    padding-bottom: 10%;
+}
+
+.startbutton{
+    font-family: Quicksand-SemiBold;
+    font-size: large;
+    padding: 2%;
+    width: 20%;
+    background-color: #2254B5;  
+    color: #f3f3f3;
+    border: none;
+    cursor: pointer;
+    border-radius: 14px;
+    outline: 0%;
+}
+
+.startbutton:hover{
+    transform: scale(1.03);
+    background-color: #4D88FC;
+    color: #f3f3f3;
+    
+}
+
+/**.......................box...............**/
+.quiz_box section{
+    padding: 5%;
+}
+.choice-container{
+    display: flex;
+    margin-bottom: 2%;
+    width: 90%;
+    font-size: large;
+    border-radius: 10px;
+    background: #DFDFDF;
+    border: grey;    
+}
+.choice-container:hover{
+    cursor: pointer;
+    transform: scale(1.01);
+    background-color: #4D88FC;
+    color: #f3f3f3;
+    transition: transform 120ms;
+}
+.choice-text{
+    padding-left: 3%;
+    width: 100%;
+}
+
+.correct{
+    background-color: #28a745;
+}
+
+.incorrect{
+    background-color: #dc3545;
+}
+
+/**.............HUD...............**/
+
+#hud{
+    display: flex;
+    justify-content: space-between;
+    margin-left: 2%;
+}
+.hud-prefix{
+    text-align: center;
+    font-size: 100%;
+}
+.hud-main-text{
+    text-align: center;
+    font-size: 150%;
 }
