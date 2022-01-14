@@ -144,6 +144,30 @@ require('./captors/showDetailCaptorAction.php')
                     </div>
                 </div>
 
+                <?php 
+                    if (isset($bpmInfos)){
+                        ?>
+                        <div class="bpm_bloc">
+                            <div class="content_data">
+                                <h1>Rythme cardiaque</h1>
+                                <div class="bpm_bloc">
+                                    <div class="bpm">
+                                        <div class="padding_bloc">
+                                            <div class="name_composant">
+                                                <p>BPM</p>
+                                            </div>
+                                            <div class="value">
+                                                <p><?php echo $bpm; ?></p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>s
+                            </div>
+                        </div>
+                        <?php
+                    }
+                ?>
+
             <?php
                 }
                 else if (isset($errorMsg)) {

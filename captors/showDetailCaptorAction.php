@@ -9,6 +9,8 @@ if(isset($_GET['id']) && !empty($_GET['id'])){
     $idCaptor = $_GET['id'];
     $_SESSION['id_captor'] = $_GET['id'];
 
+    $idUSer = $_SESSION['id'];
+
     $checkIfCaptorExists = $database->prepare("SELECT * FROM captors WHERE id = ?");
     $checkIfCaptorExists->execute(array($idCaptor));
 
@@ -80,8 +82,16 @@ if(isset($_GET['id']) && !empty($_GET['id'])){
                 if ($checkAllQuality->rowCount() >= 3){
                     
                     $allAirInfos = $checkAllQuality->fetch();
+                    
+                    $checkIfBpmExists = $database->prepare('SELECT * from bpm WHERE id_user = ? ORDER BY id DESC LIMIT 1');
+                    $checkIfBpmExists->execute(array($idUSer));
 
-
+                    if ($checkIfBpmExists->rowCount() > 0){
+                        
+                        $bpmInfos = $checkIfBpmExists->fetch();
+                        
+                        $bpm = $bpmInfos['bpm'];
+                    }
                 }
 
             }else{

@@ -177,3 +177,29 @@ h1{
 .graph_bloc h1{
     margin-bottom: 4%;
 }
+
+.bpm_bloc{
+    background-color: #FAFAFA;
+    margin-bottom: 3.5%;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 255);
+    border-radius: 8px;
+    text-align: center;
+}
+
+.bpm_bloc h1{
+    margin-bottom: 4%;
+}
+
+.content_data{
+    padding: 15px;
+    padding-top: 8px;
+}
+
+.bpm{
+    
+    background-color: #2254B5;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 255);
+    border-radius: 8px; 
+    width: 23%;
+    height:160px;
+}
