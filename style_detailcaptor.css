@@ -196,10 +196,33 @@ h1{
 }
 
 .bpm{
-    
-    background-color: #2254B5;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 255);
-    border-radius: 8px; 
-    width: 23%;
-    height:160px;
+    display:flex;
+    justify-content:center
 }
+
+.bpm h1{
+    font-size: x-large;
+}
+
+.bpm .value{
+    color: #2254B5
+}
+
+.quality_bpm{
+    display:flex;
+    justify-content:center
+}
+
+.quality_bpm .quality_text{
+    color: #2254B5
+}
+
+.text_advice{
+    text-align: center
+}
+
+.text_advice h1{
+    font-size:medium;
+    color: #2254B5
+}
+

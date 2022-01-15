@@ -149,19 +149,24 @@ require('./captors/showDetailCaptorAction.php')
                         ?>
                         <div class="bpm_bloc">
                             <div class="content_data">
-                                <h1>Rythme cardiaque</h1>
-                                <div class="bpm_bloc">
-                                    <div class="bpm">
-                                        <div class="padding_bloc">
-                                            <div class="name_composant">
-                                                <p>BPM</p>
-                                            </div>
-                                            <div class="value">
-                                                <p><?php echo $bpm; ?></p>
-                                            </div>
+                                <div class="bpm">
+                                    <h1 class="text">Votre rythme cardiaque est de&nbsp</h1>
+                                    <h1 class="value"><?php echo  $bpm . ' BPM'?></h1>
+                                </div>
+                                <div class="quality_bpm">
+                                    <h1>Ce rythme cardiaque est&nbsp</h1>
+                                    <h1 class="quality_text"><?php echo $bpm_quality ?></h1>
+                                </div>
+
+                                <?php 
+                                    if (isset($text_bpm)){
+                                        ?>
+                                        <div class="text_advice">
+                                            <h1><?php echo $text_bpm ?></h1>
                                         </div>
-                                    </div>
-                                </div>s
+                                        <?php
+                                    }
+                                ?>
                             </div>
                         </div>
                         <?php
