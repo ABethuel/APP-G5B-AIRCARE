@@ -17,7 +17,7 @@ Footer à ajouter sur chaque page le nécéssitant -->
         <div class="help_footer">
             <h3>AIDE</h3>
             <p><a class="link_footer" href="../information.php">FAQ</a></p>
-            <p><a class="link_footer" href="../forum.php">Forum</a></p>
+            <p><a class="link_footer" href="../forum_sujet.php">Forum</a></p>
             <p><a class="link_footer" href="../contact.php">Nous contacter</a></p>
         </div>
 

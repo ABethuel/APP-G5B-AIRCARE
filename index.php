@@ -43,6 +43,8 @@ function display_actu(){
 
     <body>
 
+    
+
         <?php include_once('./Components/header.php'); ?>
 
         <section class="first_section">
