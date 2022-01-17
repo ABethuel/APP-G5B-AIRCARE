@@ -75,6 +75,23 @@ function displayErrorInscription(){
             messages.push("Veuillez lire et acceptez les conditions générales d'utilisation");
         }
 
+        if (password.value.match( /[0-9]/g) && password.value.match( /[A-Z]/g) && 
+            password.value.match( /[a-z]/g) && password.value.match( /[^a-zA-Z\d]/g) && password.value.length >= 8){
+
+            return true;
+
+        } else{
+            messages.push('Votre mot de passe doit comporter une minuscule, une majuscule, un nombre et un caractère spécial')
+            error.innerHTML = messages.join(', ')
+
+            form.addEventListener('submit', (e) => {
+                
+                e.preventDefault();
+                
+        })
+
+        }
+
         if (messages.length > 0) {
             e.preventDefault();
             error.innerHTML = messages.join(', ')
@@ -82,37 +99,6 @@ function displayErrorInscription(){
     })
 }
 
-function displayPasswordOnChange() {
-        
-    const form = document.getElementById('form_connect');
-    const email = document.getElementById('email');
-    const password = document.getElementById('password');
-    const confirm_password = document.getElementById('confirm_password');
-    const fname = document.getElementById('fname');
-    const lname = document.getElementById('lname');
-    const remember = document.getElementById('remember');
-    const error = document.getElementById('error_password');
-
-    let messages=[];
-
-    if (password.value.match( /[0-9]/g) && password.value.match( /[A-Z]/g) && 
-        password.value.match( /[a-z]/g) && password.value.length >= 8){
-
-        messages.push(' test')
-
-    } else{
-        messages.push('Mot de passe faible')
-        error.innerHTML = messages.join(', ')
-
-        form.addEventListener('submit', (e) => {
-            
-            e.preventDefault();
-            
-        })
-
-    }
-
-}
 
 
 

@@ -11,13 +11,13 @@ Footer à ajouter sur chaque page le nécéssitant -->
             <a class="link_footer" href="../information.php">Qui sommes nous</a> 
             <p>Adresse : 10 rue de Vanves </br> 92130 Issy-les-Moulinaux</p> 
             <p>Horaires : </br> Du lundi au vendredi </br> de 10 à 19h</p> 
-            <a class="link_footer" target="_blank" href="https://www.amazon.com/">Acheter notre produit</a>
+            <a class="link_footer" target="_blank" href="https://www.amazon.com/Instagram-Dummies-Computer-Tech/dp/111959393X/ref=sr_1_2?keywords=instagram&qid=1642425667&sprefix=instagr%2Caps%2C222&sr=8-2">Acheter notre produit</a>
         </div>
 
         <div class="help_footer">
             <h3>AIDE</h3>
             <p><a class="link_footer" href="../information.php">FAQ</a></p>
-            <p><a class="link_footer" href="../forum.php">Forum</a></p>
+            <p><a class="link_footer" href="../forum_sujet.php">Forum</a></p>
             <p><a class="link_footer" href="../contact.php">Nous contacter</a></p>
         </div>
 

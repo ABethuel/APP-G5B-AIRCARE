@@ -40,9 +40,7 @@ require('./authentication/signup_action.php');
                             <input type="email" id="email" name="adress_email" placeholder="Saisir votre adresse email">
 
                             <label class="inscription_label" for="password">Mot de passe</label>
-                            <input type="password" id="password" name="password_user" placeholder="Saisir votre mot de passe" onchange="displayPasswordOnChange()">
-
-                            <p class="error_password" id="error_password"></p>
+                            <input type="password" id="password" name="password_user" placeholder="Saisir votre mot de passe">
 
                             <label class="inscription_label" for="confirm_password">Confirmer le mot de passe</label>
                             <input type="password" id="confirm_password" name="confirm_password_user" placeholder="Confirmer votre mot de passe">
