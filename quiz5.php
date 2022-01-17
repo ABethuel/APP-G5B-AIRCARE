@@ -12,8 +12,8 @@
 
         <?php include_once('./Components/header.php'); ?>
             
-               <!-- Box contenant l'introduction et les thématiques -->
-               <div class = "partie1"> 
+<!-- Box contenant l'introduction et les thématiques -->
+<div class = "partie1"> 
                 
                 <header>
 
@@ -41,59 +41,12 @@
                 </div>
 
             <!-- Button commencer le quiz -->
-                <div class="start_btn"> 
-                    <button>Commencer le Quiz</button>
-                </div>
-
-            <!-- Box du quiz -->
-                <div class="quiz_box"> 
-                    <header>
-                        <div class="title">1 - Quelle est la ville la plus polluée du monde en 2021 ?</div>
-                    </header>
-                    <section>
-                    <img class="image_questionquiz"src="https://cdn.futura-sciences.com/buildsv6/images/wide1920/f/6/b/f6b9eb4bb1_50160005_particules-ultrafines-voitures.jpg" >
-                        <div class="option_list">
-                            <div class="option">
-                                <span>Paris (France)</span>
-                            </div>
-                            <div class="option">
-                                <span>Lahore (Pakistan)</span>
-                            </div>
-                            <div class="option">
-                                <span>Tokyo (Japon)</span>
-                            </div>
-                            <div class="option">
-                                <span>Lima (Pérou)</span>
-                            </div>
-                        </div>
-                    </section>
-                    <footer>
-                        <div class="num_que">
-                            <span>1 sur 7 questions</span>
-                        </div>
-                        <div class="next_que"> 
-                            <button>
-                                <span>Question Suivante</span>
-                            </button>
-                        </div>
-                    </footer>
-                </div>
-
-            <!-- Box des resultats -->
-                <div class="result_box">
-                    <div class="icon">
-                        <i class="fas fa-crown"></i>
-                    </div>
-                    <div class="quiz_fini">Le Quiz est terminé</div>
-                    <div class="quiz_resultats">
-                        <span>Vous avez<p>4</p>sur<p>7</p>bonnes réponses</span>
-                    </div>
-                    <div class="last_buttons">
-                        <button class="restart">Recommencer</button>
-                        <button class="quit">Quitter</button>
-                    </div>
                 
+                <div class ="container">
+                    <button class="startbutton" onclick="window.location.href='/quiz5game.php';">Commencer le Quiz</button>
                 </div>
+
+                          
 
         <?php include_once('./Components/footer.php'); ?>
 
