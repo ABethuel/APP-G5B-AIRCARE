@@ -11,12 +11,12 @@ let availableQuestions = [];
 
 let questions = [
     {
-        question: "Quelle est la ville la plus polluée du monde en 2021?",
-        choice1: "Paris (France)",
-        choice2: "Lima (Pérou)",
-        choice3: "Lahore (Pakistan)",
-        choice4: "Tokyo (Japon)",
-        answer: 2
+        question: "poso malakas eisai agori mou?",
+        choice1: "Poli",
+        choice2: "Ligo",
+        choice3: "Etsi kai etsi",
+        choice4: "Asto kalitera",
+        answer: 1
     },
     {
         question: "Quels sont les véhicules les plus polluants?",

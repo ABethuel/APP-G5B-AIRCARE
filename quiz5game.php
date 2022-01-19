@@ -74,7 +74,7 @@
     
     <?php include_once('./Components/footer.php'); ?>
     
-    <script src="./scripts/quiz4game.js"></script>
+    <script src="./scripts/quiz5game.js"></script>
 <body>
 
 </html>

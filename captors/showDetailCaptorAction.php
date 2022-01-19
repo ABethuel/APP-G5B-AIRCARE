@@ -93,7 +93,7 @@ if(isset($_GET['id']) && !empty($_GET['id'])){
                         $bpm = $bpmInfos['value'];
                         $bpm_quality = $bpmInfos['quality'];
 
-                        if ($bpm_quality >= '100' ){
+                        if ($bpm >= 100 ){
 
                             $text_bpm = "Si vous vous trouvez dans la zone du capteur, nous vous conseillons de vous déplacer";
                         }

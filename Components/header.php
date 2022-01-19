@@ -29,13 +29,13 @@ function displayProfilOrConnexion(){
                 <div class="dropdown">
                     <a class="name_profile"><?php echo $first_name . ' '. $last_name; ?></a>
                     <div class="dropdown-content">
-                        <a href="../authentication/logout_action.php">Se déconnecter</a>
-                        <a href="../change_profile.php">Modifier son profil</a>
+                        <a href="./authentication/logout_action.php">Se déconnecter</a>
+                        <a href="./change_profile.php">Modifier son profil</a>
                         <?php 
                             if ($_SESSION["role"]=="administrator")
                             {
                                 ?>
-                                <a href="../admin.php">Gérer le site</a>
+                                <a href="./admin.php">Gérer le site</a>
                                 <?php
                             }
                         ?>
@@ -46,8 +46,8 @@ function displayProfilOrConnexion(){
         }else{
             ?>
             <div class="connexion">
-                <img class="profil" src="../Assets/images/profil_connexion.png">
-                <a class="connect_yourself" href="../connexion.php">Se connecter</a>
+                <img class="profil" src="./Assets/images/profil_connexion.png">
+                <a class="connect_yourself" href="./connexion.php">Se connecter</a>
             </div>
             <?php
         }
@@ -55,8 +55,8 @@ function displayProfilOrConnexion(){
     catch(Exception $e) {
         ?>
         <div class="connexion">
-            <img class="profil" src="../Assets/images/profil_connexion.png">
-            <a class="connect_yourself" href="../connexion.php">Se connecter</a>
+            <img class="profil" src="./Assets/images/profil_connexion.png">
+            <a class="connect_yourself" href="./connexion.php">Se connecter</a>
         </div>
         <?php
     }
@@ -69,14 +69,14 @@ function displayProfilOrConnexion(){
     <nav>
         <div class="left">
             <div>
-                <a href="../index.php"><img class="logo" src="../Assets/images/logo.png"></a>
+                <a href="./index.php"><img class="logo" src="./Assets/images/logo.png"></a>
             </div>
             <div class="menu">
-                <a href="../index.php">ACCUEIL</a>
-                <a href="../information.php">INFORMATIONS</a>
-                <a href="../capteurs_liste.php">CAPTEURS</a>
-                <a href="../forum_sujet.php">FORUM</a>
-                <a href="../quiz.php">QUIZ</a>
+                <a href="./index.php">ACCUEIL</a>
+                <a href="./information.php">INFORMATIONS</a>
+                <a href="./capteurs_liste.php">CAPTEURS</a>
+                <a href="./forum_sujet.php">FORUM</a>
+                <a href="./quiz.php">QUIZ</a>
 
             </div>
         </div>
