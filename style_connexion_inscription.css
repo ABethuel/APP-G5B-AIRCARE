@@ -190,8 +190,177 @@
     }
 }
   
+@media screen and (min-height: 681px) and (max-height:749px) {
+    .content{
+        padding: 20px 5% 15px;
+        display:table;
+        width: 30%;
+        background:#cecece ;
+        box-shadow: 0 0 80px rgba(0, 0, 0, 255);
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: -0.75em;
+        font-size:19.5px;
+        border-radius: 8px;
+        opacity: 0.86;
+    }
+
+    .content_inscription{
+        padding: 20px 5% 15px;
+        display:table;
+        width: 37%;
+        background:#cecece ;
+        box-shadow: 0 0 80px rgba(0, 0, 0, 255);
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: -0.75em;
+        font-size:19.5px;
+        border-radius: 8px;
+        opacity: 0.86;
+    }
+
+    
+    h1.aircare{
+        font-size: 150px;
+        font-family: qwigley;
+        text-align: center;
+        color: white;
+        box-shadow: 0 0 0px rgba(0, 0, 0, 255);
+    }
+
+    h1.aircare2{
+        font-size: 85px;
+        font-family: qwigley;
+        text-align: center;
+        color: white;
+        box-shadow: 0 0 0px rgba(0, 0, 0, 255);
+    }
+
+    .connexion {
+        font-size: 30px;
+        font-family: Quicksand-SemiBold;
+        text-align: center;
+    }
+    
+    .inscription {
+        font-size: 20px;
+        font-family: Quicksand-SemiBold;
+        text-align: center;
+    }
+
+    input[type=text], select {
+        width: 100%;
+        padding: 10px 20px;
+        margin: 8px 0 14px;
+        display: inline-block;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+        font-family: Quicksand-SemiBold;
+    }
+
+    input[type=email], select {
+        width: 100%;
+        padding: 10px 20px;
+        margin: 8px 0 14px;
+        display: inline-block;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+        font-family: Quicksand-SemiBold;
+    }
+    
+    input[type=password], select {
+        width: 100%;
+        padding: 10px 20px;
+        margin: 8px 0 14px;
+        display: inline-block;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+        font-family: Quicksand-SemiBold;
+    }
+      
+    input[type=submit] {
+        width: 100%;
+        background-color: #2254B5;
+        color: white;
+        padding: 10px 20px;
+        margin: 8px 0;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        opacity: 1;
+        margin-top: 2.5%;
+        margin-bottom: 0%;
+        font-family: Quicksand-SemiBold;
+        font-size: medium;
+    }
+      
+    input[type=checkbox] {
+        width: 12.5px;
+        height: 12.5px;
+        margin-left: -0.02%;
+        margin-top: 1.5%;
+        margin-bottom: 3%;
+    }
+
+    .inscription_label{
+        font-family: Quicksand-SemiBold;
+        font-size: 16px ;
+      }
+    
+    .remember_user {
+        font-size: 18px;
+    }
+
+    .cgu {
+        font-size: 15px;
+    }
+
+    .help{
+        color: #6A6A6A;
+        text-decoration: none;
+        font-size: 18px;
+        font-family: Quicksand-SemiBold;
+        margin-top: 0.4%;
+    }
+
+    .cgu_link{
+        color: #6A6A6A;
+        text-decoration: none;
+        font-size: 15px;
+        font-family: Quicksand-SemiBold;
+    }
+
+    .no_account{
+        font-family: Quicksand-SemiBold;
+        font-size: medium;
+        text-align: center;
+    }
+    
+    .inscription_link{
+        font-family: Quicksand-SemiBold;
+        font-size: medium;
+        color: #6A6A6A;
+        text-decoration: none;
+    }
+
+    .error_msg{
+        font-family: Quicksand-SemiBold;
+        color: red;
+        font-size: medium;
+    }
+
+    .error_password{
+        font-family: Quicksand-SemiBold;
+        color: red;
+        font-size: medium;
+        padding:0
+    }
+}
   
-@media screen and (min-height: 681px) { 
+@media screen and (min-height: 750px) { 
     .content{
         padding: 20px 5% 15px;
         display:table;
