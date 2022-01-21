@@ -63,60 +63,65 @@ $first_name = $_SESSION['first_name'];
             <div class="sidebar-menu">
                 <ul>
                     <li>
-                        <a href="admin.php"><span class="fas fa-igloo"></span>
+                        <a href="admin.php" class="active"><span class="fas fa-igloo"></span>
                         <span>Tableau de bord</span></a>
                     </li>
                     <li>
                         <a href="a_law.php"><span class="fas fa-users"></span>
                         <span>Gérer les utilisateurs</span></a>
                     </li>   
-                         
                     <li>
-                        <a href=""><span class="fas fa-tablet"></span>
+                        <a href="a_capteur.php"><span class="fab fa-phabricator"></span>
                         <span>Gérer les Capteurs</span></a>
                     </li>
                     <li>
-                        <a href="a_FAQ.php" class="active"><span class="fas fa-question"></span>
+                        <a href="a_FAQ.php"><span class="fas fa-question"></span>
                         <span>FAQ</span></a>
-                    </li>      
+                    </li>  
+                    <li>
+                        <a href="a_actu.php"><span class="fas fa-book"></span>
+                        <span>Actualités</span></a>
+                    </li>
+                    <li>
+                        <a href="a_forum.php"><span class="fas fa-comment-alt"></span>
+                        <span>Forum</span></a>
+                    </li> 
                 </ul>
             </div>
-
             <div class="sidebar-change">
-                
+    
                 <li><a href="authentication/logout_action.php">Se déconnecter</a></li>
             </div>
-        </div>
-        <div class="main-content">
+            </div>
+            <div class="main-content">
             <header>
                 <h1>
                     <label for="nav-toggle"><i class="fas fa-bars"></i></label>
-                    Tableau de bord
+                    Espace Admin
                 </h1>
-           
+
                 <div class="search-wrapper">
                     <i class="fas fa-search"></i>
                     <input type="search" placeholder="Rechercher"/> 
                 </div>
                 <div class="user-wrapper">
-                <div class="connected">
-                <div class="profil_circle">
-                    <a class="first_letters"><?php echo $first_letter_fname, $first_letter_lname; ?></a>
+                    <div class="connected">
+                            <div class="profil_circle">
+                                <a class="first_letters"><?php echo $first_letter_fname, $first_letter_lname; ?></a>
+                            </div>
+                            <div class="dropdown">
+                                <a class="name_profile"><?php echo $first_name . ' '. $last_name; ?></a>
+                                <div class="dropdown-content">
+                                    <?php if($_SESSION['role'] == 'administrator'){ ?>
+                                    <a href="admin.php">Espace administrateur</a>
+                                    <?php }?>
+                                    <a href="authentication/logout_action.php">Se déconnecter</a>
+                                    <a href="change_profile.php">Modifier son profil</a>
+                                </div>
+                            </div>
+                        </div>
                 </div>
-                <div class="dropdown">
-                    <a class="name_profile"><?php echo $first_name . ' '. $last_name; ?></a>
-                    <div class="dropdown-content">
-                        <?php if($_SESSION['role'] == 'administrator'){ ?>
-                        <a href="admin.php">Espace administrateur</a>
-                        <?php }?>
-                        <a href="authentication/logout_action.php">Se déconnecter</a>
-                        <a href="change_profile.php">Modifier son profil</a>
-                    </div>
-                </div>
-            </div>
-                </div>
-            </header>
-
+            </header>  
             <main>
             <div class="recent-grids">
                     <h1>Modification de la FAQ n°<?= $getid ?></h1>

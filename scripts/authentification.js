@@ -75,7 +75,11 @@ function displayErrorInscription(){
             messages.push("Veuillez lire et acceptez les conditions générales d'utilisation");
         }
 
-        if (password.value.match( /[0-9]/g) && password.value.match( /[A-Z]/g) && 
+        else if (password.value != confirm_password.value){
+            messages.push("Les mots de passe ne correspondent pas")
+        }
+
+        else if (password.value.match( /[0-9]/g) && password.value.match( /[A-Z]/g) && 
             password.value.match( /[a-z]/g) && password.value.match( /[^a-zA-Z\d]/g) && password.value.length >= 8){
 
             return true;

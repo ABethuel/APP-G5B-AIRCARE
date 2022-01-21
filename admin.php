@@ -33,7 +33,7 @@ $first_name = $_SESSION['first_name'];
     <div class="sidebar">
 
 <div class="sidebar-brand">
-    <a href="index.php"><img src="Assets/images/logo.png"></a>
+    <a href="index.php"><img src="Assets/images/logo_inverse.png"></a>
 </div>
 
 <div class="sidebar-menu">
@@ -47,13 +47,21 @@ $first_name = $_SESSION['first_name'];
             <span>Gérer les utilisateurs</span></a>
         </li>   
         <li>
-            <a href=""><span class="fas fa-tablet"></span>
+            <a href="a_capteur.php"><span class="fab fa-phabricator"></span>
             <span>Gérer les Capteurs</span></a>
         </li>
         <li>
             <a href="a_FAQ.php"><span class="fas fa-question"></span>
             <span>FAQ</span></a>
-        </li>      
+        </li>  
+        <li>
+            <a href="a_actu.php"><span class="fas fa-book"></span>
+            <span>Actualités</span></a>
+        </li>
+        <li>
+            <a href="a_forum.php"><span class="fas fa-comment-alt"></span>
+            <span>Forum</span></a>
+        </li> 
     </ul>
 </div>
 
@@ -90,74 +98,73 @@ $first_name = $_SESSION['first_name'];
                 </div>
             </div>
     </div>
-</header>
-       
-
-            <main>
-                <div class="cards">
-                    <div class="card-single">
-                        <div>
-                            <?php
-                                	$countMbr = $database->query('SELECT * FROM users WHERE role = "user"');
-                                    $nbrMembres = $countMbr->rowCount();
-                            ?>
-                            <h1><?= $nbrMembres; ?></h1>
-                            <span>utilisateurs inscrit</span>
-                        </div>
-                        <div>
-                            <i class="fas fa-user"></i>
-                        </div>
+</header>  
+    <body>                        
+        <main>
+            <div class="cards">
+                <div class="card-single">
+                    <div>
+                        <?php
+                                $countMbr = $database->query('SELECT * FROM users WHERE role = "user"');
+                                $nbrMembres = $countMbr->rowCount();
+                        ?>
+                        <h1><?= $nbrMembres; ?></h1>
+                        <span>Utilisateurs inscrit</span>
                     </div>
-                    <div class="card-single">
-                        <div>
-                            <?php
-                                	$countMbr = $database->query('SELECT * FROM users WHERE role="manager"');
-                                    $nbrMembres = $countMbr->rowCount();
-                            ?>
-                            <h1><?= $nbrMembres; ?></h1>
-                            <span>gestionnaire inscrit</span>
+                    <div>
+                        <i class="fas fa-user"></i>
+                    </div>
+                </div>
+                <div class="card-single">
+                    <div>
+                        <?php
+                                $countMbr = $database->query('SELECT * FROM users WHERE role="administrator"');
+                                $nbrMembres = $countMbr->rowCount();
+                        ?>
+                        <h1><?= $nbrMembres; ?></h1>
+                        <span>Adiministrateur inscrit</span>
+                    </div>
+                    <div>
+                        <i class="fas fa-user"></i>
+                    </div>
+                </div>
+            </div>
+            <?PHP if((htmlspecialchars($_GET['msg'])) == 1): ?>
+                                <p class="supprimer">Le compte a été supprimé !<br></p>
+            <?PHP endif; ?>
+            <?PHP if((htmlspecialchars($_GET['msg'])) == 2): ?>
+                                <p class="banni">Le compte a été banni !<br></p>
+            <?PHP endif; ?>
+            <?PHP if((htmlspecialchars($_GET['msg'])) == 3): ?>
+                                <p class="supprimer">Le compte a été modifié !<br></p>
+            <?PHP endif; ?>
+            <div class="recent-grid">
+                <div class="users">
+                    <div class="card">
+                        <div class="card-header">
+                            <h2>Utilisateurs</h2>
+                            
+                            <a href="a_law.php">Voir tous les utilisateurs</a>
                         </div>
-                        <div>
-                            <i class="fas fa-user"></i>
+                        <div class="card-body">
+                            <table>
+                                <?php foreach($afficher_profil as $ap){?>
+                                    <tr>  
+                                        <td><?= $ap['id'] ?></td>        
+                                        <td><?= $ap['first_name'] ?></td>
+                                        <td><?= $ap['last_name'] ?></td>
+                                        <td><?= $ap['role'] ?></td>
+                                        <td><a href="a_deleteUser.php?id=<?= $ap['id'] ?>">Supprimer le profil</a></td>
+                                        <td><a href="a_modifierprofil.php?id=<?= $ap['id'] ?>">Modifier le profil</a></td>
+                                      </tr>
+                                <?php } ?>
+                            </table>
                         </div>
                     </div>
                 </div>
-                <?PHP if((htmlspecialchars($_GET['msg'])) == 1): ?>
-                                    <p class="supprimer">Le compte a été supprimé !<br></p>
-                <?PHP endif; ?>
-                <?PHP if((htmlspecialchars($_GET['msg'])) == 2): ?>
-                                    <p class="banni">Le compte a été banni !<br></p>
-                <?PHP endif; ?>
-                <?PHP if((htmlspecialchars($_GET['msg'])) == 3): ?>
-                                    <p class="supprimer">Le compte a été modifié !<br></p>
-                <?PHP endif; ?>
-                <div class="recent-grid">
-                    <div class="users">
-                        <div class="card">
-                            <div class="card-header">
-                                <h2>Utilisateurs</h2>
-                                
-                                <a href="a_law.php">Voir tous les utilisateurs</a>
-                            </div>
-                            <div class="card-body">
-                                <table>
-                                    <?php foreach($afficher_profil as $ap){?>
-                                        <tr>  
-                                            <td><?= $ap['id'] ?></td>        
-                                            <td><?= $ap['first_name'] ?></td>
-                                            <td><?= $ap['last_name'] ?></td>
-                                            <td><?= $ap['role'] ?></td>
-                                            <td><a href="a_deleteUser.php?id=<?= $ap['id'] ?>">Supprimer le profil</a></td>
-                                            <td><a href="a_modifierprofil.php?id=<?= $ap['id'] ?>">Modifier le profil</a></td>
-                                          </tr>
-                                    <?php } ?>
-                                </table>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+            </div>
 
-            </main>
+        </main>
         
     </body>
 </html>

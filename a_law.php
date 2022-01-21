@@ -7,8 +7,10 @@ if (!isset($_SESSION)){
 if($_SESSION['role'] != 'administrator'){
     header('Location: index.php');
 }
+
 require("./config/database.php") ;
-$afficher_profil = $database->query("SELECT * FROM users");
+$afficher_profil = $database->prepare("SELECT * FROM users");
+$afficher_profil -> execute() ;
 $afficher_profil = $afficher_profil->fetchAll();
 
 $first_name = $_SESSION['first_name'];
@@ -33,9 +35,8 @@ $first_name = $_SESSION['first_name'];
         <div class="sidebar">
 
             <div class="sidebar-brand">
-             <a href="index.php"><img src="Assets/images/logo.png"></a>
+             <a href="index.php"><img src="Assets/images/logo_inverse.png"></a>
             </div>
-
             <div class="sidebar-menu">
                 <ul>
                     <li>
@@ -46,30 +47,37 @@ $first_name = $_SESSION['first_name'];
                         <a href="a_law.php" class="active"><span class="fas fa-users"></span>
                         <span>Gérer les utilisateurs</span></a>
                     </li>   
-                        
                     <li>
-                        <a href=""><span class="fas fa-tablet"></span>
+                        <a href="a_capteur.php"><span class="fab fa-phabricator"></span>
                         <span>Gérer les Capteurs</span></a>
                     </li>
                     <li>
                         <a href="a_FAQ.php"><span class="fas fa-question"></span>
                         <span>FAQ</span></a>
-                    </li>      
+                    </li>  
+                    <li>
+                        <a href="a_actu.php"><span class="fas fa-book"></span>
+                        <span>Actualités</span></a>
+                    </li>
+                    <li>
+                        <a href="a_forum.php"><span class="fas fa-comment-alt"></span>
+                        <span>Forum</span></a>
+                    </li> 
                 </ul>
             </div>
-
+            
             <div class="sidebar-change">
                 <li><a href="authentication/logout_action.php">Se déconnecter</a></li>
             </div>
         </div>
-        <div class="main-content">
-            <header>
-                <h1>
-                    <label for="nav-toggle"><i class="fas fa-bars"></i></label>
-                    Tableau de bord
-                </h1>
-           
-                <div class="search-wrapper">
+            <div class="main-content">
+                <header>
+                    <h1>
+                        <label for="nav-toggle"><i class="fas fa-bars"></i></label>
+                        Tableau de bord
+                    </h1>
+            
+                    <div class="search-wrapper">
                     <i class="fas fa-search"></i>
                     <input type="search" placeholder="Rechercher"/> 
                 </div>
@@ -108,7 +116,6 @@ $first_name = $_SESSION['first_name'];
                                             <td>nom</td>
                                             <td>prenom</td>
                                             <td>role</td>
-                                            <td>Score</td>
                                             <td>Supprimer</td>
                                           
                                             <td>Modifier</td>
@@ -119,7 +126,6 @@ $first_name = $_SESSION['first_name'];
                                             <td><?= $ap['last_name'] ?></td>
                                             <td><?= $ap['first_name'] ?></td>
                                             <td><?= $ap['role'] ?></td>
-                                            <td><?= $ap['score'] ?></td>
                                             <td><a href="a_deleteUser.php?id=<?= $ap['id'] ?>">Supprimer le profil</a></td>
                                             <td><a href="a_modifierprofil.php?id=<?= $ap['id'] ?>">Modifier le profil</a></td>
                                             </tr>

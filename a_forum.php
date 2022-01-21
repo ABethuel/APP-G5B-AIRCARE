@@ -7,11 +7,9 @@ if (!isset($_SESSION)){
 if($_SESSION['role'] != 'administrator'){
     header('Location: index.php');
 }
-
 require("./config/database.php") ;
-$display_captors = $database->prepare("SELECT * FROM captors");
-$display_captors -> execute() ;
-$display_captors = $display_captors->fetchAll();
+$display_topics = $database->query("SELECT * FROM topics");
+$display_topics = $display_topics->fetchAll();
 
 $first_name = $_SESSION['first_name'];
             $last_name = $_SESSION['last_name'];
@@ -24,10 +22,9 @@ $first_name = $_SESSION['first_name'];
 <html lang="fr">
 	<head>
     <meta charset="utf-8" />
-        <link rel="icon" type="image/png" href="Assets/images/logo_inverse.png"/> <!-- icone du site onglet du navigateur -->
+        <link rel="icon" type="image/png" href="Assets/images/logo.png"/> <!-- icone du site onglet du navigateur -->
         <link rel="stylesheet" href="style_index.css">
         <link rel="stylesheet" href="admin.css">
-        <link rel="stylesheet" href="FAQ.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
         <title>Espace Administrateur</title>
 	</head>
@@ -42,7 +39,7 @@ $first_name = $_SESSION['first_name'];
             <div class="sidebar-menu">
                 <ul>
                     <li>
-                        <a href="admin.php" ><span class="fas fa-igloo"></span>
+                        <a href="admin.php"><span class="fas fa-igloo"></span>
                         <span>Tableau de bord</span></a>
                     </li>
                     <li>
@@ -50,11 +47,11 @@ $first_name = $_SESSION['first_name'];
                         <span>Gérer les utilisateurs</span></a>
                     </li>   
                     <li>
-                        <a href="a_capteur.php" class="active"><span class="fab fa-phabricator"></span>
+                        <a href="a_capteur.php"><span class="fab fa-phabricator"></span>
                         <span>Gérer les Capteurs</span></a>
                     </li>
                     <li>
-                        <a href="a_FAQ.php" ><span class="fas fa-question"></span>
+                        <a href="a_FAQ.php"><span class="fas fa-question"></span>
                         <span>FAQ</span></a>
                     </li>  
                     <li>
@@ -62,14 +59,12 @@ $first_name = $_SESSION['first_name'];
                         <span>Actualités</span></a>
                     </li>
                     <li>
-                        <a href="a_forum.php"><span class="fas fa-comment-alt"></span>
+                        <a href="a_forum.php" class="active"><span class="fas fa-comment-alt"></span>
                         <span>Forum</span></a>
                     </li> 
                 </ul>
             </div>
-
             <div class="sidebar-change">
-                
                 <li><a href="authentication/logout_action.php">Se déconnecter</a></li>
             </div>
         </div>
@@ -107,30 +102,27 @@ $first_name = $_SESSION['first_name'];
                     <div class="users">
                         <div class="card">
                             <div class="card-header">
-                                <h2>Capteur</h2>
+                                <h2>Forum</h2>
                                 
                             </div>
                             <div class="card-body">
                                     <table>
                                         <thead>
                                             <td>id</td>
-                                            <td>titre</td>
-                                            
-                                            <td>place</td>
+                                            <td>titre</td>      
                                             <td>date</td>
-                                            <td>image</td>
                                             <td>utilisateur</td>
                                             <td>Supprimer</td>
+                                            <td>Voir les messages</td>
                                         </thead>
-                                    <?php foreach($display_captors as $dc){?>
+                                    <?php foreach($display_topics as $dt){?>
                                           <tr>  
-                                            <td><?= $dc['id'] ?></td>        
-                                            <td><?= $dc['title'] ?></td>
-                                            <td><?= $dc['date'] ?></td>
-                                            <td><?= $dc['place'] ?></td>
-                                            <td><?= $dc['image'] ?></td>
-                                            <td><?= $dc['user_name'] ?></td>
-                                            <td><a href="a_deletecapteur.php?id=<?= $dc['id'] ?>">Supprimer le Capteur</a></td>
+                                            <td><?= $dt['id'] ?></td>        
+                                            <td><?= $dt['title'] ?></td>
+                                            <td><?= $dt['date'] ?></td>
+                                            <td><?= $dt['user_name'] ?></td>
+                                            <td><a href="a_deletetopics.php?id=<?= $dt['id'] ?>">Supprimer le topic</a></td>
+                                            <td><a href="a_messages.php?id=<?= $dt['id'] ?>">Voir les messages</a></td>
                                             </tr>
                                     <?php } ?>
                                 </table>
@@ -141,13 +133,6 @@ $first_name = $_SESSION['first_name'];
                 </div>
                                   
             </main>
-
         </div>
 	</body>
 </html>
-
-
-
-
-
-            
