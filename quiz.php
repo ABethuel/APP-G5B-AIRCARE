@@ -67,7 +67,7 @@
                         
         <div class="articles">
                             
-            <h2 class ="titre_liens">Liens utiles</h2>
+            <h2 class ="titre_liens">Articles utiles</h2>
                             
                 <div class ="Links">
                                 
@@ -158,7 +158,7 @@
 <!-- Button commencer le quiz -->
                 
     <div class ="container">
-        <button class="startbutton" onclick="window.location.href='/quiz4game.php';">Commencer le Quiz</button>
+        <button class="startbutton" onclick="window.location.href='/quizgame.php';">Commencer le Quiz</button>
     </div>
 
             

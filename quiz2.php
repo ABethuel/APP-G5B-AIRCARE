@@ -156,7 +156,7 @@
 <!-- Button commencer le quiz -->
                 
     <div class ="container">
-        <button class="startbutton" onclick="window.location.href='/quiz4game.php';">Commencer le Quiz</button>
+        <button class="startbutton" onclick="window.location.href='/quiz2game.php';">Commencer le Quiz</button>
     </div>
 
                          

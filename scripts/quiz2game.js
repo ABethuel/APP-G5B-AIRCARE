@@ -11,85 +11,85 @@ let availableQuestions = [];
 
 let questions = [
     {
-        question: "De combien de morts annuelles la pollution de l'air est-elle responsable en France?",
-        choice1: "Plus de 70 000, comme le tabac",
-        choice2: "Plus de 5O 000, comme l'alcool",
-        choice3: "Plus de 40 000",
-        choice4: "20 000 environ",
+        question: "Quel effet a le vent sur les polluants de l'air ?",
+        choice1: "Il les détruit",
+        choice2: "Il les fait tomber sur le sol",
+        choice3: "Il les disperse ou les déplace",
+        choice4: "Il les tranforme en pluie",
         answer: 3
     },
     {
-        question: "Les émissions de gaz du transport maritime provoquent des milliers de décès prématurés par an dans l'Union européenne. Combien ?",
-        choice1: "100 000",
-        choice2: "60 000",
-        choice3: "5000",
-        choice4: "10 000",
-        answer: 2
-    },
-    {
-        question: "La pollution atmosphérique a des conséquences néfastes sur la santé. Quelle maladie entraîne-t-elle sur le cerveau ?",
-        choice1: "Paranoïa",
-        choice2: "Schizoprénie",
-        choice3: "L’épilepsie",
-        choice4: "Maladies neurodégénératives",
-        answer: 4
-    },
-    {
-        question: "Combien de substances dangereuses la fumée de tabac contient-elle ?",
-        choice1: "Entre 10 et 20",
-        choice2: "Entre 100 et 250",
-        choice3: "Plus de 3000",
-        choice4: "500",
-        answer: 3
-    },
-    {
-        question: "La pollution de l'air tue plusieurs millions de personnes par an dans le monde. Combien ?",
-        choice1: "2 millions",
-        choice2: "5 millions",
-        choice3: "10 millions",
-        choice4: "7 millions",
-        answer: 4
-    },
-    {
-        question: "Quelle quantité d'air consommons-nous chaque jour ?",
-        choice1: "14 millions de litres",
-        choice2: "100 litres",
-        choice3: "14 000 litres",
-        choice4: "4 000 litres",
-        answer: 3
-    },
-    {
-        question: "Quels sont les effets de l'ozone sur la santé ?",
-        choice1: "Des démangeaisons",
-        choice2: " La diarrhée",
-        choice3: "Des irritations des yeux, du nez et des voies respiratoires",
-        choice4: "Cancer",
-        answer: 3
-    },
-    {
-        question: "Quel est le gaz le plus important pour l'homme ?",
-        choice1: "Le dioxygène",
-        choice2: "L'ozone",
-        choice3: "Le dioxyde d'azote",
-        choice4: "Le CO2",
+        question: "Sur 30 000 km de lignes ferroviaires exploitées par la SNCF, combien ne sont pas encore électrifiées ?",
+        choice1: " Presque 2 000 kilomètres",
+        choice2: "Presque 15 000 kilomètres",
+        choice3: "0 kilomètres",
+        choice4: "27 000 kilomètres",
         answer: 1
     },
     {
-        question: "Quelles sont les personnes les plus sensibles à la pollution de l'air ?",
-        choice1: "Les personnes vivant dans des pays chauds",
-        choice2: "Les enfants",
-        choice3: "Les chauffeurs de bus",
-        choice4: "Les asthmatiques",
+        question: "Combien de polluants sont nécessaires au calcul de l'indice ?",
+        choice1: "Deux",
+        choice2: "Quatre",
+        choice3: "Six",
+        choice4: "Cinq",
+        answer: 2
+    },
+    {
+        question: "Toutes les grandes villes de France doivent calculer un indice de qualité de l'air (Atmo). A quelle fréquence ?",
+        choice1: "Tous les ans",
+        choice2: "Tous les jours",
+        choice3: "Chaque mois",
+        choice4: "Tous les 2 ans",
+        answer: 2
+    },
+    {
+        question: "L'indice ATMO. A quels chiffres de l'indice correspond une très bonne qualité de l'air ?",
+        choice1: "1-2",
+        choice2: "5-6",
+        choice3: "7-8",
+        choice4: "9-10",
+        answer: 1
+    },
+    {
+        question: "La qualité de l'air en Hte-Normandie est marquée par le raffinage du pétrole et ses rejets de dioxyde de soufre (SO2). Qu'en est-il aujourd'hui ?",
+        choice1: "Les niveaux de SO2 sont en baisse",
+        choice2: "Les raffineries ne rejettent plus du tout de SO2",
+        choice3: "La pollution par le SO2 est en hausse",
+        choice4: "On ne sait pas encore",
+        answer: 1
+    },
+    {
+        question: "Qu'est-ce qui provoque la formation de l'ozone ?",
+        choice1: "Le froid",
+        choice2: "Le soleil et une température élevée",
+        choice3: "Les feux",
+        choice4: "La pluie",
+        answer: 2
+    },
+    {
+        question: "Quels moyens de transport propre sont à notre disposition pour les petits trajets (3 km) ?",
+        choice1: "Les voitures",
+        choice2: "Le tram",
+        choice3: "Les métro",
+        choice4: "La marche à pied et vélo",
         answer: 4
     },
     {
-        question: "Quel président a baissé la fiscalité sur le gas oil alors que des études démontraient déjà son extême nocivité ?",
-        choice1: "Valérie Giscard d'Estaing",
-        choice2: "Jacques Chirac",
-        choice3: "François Mitterrand",
-        choice4: "François Hollande",
-        answer: 3
-    }
+        question: "Quelles sont les sources naturelles de polluants dans l'air ?",
+        choice1: "Les inondations et tremblements de terre",
+        choice2: "Les éruptions volcaniques",
+        choice3: "Les poissons",
+        choice4: "Les pollens",
+        answer: 2
+    },
+    {
+        question: "Quels sont les principaux composants de l'air ?",
+        choice1: "Diazote (N2) et dioxygène (O2)",
+        choice2: "Le CO2 et le diazote",
+        choice3: "CO2, dioxyde d'azote (NO2) et ozone",
+        choice4: "Ozone (O3) et dioxyde de carbone (CO2)",
+        answer: 1
+    },
 ];
 
 
@@ -113,7 +113,7 @@ getNewQuestion = () => {
     if(availableQuestions.length === 0 || questionCounter >= MAX_QUESTIONS){
 //renvoie a la page finale
 localStorage.setItem("ScoreMade",score);
-    return window.location.assign("/quiz4endgame.php");
+    return window.location.assign("/quiz2endgame.php");
     }
     
 //mettre les questions au hasard
