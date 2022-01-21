@@ -128,7 +128,7 @@ $first_name = $_SESSION['first_name'];
                                         <div class="FAQ">
                                             <h1><?= $faq['question']; ?></h1>
                                             <br>
-                                            <p><?= $faq['answer']; ?></p>
+                                            <p><?= $faq['reponse']; ?></p>
                                             <br>
                                             <div class="buttonFAQ">
                                                 <a class="modifier" href="a_modifierFAQ.php?id=<?= $faq['id']; ?>" >Modifier cette question-réponse</a>
