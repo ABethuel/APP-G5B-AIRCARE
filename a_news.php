@@ -124,7 +124,6 @@ $first_name = $_SESSION['first_name'];
                             <th>Titre</th>
                             <th>Image</th>
 
-                            <th>Description</th>
 
                             <th>Lien</th>
 
@@ -139,7 +138,6 @@ $first_name = $_SESSION['first_name'];
                             <td><?= $news['title'] ?></td>
                             <td><img src="<?= $news['image'] ?>" style="margin:auto;border-radius: 50%;width: 100px;"></td>
 
-                            <td><?= $news['description'] ?></td>
                             <td><?= $news['link'] ?></td>
 
                             <td class="success"><a href="a_modifierarticle.php?id=<?= $news['id'] ?>">Modifier</a></td>
