@@ -1,3 +1,8 @@
+<?php
+include('./contact/addMessageAction.php');
+
+?>
+
 <!DOCTYPE html>
 
 <html>
@@ -17,7 +22,7 @@
             <div class="form_contact">
 
                 <!-- Formulaire de contact --> 
-                <form action="">
+                <form action="" method="post">
 
                     <label for="email">Adresse email (obligatoire)</label> <!-- Texte au dessus du champ de saisie -->
                     <input class="input_contact" type="text" id="email" name="adress_email" placeholder="Saisir votre adresse email">
@@ -28,7 +33,7 @@
                     <label for="description">Votre message</label>
                     <textarea name="description" id="description" cols="6" rows="10" placeholder="Détailler votre message à votre guise"></textarea>
                     
-                    <input type="submit" value="Envoyer">
+                    <input type="submit" value="Envoyer" name="validate">
                 </form>
             </div>
         </div>

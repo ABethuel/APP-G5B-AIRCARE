@@ -8,7 +8,7 @@ if($_SESSION['role'] != 'administrator'){
     header('Location: index.php');
 }
 require("./config/database.php") ;
-$afficher_profil = $database->query("SELECT * FROM users WHERE role != 'administrator'");
+$afficher_profil = $database->query("SELECT * FROM users");
 $afficher_profil = $afficher_profil->fetchAll();
 
 $first_name = $_SESSION['first_name'];

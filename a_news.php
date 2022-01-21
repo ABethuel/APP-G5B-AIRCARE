@@ -123,7 +123,10 @@ $first_name = $_SESSION['first_name'];
                             <th>ID</th>
                             <th>Titre</th>
                             <th>Image</th>
-                            <th>Date de création de l'article</th>
+
+
+                            <th>Lien</th>
+
                             <th>Modifier</th>
                             <th>Supprimer</th>
                         </tr>
@@ -134,7 +137,9 @@ $first_name = $_SESSION['first_name'];
                             <td><?= $news['id'] ?></td>
                             <td><?= $news['title'] ?></td>
                             <td><img src="<?= $news['image'] ?>" style="margin:auto;border-radius: 50%;width: 100px;"></td>
-                            <td><?= $news['date_creation'] ?></td>
+
+                            <td><a href="<?= $news['link']?>"><?= $news['link']?></a></td>
+
                             <td class="success"><a href="a_modifierarticle.php?id=<?= $news['id'] ?>">Modifier</a></td>
                             <td class="danger"><form enctype="multipart/form-data" method="post" action="a_deleteArticle.php?id=<?= $news['id'] ?>"><button class="danger" style="background:none;" onclick="if(confirm('Etes-vous sûr de vouloir supprimer cette article ?')){}else{return false;}">Supprimer</button></form></td>
                         </tr>
