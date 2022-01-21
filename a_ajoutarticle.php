@@ -18,13 +18,14 @@ $first_name = $_SESSION['first_name'];
             $first_letter_lname = substr($last_name, 0, 1);
 
             if(isset($_POST['envoi'])){
-                if(!empty($_POST['title']) AND !empty($_POST['image']) AND !empty($_POST['description'])){
+                if(!empty($_POST['title']) AND !empty($_POST['image']) AND !empty($_POST['description']) AND !empty($_POST['link'])){
                     $title = htmlspecialchars($_POST['title']);
                     $image = htmlspecialchars($_POST['image']);
                     $description = nl2br(htmlspecialchars($_POST['description']));
-        
-                    $insererNews = $database->prepare("INSERT INTO news (title,image,description) VALUES (?,?,?)");
-                    $insererNews->execute(array($title, $image, $description));
+                    $link = htmlspecialchars($_POST['link']);
+
+                    $insererNews = $database->prepare("INSERT INTO news (title,image,description, link) VALUES (?,?,?,?)");
+                    $insererNews->execute(array($title, $image, $description, $link));
                     $ajout = '<p class="success">Article bien ajouté !</p>';
                 }else{
                     echo "Veuillez compléter tous les champs...";
@@ -135,6 +136,8 @@ $first_name = $_SESSION['first_name'];
                         <input type="text" name="title" style="width:100%;height:40px" placeholder="Titre de l'article">
                         <br>
                         <input type="text" name="image" style="width:100%;height:40px" placeholder="Lien de l'image">
+                        <br>
+                        <input type="text" name="link" style="width:100%;height:40px" placeholder="Lien de l'article">
                         <br>
                         <textarea name="description" style="width:100%; min-height:200px;" placeholder="description"></textarea>
                         <br>
