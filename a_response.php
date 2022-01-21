@@ -18,11 +18,19 @@ $first_name = $_SESSION['first_name'];
             $first_letter_fname = substr($first_name, 0, 1);
             $first_letter_lname = substr($last_name, 0, 1);
 
-$display_captor = $database -> prepare("SELECT * FROM captors ") ;
-$display_captor -> execute() ;
-$display_captor = $display_captor->fetchAll();
+        
+$display_response = $database -> prepare("SELECT * FROM messages WHERE topic_id=?") ;
+$display_response -> execute(array($_GET['id'])) ;
 
+$display_topics=$database ->prepare("SELECT * FROM topics WHERE id = ?" );
+$display_topics -> execute(array($_GET['id']));
+
+if ($display_topics->rowCount() > 0){
+    $topics = $display_topics -> fetch();
+    $title_topics= $topics['title'];
+}
 ?>
+
 <!DOCTYPE html>
 <html lang="fr">
 
@@ -73,7 +81,7 @@ $display_captor = $display_captor->fetchAll();
                     <span class="material-icons-sharp">person_outline</span>
                     <h3>Utilisateurs</h3>
                 </a>
-                <a href="a_capteur" class="active">
+                <a href="a_capteur" >
                     <span class="material-icons-sharp">cable</span>
                     <h3>Capteurs</h3>
                 </a>
@@ -86,7 +94,7 @@ $display_captor = $display_captor->fetchAll();
                     <h3>Messages</h3>
                     <span class="message-count" id="count"></span>
                 </a>
-                <a href="a_forum">
+                <a href="a_forum" class="active">
                     <span class="material-icons-sharp">forum</span>
                     <h3>Forum</h3>
                 </a>
@@ -116,9 +124,9 @@ $display_captor = $display_captor->fetchAll();
             </div>
             
             <div class="users-list-main">
-                <h2>
-                    Listes des Utilisateurs
-                </h2>
+               
+                <h2><?php echo $title_topics ?></h2>
+                
                 <div class="search-input">
                     <input type="text" name="search" id="search" placeholder="Rechercher..." style="float:right;"/>
                 </div>
@@ -126,26 +134,21 @@ $display_captor = $display_captor->fetchAll();
                 <table id="tableUser">
                     <thead>
                         <tr>
-                            <th>ID</th>
-                            <th>Titre</th>
-                            <th>Place</th>
+                            <th>Id</th>
+                            <th>Contenu</th>      
                             <th>Date</th>
-                            <th>Image</th>
-                            <th>Utilisateurs</th>
-                            <th>Supprimer le capteur</th>
+                            <th>Utilisateur</th>
+                            <th>Supprimer le messages</th>
                         </tr>
                     </thead>
                     <tbody>
-                    <?php foreach($display_captor as $dc){?>
+                    <?php foreach($display_response as $dr){?>
                         <tr class="tr_clicks">
-                            <td><?= $dc['id'] ?></td>
-                            <td><?= $dc['title'] ?></td>
-                            <td><?= $dc['place'] ?></td>
-                            <td><?= $dc['date'] ?></td>
-                            <td><img src="<?= $dc['image'] ?>" style="margin:auto;border-radius: 15px;width: 100px; margin-left:5;"></td>
-                            <td><?= $dc['user_name'] ?></td>
-
-                            <td class="danger"><form enctype="multipart/form-data" method="post" action="a_deleteCaptor.php?id=<?= $dc['id'] ?>"><button class="danger" style="background:none;" href="a_deleteCaptor.php?id=<?= $dc['id'] ?>" onclick="if(confirm('Etes-vous sûr de vouloir supprimer le capteur ?')){}else{return false;}">Supprimer le Capteur</button></form></td>
+                            <th><?= $dr['id'] ?></th>        
+                            <th><?= $dr['content'] ?></th>
+                            <th><?= $dr['date'] ?></th>
+                            <th><?= $dr['user_name'] ?></th>
+                            <td class="danger"><form enctype="multipart/form-data" method="post" action="a_deleteRopics.php?id=<?= $dr['id'] ?>"><button class="danger" style="background:none;" href="a_deleteTopics.php?id=<?= $dr['id'] ?>" onclick="if(confirm('Etes-vous sûr de vouloir supprimer le message ?')){}else{return false;}">Supprimer le Message</button></form></td>
                         </tr>
                     <?php  } ?>
                     </tbody>

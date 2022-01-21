@@ -11,17 +11,11 @@ require("./config/database.php") ;
 $afficher_profil = $database->query("SELECT * FROM users WHERE role != 'administrator'");
 $afficher_profil = $afficher_profil->fetchAll();
 
-
 $first_name = $_SESSION['first_name'];
             $last_name = $_SESSION['last_name'];
         
             $first_letter_fname = substr($first_name, 0, 1);
             $first_letter_lname = substr($last_name, 0, 1);
-
-$display_captor = $database -> prepare("SELECT * FROM captors ") ;
-$display_captor -> execute() ;
-$display_captor = $display_captor->fetchAll();
-
 ?>
 <!DOCTYPE html>
 <html lang="fr">
@@ -42,8 +36,8 @@ $display_captor = $display_captor->fetchAll();
             setInterval(function(){
                 $.post("get.php", {data:'get'}, function (data){
                     if(data>0){
-                        $("span#count").show();
-                        $("span#count").text(data);
+                        $("span.message-count").show();
+                        $("span.message-count").text(data);
                     }
                 });
             },1000);
@@ -69,11 +63,11 @@ $display_captor = $display_captor->fetchAll();
                     <span class="material-icons-sharp">grid_view</span>
                     <h3>Dashboard</h3>
                 </a>
-                <a href="a_law.php" >
+                <a href="a_law.php">
                     <span class="material-icons-sharp">person_outline</span>
                     <h3>Utilisateurs</h3>
                 </a>
-                <a href="a_capteur" class="active">
+                <a href="#">
                     <span class="material-icons-sharp">cable</span>
                     <h3>Capteurs</h3>
                 </a>
@@ -81,12 +75,12 @@ $display_captor = $display_captor->fetchAll();
                     <span class="material-icons-sharp">feed</span>
                     <h3>Actualités</h3>
                 </a>
-                <a href="a_message.php">
+                <a href="a_message.php"  class="active">
                     <span class="material-icons-sharp">email</span>
                     <h3>Messages</h3>
-                    <span class="message-count" id="count"></span>
+                    <span class="message-count"></span>
                 </a>
-                <a href="a_forum">
+                <a href="a_forum.php">
                     <span class="material-icons-sharp">forum</span>
                     <h3>Forum</h3>
                 </a>
@@ -116,40 +110,67 @@ $display_captor = $display_captor->fetchAll();
             </div>
             
             <div class="users-list-main">
-                <h2>
-                    Listes des Utilisateurs
-                </h2>
-                <div class="search-input">
-                    <input type="text" name="search" id="search" placeholder="Rechercher..." style="float:right;"/>
-                </div>
+             
                 
-                <table id="tableUser">
-                    <thead>
-                        <tr>
-                            <th>ID</th>
-                            <th>Titre</th>
-                            <th>Place</th>
-                            <th>Date</th>
-                            <th>Image</th>
-                            <th>Utilisateurs</th>
-                            <th>Supprimer le capteur</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                    <?php foreach($display_captor as $dc){?>
-                        <tr class="tr_clicks">
-                            <td><?= $dc['id'] ?></td>
-                            <td><?= $dc['title'] ?></td>
-                            <td><?= $dc['place'] ?></td>
-                            <td><?= $dc['date'] ?></td>
-                            <td><img src="<?= $dc['image'] ?>" style="margin:auto;border-radius: 15px;width: 100px; margin-left:5;"></td>
-                            <td><?= $dc['user_name'] ?></td>
-
-                            <td class="danger"><form enctype="multipart/form-data" method="post" action="a_deleteCaptor.php?id=<?= $dc['id'] ?>"><button class="danger" style="background:none;" href="a_deleteCaptor.php?id=<?= $dc['id'] ?>" onclick="if(confirm('Etes-vous sûr de vouloir supprimer le capteur ?')){}else{return false;}">Supprimer le Capteur</button></form></td>
-                        </tr>
-                    <?php  } ?>
-                    </tbody>
-                </table>
+                <div class="recent-grids">
+                    <div class="users">
+                            <div class="card">
+                                <div class="card-header">
+                                    <h2>Messages</h2>
+                                </div>
+                                <div class="card-body">
+                                <?php
+                                    $recupMessages= $database->query('SELECT * FROM email');
+                                    while($mes = $recupMessages->fetch()){
+                                        ?>
+                                        <?php if($mes['status'] == 'unseen'){ ?>
+                                            <div class="messages unseen">
+                                                <div class="head-message">
+                                                    <a href="" title="Répondre"><span class="material-icons-outlined">reply</span></a>
+                                                    <form enctype="multipart/form-data" method="post" action="a_deletemessage.php?id=<?= $mes['id'] ?>">
+                                                        <button title="Supprimer" class="danger" style="background:none;" onclick="if(confirm('Etes-vous sûr de vouloir supprimer le message ?')){}else{return false;}">
+                                                            <span class="material-icons-outlined">delete</span></form>
+                                                        </button>
+                                                    </form>
+                                                </div>
+                                                <a href="a_affichermessage.php?id=<?= $mes['id'] ?>">
+                                                    <div class="contenu" title="Afficher le message en entier">
+                                                        <h1><?= $mes['sujet']; ?></h1>
+                                                        <small class="text-muted"><?= $mes['email']; ?></small>
+                                                        <br>
+                                                        <p><?= $mes['message']; ?></p>
+                                                    </div>
+                                                </a>
+                                                
+                                            </div>
+                                        <?php }else{?>
+                                            <div class="messages">
+                                                <div class="head-message">
+                                                    <a href="" title="Répondre"><span class="material-icons-outlined">reply</span></a>
+                                                    <form enctype="multipart/form-data" method="post" action="a_deletemessage.php?id=<?= $mes['id'] ?>">
+                                                        <button title="Supprimer" class="danger" style="background:none;" onclick="if(confirm('Etes-vous sûr de vouloir supprimer le message ?')){}else{return false;}">
+                                                            <span class="material-icons-outlined">delete</span></form>
+                                                        </button>
+                                                    </form>
+                                                </div>
+                                                <a href="a_affichermessage.php?id=<?= $mes['id'] ?>">
+                                                    <div class="contenu" title="Afficher le message en entier">
+                                                        <h1><?= $mes['sujet']; ?></h1>
+                                                        <small class="text-muted"><?= $mes['email']; ?></small>
+                                                        <br>
+                                                        <p><?= $mes['message']; ?></p>
+                                                    </div>
+                                                </a>
+                                                
+                                            </div>
+                                        <?php }?>
+                                <?php
+                                    }
+                                ?>
+                                </div>
+                            </div>
+                        </div>
+                </div>
                 
             </div>
         </main>
@@ -180,32 +201,7 @@ $display_captor = $display_captor->fetchAll();
         </div>
     </div>
     <script src="./scripts/index.js"></script>
-    <script>
-            var value = document.querySelectorAll('td');
-            $(document).ready(function() {
-            $('#search').off('keyup');
-            $('#search').on('keyup', function() {
-                var searchTerm = $('#search').val();
-                var tr = [];
-                $('#tableUser').find('td').each(function() {
-                    var value = $(this).html();
-                    if (value.includes(searchTerm)) {
-                        tr.push($(this).closest(".tr_clicks"));
-                    }
-                });
-
-                if ( searchTerm == '') {
-                    $(".tr_clicks").show();
-                } else {
-                    // Else, hide all rows except those added to the array
-                    $(".tr_clicks").not('thead tr').hide();
-                    tr.forEach(function(el) {
-                        el.show();
-                    });
-                }
-            });
-        });
-    </script>
+    
 </body>
 
 </html>

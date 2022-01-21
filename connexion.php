@@ -36,7 +36,7 @@ require('./authentication/login_action.php');
                             <div class="remember_help">
                                 <!-- Bouton se souvenir de moi -->
                                 <div>
-                                    <input type="checkbox" id="remember" name="remember">
+                                    <input type="checkbox" id="remember" name="remember" checked>
                                     <label class="remember_user" for="chekbox">Se souvenir de moi</label>
                                 </div>
                                 <a href="#" class="help">Besoin d'aide ?</a>

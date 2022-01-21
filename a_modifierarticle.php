@@ -8,23 +8,34 @@ if($_SESSION['role'] != 'administrator'){
     header('Location: index.php');
 }
 require("./config/database.php") ;
-$afficher_profil = $database->query("SELECT * FROM users WHERE role != 'administrator'");
-$afficher_profil = $afficher_profil->fetchAll();
 
-
-$first_name = $_SESSION['first_name'];
-            $last_name = $_SESSION['last_name'];
+if(isset($_GET['id']) AND !empty($_GET['id'])){
+    $getid = $_GET['id'];
+    $recupNews = $database->prepare('SELECT * FROM news WHERE id = ?');
+    $recupNews->execute(array($getid));
+    if($recupNews->rowCount()>0){
+        $newsInfos = $recupNews->fetch();
+        $image = $newsInfos['image'];
+        $title = $newsInfos['title'];
+        $description = $newsInfos['description'];
         
-            $first_letter_fname = substr($first_name, 0, 1);
-            $first_letter_lname = substr($last_name, 0, 1);
+        if(isset($_POST['valider'])){
+            $image_link = htmlspecialchars($_POST['image']);
+            $title_saisie = htmlspecialchars($_POST['title']);
+            $description_saisie = nl2br(htmlspecialchars($_POST['description']));
 
-$display_captor = $database -> prepare("SELECT * FROM captors ") ;
-$display_captor -> execute() ;
-$display_captor = $display_captor->fetchAll();
+            $updateNews = $database->prepare('UPDATE news SET image=?, title = ?, description = ? WHERE id=?');
+            $updateNews->execute(array($image_link,$title_saisie,$description_saisie,$getid));
+            
+            header('Location: a_news.php');
+        }
+    }else{
 
+    }
+}else{
+    echo "Aucun identifiant trouvé";
+}
 ?>
-<!DOCTYPE html>
-<html lang="fr">
 
 <head>
     <meta charset="UTF-8">
@@ -56,8 +67,8 @@ $display_captor = $display_captor->fetchAll();
         <aside>
             <div class="top">
                 <div class="logo">
-                    <a href="index.php"><img src="Assets/images/logo.png" alt="Logo"></a>
-                    <a href="index.php"><h2>AirCare</h2></a>
+                    <img src="Assets/images/logo.png" alt="Logo">
+                    <h2>AirCare</h2>
                 </div>
                 <div class="close" id="close-btn">
                     <span class="material-icons-sharp">close</span>
@@ -69,15 +80,15 @@ $display_captor = $display_captor->fetchAll();
                     <span class="material-icons-sharp">grid_view</span>
                     <h3>Dashboard</h3>
                 </a>
-                <a href="a_law.php" >
+                <a href="a_law.php">
                     <span class="material-icons-sharp">person_outline</span>
                     <h3>Utilisateurs</h3>
                 </a>
-                <a href="a_capteur" class="active">
+                <a href="#">
                     <span class="material-icons-sharp">cable</span>
                     <h3>Capteurs</h3>
                 </a>
-                <a href="a_news.php">
+                <a href="a_news.php" class="active">
                     <span class="material-icons-sharp">feed</span>
                     <h3>Actualités</h3>
                 </a>
@@ -86,11 +97,11 @@ $display_captor = $display_captor->fetchAll();
                     <h3>Messages</h3>
                     <span class="message-count" id="count"></span>
                 </a>
-                <a href="a_forum">
+                <a href="#">
                     <span class="material-icons-sharp">forum</span>
                     <h3>Forum</h3>
                 </a>
-                <a href="a_FAQ.php">
+                <a href="a_FAQ.php"  >
                     <span class="material-icons-sharp">quiz</span>
                     <h3>FAQ</h3>
                 </a>
@@ -117,39 +128,23 @@ $display_captor = $display_captor->fetchAll();
             
             <div class="users-list-main">
                 <h2>
-                    Listes des Utilisateurs
+                    Gestion des articles
                 </h2>
-                <div class="search-input">
-                    <input type="text" name="search" id="search" placeholder="Rechercher..." style="float:right;"/>
-                </div>
-                
-                <table id="tableUser">
-                    <thead>
-                        <tr>
-                            <th>ID</th>
-                            <th>Titre</th>
-                            <th>Place</th>
-                            <th>Date</th>
-                            <th>Image</th>
-                            <th>Utilisateurs</th>
-                            <th>Supprimer le capteur</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                    <?php foreach($display_captor as $dc){?>
-                        <tr class="tr_clicks">
-                            <td><?= $dc['id'] ?></td>
-                            <td><?= $dc['title'] ?></td>
-                            <td><?= $dc['place'] ?></td>
-                            <td><?= $dc['date'] ?></td>
-                            <td><img src="<?= $dc['image'] ?>" style="margin:auto;border-radius: 15px;width: 100px; margin-left:5;"></td>
-                            <td><?= $dc['user_name'] ?></td>
 
-                            <td class="danger"><form enctype="multipart/form-data" method="post" action="a_deleteCaptor.php?id=<?= $dc['id'] ?>"><button class="danger" style="background:none;" href="a_deleteCaptor.php?id=<?= $dc['id'] ?>" onclick="if(confirm('Etes-vous sûr de vouloir supprimer le capteur ?')){}else{return false;}">Supprimer le Capteur</button></form></td>
-                        </tr>
-                    <?php  } ?>
-                    </tbody>
-                </table>
+                <div class="recent-grids">
+                    <h1>Modification de l'article n°<?= $getid ?></h1>
+                    <form action="" method="POST">
+                            <input type="text" name="title" value="<?= $title; ?>" style="width:100%;height:40px"><br>
+                            <br>
+                            <input type="text" name="image" value="<?= $image; ?>" style="width:100%;height:40px"><br>
+                            <br>
+                            <textarea name="description" style="width:100%; min-height:200px;"><?= $description; ?></textarea>
+                            <br>
+                            <input type="submit" name="valider" style="width:100%; padding: 10px 20px; border-radius : 5px 5px; border:none; background-color: #213C70; color:white;">
+                    </form>
+                    <a href="a_news.php">Retournez sur la gestion des articles </a>
+                </div>
+                            
                 
             </div>
         </main>
@@ -173,39 +168,22 @@ $display_captor = $display_captor->fetchAll();
                     </div>
                 </div>
             </div>
-            <div class="recent-updates">
-                
+            <div class="news-list" style="margin-top: 30rem;">
+                <a href="a_publierFAQ.php">
+                    <div class="item add-news">
+                        <div>
+                            <span class="material-icons-sharp">add</span>
+                            <h3>Ajouter</h3>
+                        </div>
+                    
+                    </div> 
+                </a>
             </div>
             
         </div>
     </div>
     <script src="./scripts/index.js"></script>
-    <script>
-            var value = document.querySelectorAll('td');
-            $(document).ready(function() {
-            $('#search').off('keyup');
-            $('#search').on('keyup', function() {
-                var searchTerm = $('#search').val();
-                var tr = [];
-                $('#tableUser').find('td').each(function() {
-                    var value = $(this).html();
-                    if (value.includes(searchTerm)) {
-                        tr.push($(this).closest(".tr_clicks"));
-                    }
-                });
-
-                if ( searchTerm == '') {
-                    $(".tr_clicks").show();
-                } else {
-                    // Else, hide all rows except those added to the array
-                    $(".tr_clicks").not('thead tr').hide();
-                    tr.forEach(function(el) {
-                        el.show();
-                    });
-                }
-            });
-        });
-    </script>
+    
 </body>
 
 </html>

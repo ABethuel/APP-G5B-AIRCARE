@@ -8,23 +8,38 @@ if($_SESSION['role'] != 'administrator'){
     header('Location: index.php');
 }
 require("./config/database.php") ;
-$afficher_profil = $database->query("SELECT * FROM users WHERE role != 'administrator'");
+$afficher_profil = $database->query("SELECT * FROM users");
 $afficher_profil = $afficher_profil->fetchAll();
-
 
 $first_name = $_SESSION['first_name'];
             $last_name = $_SESSION['last_name'];
         
             $first_letter_fname = substr($first_name, 0, 1);
             $first_letter_lname = substr($last_name, 0, 1);
+            if(isset($_GET['id']) AND !empty($_GET['id'])){
+                $getid = $_GET['id'];
+                $recupMessage = $database->prepare('SELECT * FROM email WHERE id = ?');
+                $recupMessage->execute(array($getid));
 
-$display_captor = $database -> prepare("SELECT * FROM captors ") ;
-$display_captor -> execute() ;
-$display_captor = $display_captor->fetchAll();
 
+                if($recupMessage->rowCount()>0){
+                    $messageInfos = $recupMessage->fetch();
+                    if($messageInfos['status'] == 'unseen'){
+                        $updateStatus = $database->prepare("UPDATE `email` SET status = 'seen' WHERE id = ? ");
+                        $updateStatus->execute(array($getid));
+                    }
+                    $sujet = $messageInfos['sujet'];
+                    $email = $messageInfos['email'];
+                    $message = str_replace('<br />', '',$messageInfos['message']);
+                    
+                    
+                }else{
+            
+                }
+            }else{
+                echo "Aucun identifiant trouvé";
+            }
 ?>
-<!DOCTYPE html>
-<html lang="fr">
 
 <head>
     <meta charset="UTF-8">
@@ -56,8 +71,8 @@ $display_captor = $display_captor->fetchAll();
         <aside>
             <div class="top">
                 <div class="logo">
-                    <a href="index.php"><img src="Assets/images/logo.png" alt="Logo"></a>
-                    <a href="index.php"><h2>AirCare</h2></a>
+                    <img src="Assets/images/logo.png" alt="Logo">
+                    <h2>AirCare</h2>
                 </div>
                 <div class="close" id="close-btn">
                     <span class="material-icons-sharp">close</span>
@@ -69,28 +84,28 @@ $display_captor = $display_captor->fetchAll();
                     <span class="material-icons-sharp">grid_view</span>
                     <h3>Dashboard</h3>
                 </a>
-                <a href="a_law.php" >
+                <a href="a_law.php">
                     <span class="material-icons-sharp">person_outline</span>
                     <h3>Utilisateurs</h3>
                 </a>
-                <a href="a_capteur" class="active">
+                <a href="#">
                     <span class="material-icons-sharp">cable</span>
                     <h3>Capteurs</h3>
                 </a>
-                <a href="a_news.php">
+                <a href="a_news.php" >
                     <span class="material-icons-sharp">feed</span>
                     <h3>Actualités</h3>
                 </a>
-                <a href="a_message.php">
+                <a href="a_message.php" class="active">
                     <span class="material-icons-sharp">email</span>
                     <h3>Messages</h3>
-                    <span class="message-count" id="count"></span>
+                    <span class="message-count">26</span>
                 </a>
-                <a href="a_forum">
+                <a href="a_forum.php">
                     <span class="material-icons-sharp">forum</span>
                     <h3>Forum</h3>
                 </a>
-                <a href="a_FAQ.php">
+                <a href="a_FAQ.php"  >
                     <span class="material-icons-sharp">quiz</span>
                     <h3>FAQ</h3>
                 </a>
@@ -117,39 +132,27 @@ $display_captor = $display_captor->fetchAll();
             
             <div class="users-list-main">
                 <h2>
-                    Listes des Utilisateurs
+                    Gestion de la FAQ
                 </h2>
-                <div class="search-input">
-                    <input type="text" name="search" id="search" placeholder="Rechercher..." style="float:right;"/>
-                </div>
-                
-                <table id="tableUser">
-                    <thead>
-                        <tr>
-                            <th>ID</th>
-                            <th>Titre</th>
-                            <th>Place</th>
-                            <th>Date</th>
-                            <th>Image</th>
-                            <th>Utilisateurs</th>
-                            <th>Supprimer le capteur</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                    <?php foreach($display_captor as $dc){?>
-                        <tr class="tr_clicks">
-                            <td><?= $dc['id'] ?></td>
-                            <td><?= $dc['title'] ?></td>
-                            <td><?= $dc['place'] ?></td>
-                            <td><?= $dc['date'] ?></td>
-                            <td><img src="<?= $dc['image'] ?>" style="margin:auto;border-radius: 15px;width: 100px; margin-left:5;"></td>
-                            <td><?= $dc['user_name'] ?></td>
 
-                            <td class="danger"><form enctype="multipart/form-data" method="post" action="a_deleteCaptor.php?id=<?= $dc['id'] ?>"><button class="danger" style="background:none;" href="a_deleteCaptor.php?id=<?= $dc['id'] ?>" onclick="if(confirm('Etes-vous sûr de vouloir supprimer le capteur ?')){}else{return false;}">Supprimer le Capteur</button></form></td>
-                        </tr>
-                    <?php  } ?>
-                    </tbody>
-                </table>
+                <div class="recent-grids">
+                <div class="head-message">
+                                                    <a href="" title="Répondre"><span class="material-icons-outlined">reply</span></a>
+                                                    <form enctype="multipart/form-data" method="post" action="a_deletemessage.php?id=<?= $mes['id'] ?>">
+                                                        <button title="Supprimer" class="danger" style="background:none;" onclick="if(confirm('Etes-vous sûr de vouloir supprimer le message ?')){}else{return false;}">
+                                                            <span class="material-icons-outlined">delete</span></form>
+                                                        </button>
+                                                    </form>
+                                                </div>
+                            <input type="text" name="question" value="<?= $sujet; ?>" style="width:100%;height:40px" readonly><br>
+                            <br>
+                            <input type="email" name="question" value="<?= $email; ?>" style="width:100%;height:40px" readonly><br>
+                            <br>
+                            <textarea name="reponse" style="width:100%; min-height:200px;" readonly><?= $message; ?></textarea>
+                            <br>
+                            
+                </div>
+                            
                 
             </div>
         </main>
@@ -173,39 +176,12 @@ $display_captor = $display_captor->fetchAll();
                     </div>
                 </div>
             </div>
-            <div class="recent-updates">
-                
-            </div>
+        
             
         </div>
     </div>
     <script src="./scripts/index.js"></script>
-    <script>
-            var value = document.querySelectorAll('td');
-            $(document).ready(function() {
-            $('#search').off('keyup');
-            $('#search').on('keyup', function() {
-                var searchTerm = $('#search').val();
-                var tr = [];
-                $('#tableUser').find('td').each(function() {
-                    var value = $(this).html();
-                    if (value.includes(searchTerm)) {
-                        tr.push($(this).closest(".tr_clicks"));
-                    }
-                });
-
-                if ( searchTerm == '') {
-                    $(".tr_clicks").show();
-                } else {
-                    // Else, hide all rows except those added to the array
-                    $(".tr_clicks").not('thead tr').hide();
-                    tr.forEach(function(el) {
-                        el.show();
-                    });
-                }
-            });
-        });
-    </script>
+    
 </body>
 
 </html>

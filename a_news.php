@@ -8,20 +8,14 @@ if($_SESSION['role'] != 'administrator'){
     header('Location: index.php');
 }
 require("./config/database.php") ;
-$afficher_profil = $database->query("SELECT * FROM users WHERE role != 'administrator'");
-$afficher_profil = $afficher_profil->fetchAll();
-
+$news_item = $database->query("SELECT * FROM news");
+$news_item = $news_item->fetchAll();
 
 $first_name = $_SESSION['first_name'];
             $last_name = $_SESSION['last_name'];
         
             $first_letter_fname = substr($first_name, 0, 1);
             $first_letter_lname = substr($last_name, 0, 1);
-
-$display_captor = $database -> prepare("SELECT * FROM captors ") ;
-$display_captor -> execute() ;
-$display_captor = $display_captor->fetchAll();
-
 ?>
 <!DOCTYPE html>
 <html lang="fr">
@@ -69,15 +63,15 @@ $display_captor = $display_captor->fetchAll();
                     <span class="material-icons-sharp">grid_view</span>
                     <h3>Dashboard</h3>
                 </a>
-                <a href="a_law.php" >
+                <a href="a_law.php">
                     <span class="material-icons-sharp">person_outline</span>
                     <h3>Utilisateurs</h3>
                 </a>
-                <a href="a_capteur" class="active">
+                <a href="a_capteur.php">
                     <span class="material-icons-sharp">cable</span>
                     <h3>Capteurs</h3>
                 </a>
-                <a href="a_news.php">
+                <a href="a_news.php" class="active">
                     <span class="material-icons-sharp">feed</span>
                     <h3>Actualités</h3>
                 </a>
@@ -86,7 +80,7 @@ $display_captor = $display_captor->fetchAll();
                     <h3>Messages</h3>
                     <span class="message-count" id="count"></span>
                 </a>
-                <a href="a_forum">
+                <a href="a_forum.php">
                     <span class="material-icons-sharp">forum</span>
                     <h3>Forum</h3>
                 </a>
@@ -117,35 +111,37 @@ $display_captor = $display_captor->fetchAll();
             
             <div class="users-list-main">
                 <h2>
-                    Listes des Utilisateurs
+                    Gestion des Actualités
                 </h2>
                 <div class="search-input">
                     <input type="text" name="search" id="search" placeholder="Rechercher..." style="float:right;"/>
                 </div>
                 
-                <table id="tableUser">
+                <table id="tableNews">
                     <thead>
                         <tr>
                             <th>ID</th>
                             <th>Titre</th>
-                            <th>Place</th>
-                            <th>Date</th>
                             <th>Image</th>
-                            <th>Utilisateurs</th>
-                            <th>Supprimer le capteur</th>
+
+
+                            <th>Lien</th>
+
+                            <th>Modifier</th>
+                            <th>Supprimer</th>
                         </tr>
                     </thead>
                     <tbody>
-                    <?php foreach($display_captor as $dc){?>
+                    <?php foreach($news_item as $news){?>
                         <tr class="tr_clicks">
-                            <td><?= $dc['id'] ?></td>
-                            <td><?= $dc['title'] ?></td>
-                            <td><?= $dc['place'] ?></td>
-                            <td><?= $dc['date'] ?></td>
-                            <td><img src="<?= $dc['image'] ?>" style="margin:auto;border-radius: 15px;width: 100px; margin-left:5;"></td>
-                            <td><?= $dc['user_name'] ?></td>
+                            <td><?= $news['id'] ?></td>
+                            <td><?= $news['title'] ?></td>
+                            <td><img src="<?= $news['image'] ?>" style="margin:auto;border-radius: 15px;width: 100px;  margin-left:5"></td>
 
-                            <td class="danger"><form enctype="multipart/form-data" method="post" action="a_deleteCaptor.php?id=<?= $dc['id'] ?>"><button class="danger" style="background:none;" href="a_deleteCaptor.php?id=<?= $dc['id'] ?>" onclick="if(confirm('Etes-vous sûr de vouloir supprimer le capteur ?')){}else{return false;}">Supprimer le Capteur</button></form></td>
+                            <td><a href="<?= $news['link']?>"><?= $news['link']?></a></td>
+
+                            <td class="success"><a href="a_modifierarticle.php?id=<?= $news['id'] ?>">Modifier</a></td>
+                            <td class="danger"><form enctype="multipart/form-data" method="post" action="a_deleteArticle.php?id=<?= $news['id'] ?>"><button class="danger" style="background:none;" onclick="if(confirm('Etes-vous sûr de vouloir supprimer cette article ?')){}else{return false;}">Supprimer</button></form></td>
                         </tr>
                     <?php  } ?>
                     </tbody>
@@ -173,8 +169,16 @@ $display_captor = $display_captor->fetchAll();
                     </div>
                 </div>
             </div>
-            <div class="recent-updates">
-                
+            <div class="news-list" style="margin-top: 30rem;">
+                <a href="a_ajoutarticle.php">
+                    <div class="item add-news">
+                        <div>
+                            <span class="material-icons-sharp">add</span>
+                            <h3>Ajouter une nouvelle actualité</h3>
+                        </div>
+                    
+                    </div> 
+                </a>
             </div>
             
         </div>
@@ -187,7 +191,7 @@ $display_captor = $display_captor->fetchAll();
             $('#search').on('keyup', function() {
                 var searchTerm = $('#search').val();
                 var tr = [];
-                $('#tableUser').find('td').each(function() {
+                $('#tableNews').find('td').each(function() {
                     var value = $(this).html();
                     if (value.includes(searchTerm)) {
                         tr.push($(this).closest(".tr_clicks"));

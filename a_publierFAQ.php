@@ -24,89 +24,110 @@ $first_name = $_SESSION['first_name'];
         
                     $insererFAQ = $database->prepare("INSERT INTO faq (question,reponse) VALUES (?,?)");
                     $insererFAQ->execute(array($question, $reponse));
-                    $ajout = "FAQ bien ajouté !";
+                    $ajout = '<p class="success">FAQ bien ajouté !</p>';
                 }else{
                     echo "Veuillez compléter tous les champs...";
                 }
             }
 ?>
-
 <!DOCTYPE html>
 <html lang="fr">
-	<head>
-    <meta charset="utf-8" />
-        <link rel="icon" type="image/png" href="Assets/images/logo.png"/> <!-- icone du site onglet du navigateur -->
-        <link rel="stylesheet" href="style_index.css">
-        <link rel="stylesheet" href="admin.css">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
-        <title>Espace Administrateur</title>
-	</head>
-	<body>
-        <input type="checkbox" name="" id="nav-toggle">
-        <div class="sidebar">
 
-            <div class="sidebar-brand">
-             <a href="index.php"><img src="Assets/images/logo.png"></a>
-            </div>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width-device-width, initial-scale=1.0">
+    <title>Espace Administration</title>
+    <!-- ICONS -->
+    <link href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp" rel="stylesheet">
+    <!-- STYLESHEET  -->
+    <link rel="stylesheet" href="admin.css">
+    <!-- JQUERY -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function(){
+            setInterval(function(){
+                $.post("get.php", {data:'get'}, function (data){
+                    if(data>0){
+                        $("span#count").show();
+                        $("span#count").text(data);
+                    }
+                });
+            },1000);
+        });
+    </script>
+</head>
 
-            <div class="sidebar-menu">
-                <ul>
-                    <li>
-                        <a href="admin.php"><span class="fas fa-igloo"></span>
-                        <span>Tableau de bord</span></a>
-                    </li>
-                    <li>
-                        <a href="a_law.php"><span class="fas fa-users"></span>
-                        <span>Gérer les utilisateurs</span></a>
-                    </li>   
-                    <li>
-                        <a href=""><span class="fas fa-tablet"></span>
-                        <span>Gérer les Capteurs</span></a>
-                    </li>
-                    <li>
-                        <a href="a_FAQ.php" class="active"><span class="fas fa-question"></span>
-                        <span>FAQ</span></a>
-                    </li>      
-                </ul>
-            </div>
-
-            <div class="sidebar-change">
-                
-                <li><a href="authentication/logout_action.php">Se déconnecter</a></li>
-            </div>
-        </div>
-        <div class="main-content">
-            <header>
-                <h1>
-                    <label for="nav-toggle"><i class="fas fa-bars"></i></label>
-                    Tableau de bord
-                </h1>
-           
-                <div class="search-wrapper">
-                    <i class="fas fa-search"></i>
-                    <input type="search" placeholder="Rechercher"/> 
+<body>
+    <div class="container">
+        <aside>
+            <div class="top">
+                <div class="logo">
+                    <img src="Assets/images/logo.png" alt="Logo">
+                    <h2>AirCare</h2>
                 </div>
-                <div class="user-wrapper">
-                <div class="connected">
-                <div class="profil_circle">
-                    <a class="first_letters"><?php echo $first_letter_fname, $first_letter_lname; ?></a>
-                </div>
-                <div class="dropdown">
-                    <a class="name_profile"><?php echo $first_name . ' '. $last_name; ?></a>
-                    <div class="dropdown-content">
-                        <?php if($_SESSION['role'] == 'administrator'){ ?>
-                        <a href="admin.php">Espace administrateur</a>
-                        <?php }?>
-                        <a href="authentication/logout_action.php">Se déconnecter</a>
-                        <a href="change_profile.php">Modifier son profil</a>
-                    </div>
+                <div class="close" id="close-btn">
+                    <span class="material-icons-sharp">close</span>
                 </div>
             </div>
-                </div>
-            </header>
 
-            <main>
-            <div class="recent-grids">
+            <div class="sidebar">
+                <a href="admin.php">
+                    <span class="material-icons-sharp">grid_view</span>
+                    <h3>Dashboard</h3>
+                </a>
+                <a href="a_law.php">
+                    <span class="material-icons-sharp">person_outline</span>
+                    <h3>Utilisateurs</h3>
+                </a>
+                <a href="#">
+                    <span class="material-icons-sharp">cable</span>
+                    <h3>Capteurs</h3>
+                </a>
+                <a href="a_news.php">
+                    <span class="material-icons-sharp">feed</span>
+                    <h3>Actualités</h3>
+                </a>
+                <a href="a_message.php">
+                    <span class="material-icons-sharp">email</span>
+                    <h3>Messages</h3>
+                    <span class="message-count" id="count"></span>
+                </a>
+                <a href="#">
+                    <span class="material-icons-sharp">forum</span>
+                    <h3>Forum</h3>
+                </a>
+                <a href="a_FAQ.php"  class="active">
+                    <span class="material-icons-sharp">quiz</span>
+                    <h3>FAQ</h3>
+                </a>
+                <a href="#">
+                    <span class="material-icons-sharp">groups</span>
+                    <h3>Equipe</h3>
+                </a>
+                <a href="change_profile.php">
+                    <span class="material-icons-sharp">settings</span>
+                    <h3>Modifier son profil</h3>
+                </a>
+                <a href="authentication/logout_action.php">
+                    <span class="material-icons-sharp">logout</span>
+                    <h3>Se déconnecter</h3>
+                </a>
+            </div>
+        </aside>
+        <!-- MAIN CONTENT -->
+        <main>
+            <h1>Espace d'Administration</h1>
+            <div class="date">
+                <p class="date-p"><?php echo date("j/n/Y");?></p>
+            </div>
+            
+            <div class="users-list-main">
+                <h2>
+                    Gestion de la FAQ
+                </h2>
+
+                <div class="recent-grids">
                     <h1>Publication d'une FAQ</h1>
                     <?php if(isset($ajout)){ echo $ajout;} ?>
                     <form action="" method="POST">
@@ -118,9 +139,46 @@ $first_name = $_SESSION['first_name'];
                     </form>
                     <a href="a_FAQ.php">Retournez sur la gestion de FAQ </a>
                 </div>
-                                  
-            </main>
-          
+                            
+                
+            </div>
+        </main>
+        <!-- RIGHT -->
+        <div class="right">
+            <div class="top">
+                <button id="menu-btn">
+                    <span class="material-icons-sharp">menu</span>
+                </button>
+                <div class="theme-toggler">
+                    <span class="material-icons-sharp active">light_mode</span>
+                    <span class="material-icons-sharp">dark_mode</span>
+                </div>
+                <div class="profile">
+                    <div class="info">
+                        <p>Salut, <b>Admin</b></p>
+                        <small class="text-muted">Admin</small>
+                    </div>
+                    <div class="profile-photo">
+                        <span class="material-icons-sharp">account_circle</span>
+                    </div>
+                </div>
+            </div>
+            <div class="news-list" style="margin-top: 30rem;">
+                <a href="a_publierFAQ.php">
+                    <div class="item add-news">
+                        <div>
+                            <span class="material-icons-sharp">add</span>
+                            <h3>Ajouter</h3>
+                        </div>
+                    
+                    </div> 
+                </a>
+            </div>
+            
         </div>
-	</body>
+    </div>
+    <script src="./scripts/index.js"></script>
+    
+</body>
+
 </html>
