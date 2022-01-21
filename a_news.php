@@ -8,27 +8,14 @@ if($_SESSION['role'] != 'administrator'){
     header('Location: index.php');
 }
 require("./config/database.php") ;
-$afficher_profil = $database->query("SELECT * FROM users");
-$afficher_profil = $afficher_profil->fetchAll();
+$news_item = $database->query("SELECT * FROM news");
+$news_item = $news_item->fetchAll();
 
 $first_name = $_SESSION['first_name'];
             $last_name = $_SESSION['last_name'];
         
             $first_letter_fname = substr($first_name, 0, 1);
             $first_letter_lname = substr($last_name, 0, 1);
-
-            if(isset($_POST['envoi'])){
-                if(!empty($_POST['question']) AND !empty($_POST['reponse'])){
-                    $question = htmlspecialchars($_POST['question']);
-                    $reponse = nl2br(htmlspecialchars($_POST['reponse']));
-        
-                    $insererFAQ = $database->prepare("INSERT INTO faq (question,reponse) VALUES (?,?)");
-                    $insererFAQ->execute(array($question, $reponse));
-                    $ajout = '<p class="success">FAQ bien ajouté !</p>';
-                }else{
-                    echo "Veuillez compléter tous les champs...";
-                }
-            }
 ?>
 <!DOCTYPE html>
 <html lang="fr">
@@ -84,7 +71,7 @@ $first_name = $_SESSION['first_name'];
                     <span class="material-icons-sharp">cable</span>
                     <h3>Capteurs</h3>
                 </a>
-                <a href="a_news.php">
+                <a href="a_news.php" class="active">
                     <span class="material-icons-sharp">feed</span>
                     <h3>Actualités</h3>
                 </a>
@@ -97,7 +84,7 @@ $first_name = $_SESSION['first_name'];
                     <span class="material-icons-sharp">forum</span>
                     <h3>Forum</h3>
                 </a>
-                <a href="a_FAQ.php"  class="active">
+                <a href="a_FAQ.php">
                     <span class="material-icons-sharp">quiz</span>
                     <h3>FAQ</h3>
                 </a>
@@ -124,22 +111,36 @@ $first_name = $_SESSION['first_name'];
             
             <div class="users-list-main">
                 <h2>
-                    Gestion de la FAQ
+                    Gestion des Actualités
                 </h2>
-
-                <div class="recent-grids">
-                    <h1>Publication d'une FAQ</h1>
-                    <?php if(isset($ajout)){ echo $ajout;} ?>
-                    <form action="" method="POST">
-                        <input type="text" name="question" style="width:100%;height:40px" placeholder="Question...">
-                        <br>
-                        <textarea name="reponse" style="width:100%; min-height:200px;" placeholder="Réponse..."></textarea>
-                        <br>
-                        <input type="submit" name="envoi" style="width:100%; padding: 10px 20px; border-radius : 5px 5px; border:none; background-color: #213C70; color:white;">
-                    </form>
-                    <a href="a_FAQ.php">Retournez sur la gestion de FAQ </a>
+                <div class="search-input">
+                    <input type="text" name="search" id="search" placeholder="Rechercher..." style="float:right;"/>
                 </div>
-                            
+                
+                <table id="tableNews">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Titre</th>
+                            <th>Image</th>
+                            <th>Date de création de l'article</th>
+                            <th>Modifier</th>
+                            <th>Supprimer</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    <?php foreach($news_item as $news){?>
+                        <tr class="tr_clicks">
+                            <td><?= $news['id'] ?></td>
+                            <td><?= $news['title'] ?></td>
+                            <td><img src="<?= $news['image'] ?>" style="margin:auto;border-radius: 50%;width: 100px;"></td>
+                            <td><?= $news['date_creation'] ?></td>
+                            <td class="success"><a href="a_modifierarticle.php?id=<?= $news['id'] ?>">Modifier</a></td>
+                            <td class="danger"><form enctype="multipart/form-data" method="post" action="a_deleteArticle.php?id=<?= $news['id'] ?>"><button class="danger" style="background:none;" onclick="if(confirm('Etes-vous sûr de vouloir supprimer cette article ?')){}else{return false;}">Supprimer</button></form></td>
+                        </tr>
+                    <?php  } ?>
+                    </tbody>
+                </table>
                 
             </div>
         </main>
@@ -164,11 +165,11 @@ $first_name = $_SESSION['first_name'];
                 </div>
             </div>
             <div class="news-list" style="margin-top: 30rem;">
-                <a href="a_publierFAQ.php">
+                <a href="a_ajoutarticle.php">
                     <div class="item add-news">
                         <div>
                             <span class="material-icons-sharp">add</span>
-                            <h3>Ajouter</h3>
+                            <h3>Ajouter une nouvelle actualité</h3>
                         </div>
                     
                     </div> 
@@ -178,7 +179,32 @@ $first_name = $_SESSION['first_name'];
         </div>
     </div>
     <script src="./scripts/index.js"></script>
-    
+    <script>
+            var value = document.querySelectorAll('td');
+            $(document).ready(function() {
+            $('#search').off('keyup');
+            $('#search').on('keyup', function() {
+                var searchTerm = $('#search').val();
+                var tr = [];
+                $('#tableNews').find('td').each(function() {
+                    var value = $(this).html();
+                    if (value.includes(searchTerm)) {
+                        tr.push($(this).closest(".tr_clicks"));
+                    }
+                });
+
+                if ( searchTerm == '') {
+                    $(".tr_clicks").show();
+                } else {
+                    // Else, hide all rows except those added to the array
+                    $(".tr_clicks").not('thead tr').hide();
+                    tr.forEach(function(el) {
+                        el.show();
+                    });
+                }
+            });
+        });
+    </script>
 </body>
 
 </html>

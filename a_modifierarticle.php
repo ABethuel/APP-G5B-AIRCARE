@@ -8,30 +8,34 @@ if($_SESSION['role'] != 'administrator'){
     header('Location: index.php');
 }
 require("./config/database.php") ;
-$afficher_profil = $database->query("SELECT * FROM users");
-$afficher_profil = $afficher_profil->fetchAll();
 
-$first_name = $_SESSION['first_name'];
-            $last_name = $_SESSION['last_name'];
+if(isset($_GET['id']) AND !empty($_GET['id'])){
+    $getid = $_GET['id'];
+    $recupNews = $database->prepare('SELECT * FROM news WHERE id = ?');
+    $recupNews->execute(array($getid));
+    if($recupNews->rowCount()>0){
+        $newsInfos = $recupNews->fetch();
+        $image = $newsInfos['image'];
+        $title = $newsInfos['title'];
+        $description = $newsInfos['description'];
         
-            $first_letter_fname = substr($first_name, 0, 1);
-            $first_letter_lname = substr($last_name, 0, 1);
+        if(isset($_POST['valider'])){
+            $image_link = htmlspecialchars($_POST['image']);
+            $title_saisie = htmlspecialchars($_POST['title']);
+            $description_saisie = nl2br(htmlspecialchars($_POST['description']));
 
-            if(isset($_POST['envoi'])){
-                if(!empty($_POST['question']) AND !empty($_POST['reponse'])){
-                    $question = htmlspecialchars($_POST['question']);
-                    $reponse = nl2br(htmlspecialchars($_POST['reponse']));
-        
-                    $insererFAQ = $database->prepare("INSERT INTO faq (question,reponse) VALUES (?,?)");
-                    $insererFAQ->execute(array($question, $reponse));
-                    $ajout = '<p class="success">FAQ bien ajouté !</p>';
-                }else{
-                    echo "Veuillez compléter tous les champs...";
-                }
-            }
+            $updateNews = $database->prepare('UPDATE news SET image=?, title = ?, description = ? WHERE id=?');
+            $updateNews->execute(array($image_link,$title_saisie,$description_saisie,$getid));
+            
+            header('Location: a_news.php');
+        }
+    }else{
+
+    }
+}else{
+    echo "Aucun identifiant trouvé";
+}
 ?>
-<!DOCTYPE html>
-<html lang="fr">
 
 <head>
     <meta charset="UTF-8">
@@ -84,7 +88,7 @@ $first_name = $_SESSION['first_name'];
                     <span class="material-icons-sharp">cable</span>
                     <h3>Capteurs</h3>
                 </a>
-                <a href="a_news.php">
+                <a href="a_news.php" class="active">
                     <span class="material-icons-sharp">feed</span>
                     <h3>Actualités</h3>
                 </a>
@@ -97,7 +101,7 @@ $first_name = $_SESSION['first_name'];
                     <span class="material-icons-sharp">forum</span>
                     <h3>Forum</h3>
                 </a>
-                <a href="a_FAQ.php"  class="active">
+                <a href="a_FAQ.php"  >
                     <span class="material-icons-sharp">quiz</span>
                     <h3>FAQ</h3>
                 </a>
@@ -124,20 +128,21 @@ $first_name = $_SESSION['first_name'];
             
             <div class="users-list-main">
                 <h2>
-                    Gestion de la FAQ
+                    Gestion des articles
                 </h2>
 
                 <div class="recent-grids">
-                    <h1>Publication d'une FAQ</h1>
-                    <?php if(isset($ajout)){ echo $ajout;} ?>
+                    <h1>Modification de l'article n°<?= $getid ?></h1>
                     <form action="" method="POST">
-                        <input type="text" name="question" style="width:100%;height:40px" placeholder="Question...">
-                        <br>
-                        <textarea name="reponse" style="width:100%; min-height:200px;" placeholder="Réponse..."></textarea>
-                        <br>
-                        <input type="submit" name="envoi" style="width:100%; padding: 10px 20px; border-radius : 5px 5px; border:none; background-color: #213C70; color:white;">
+                            <input type="text" name="title" value="<?= $title; ?>" style="width:100%;height:40px"><br>
+                            <br>
+                            <input type="text" name="image" value="<?= $image; ?>" style="width:100%;height:40px"><br>
+                            <br>
+                            <textarea name="description" style="width:100%; min-height:200px;"><?= $description; ?></textarea>
+                            <br>
+                            <input type="submit" name="valider" style="width:100%; padding: 10px 20px; border-radius : 5px 5px; border:none; background-color: #213C70; color:white;">
                     </form>
-                    <a href="a_FAQ.php">Retournez sur la gestion de FAQ </a>
+                    <a href="a_news.php">Retournez sur la gestion des articles </a>
                 </div>
                             
                 

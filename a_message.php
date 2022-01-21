@@ -36,8 +36,8 @@ $first_name = $_SESSION['first_name'];
             setInterval(function(){
                 $.post("get.php", {data:'get'}, function (data){
                     if(data>0){
-                        $("span#count").show();
-                        $("span#count").text(data);
+                        $("span.message-count").show();
+                        $("span.message-count").text(data);
                     }
                 });
             },1000);
@@ -63,7 +63,7 @@ $first_name = $_SESSION['first_name'];
                     <span class="material-icons-sharp">grid_view</span>
                     <h3>Dashboard</h3>
                 </a>
-                <a href="a_law.php" class="active">
+                <a href="a_law.php">
                     <span class="material-icons-sharp">person_outline</span>
                     <h3>Utilisateurs</h3>
                 </a>
@@ -75,10 +75,10 @@ $first_name = $_SESSION['first_name'];
                     <span class="material-icons-sharp">feed</span>
                     <h3>Actualités</h3>
                 </a>
-                <a href="a_message.php">
+                <a href="a_message.php"  class="active">
                     <span class="material-icons-sharp">email</span>
                     <h3>Messages</h3>
-                    <span class="message-count" id="count"></span>
+                    <span class="message-count"></span>
                 </a>
                 <a href="#">
                     <span class="material-icons-sharp">forum</span>
@@ -110,39 +110,67 @@ $first_name = $_SESSION['first_name'];
             </div>
             
             <div class="users-list-main">
-                <h2>
-                    Listes des Utilisateurs
-                </h2>
-                <div class="search-input">
-                    <input type="text" name="search" id="search" placeholder="Rechercher..." style="float:right;"/>
-                </div>
+             
                 
-                <table id="tableUser">
-                    <thead>
-                        <tr>
-                            <th>ID</th>
-                            <th>Nom</th>
-                            <th>Prénom</th>
-                            <th>Rôle</th>
-                            <th>Modifier le profil</th>
-                            <th>Bannir l'utilisateur</th>
-                            <th>Supprimer l'utilisateur</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                    <?php foreach($afficher_profil as $ap){?>
-                        <tr class="tr_clicks">
-                            <td><?= $ap['id'] ?></td>
-                            <td><?= $ap['first_name'] ?></td>
-                            <td><?= $ap['last_name'] ?></td>
-                            <td><?= $ap['role'] ?></td>
-                            <td class="success"><a href="a_modifierprofil.php?id=<?= $ap['id'] ?>">Modifier</a></td>
-                            <td class="warning">Bannir</td>
-                            <td class="danger"><form enctype="multipart/form-data" method="post" action="a_deleteUser.php?id=<?= $ap['id'] ?>"><button class="danger" style="background:none;" href="a_deleteUser.php?id=<?= $ap['id'] ?>" onclick="if(confirm('Etes-vous sûr de vouloir supprimer cet utilisateur ?')){}else{return false;}">Supprimer</button></form></td>
-                        </tr>
-                    <?php  } ?>
-                    </tbody>
-                </table>
+                <div class="recent-grids">
+                    <div class="users">
+                            <div class="card">
+                                <div class="card-header">
+                                    <h2>Messages</h2>
+                                </div>
+                                <div class="card-body">
+                                <?php
+                                    $recupMessages= $database->query('SELECT * FROM email');
+                                    while($mes = $recupMessages->fetch()){
+                                        ?>
+                                        <?php if($mes['status'] == 'unseen'){ ?>
+                                            <div class="messages unseen">
+                                                <div class="head-message">
+                                                    <a href="" title="Répondre"><span class="material-icons-outlined">reply</span></a>
+                                                    <form enctype="multipart/form-data" method="post" action="a_deletemessage.php?id=<?= $mes['id'] ?>">
+                                                        <button title="Supprimer" class="danger" style="background:none;" onclick="if(confirm('Etes-vous sûr de vouloir supprimer le message ?')){}else{return false;}">
+                                                            <span class="material-icons-outlined">delete</span></form>
+                                                        </button>
+                                                    </form>
+                                                </div>
+                                                <a href="a_affichermessage.php?id=<?= $mes['id'] ?>">
+                                                    <div class="contenu" title="Afficher le message en entier">
+                                                        <h1><?= $mes['sujet']; ?></h1>
+                                                        <small class="text-muted"><?= $mes['email']; ?></small>
+                                                        <br>
+                                                        <p><?= $mes['message']; ?></p>
+                                                    </div>
+                                                </a>
+                                                
+                                            </div>
+                                        <?php }else{?>
+                                            <div class="messages">
+                                                <div class="head-message">
+                                                    <a href="" title="Répondre"><span class="material-icons-outlined">reply</span></a>
+                                                    <form enctype="multipart/form-data" method="post" action="a_deletemessage.php?id=<?= $mes['id'] ?>">
+                                                        <button title="Supprimer" class="danger" style="background:none;" onclick="if(confirm('Etes-vous sûr de vouloir supprimer le message ?')){}else{return false;}">
+                                                            <span class="material-icons-outlined">delete</span></form>
+                                                        </button>
+                                                    </form>
+                                                </div>
+                                                <a href="a_affichermessage.php?id=<?= $mes['id'] ?>">
+                                                    <div class="contenu" title="Afficher le message en entier">
+                                                        <h1><?= $mes['sujet']; ?></h1>
+                                                        <small class="text-muted"><?= $mes['email']; ?></small>
+                                                        <br>
+                                                        <p><?= $mes['message']; ?></p>
+                                                    </div>
+                                                </a>
+                                                
+                                            </div>
+                                        <?php }?>
+                                <?php
+                                    }
+                                ?>
+                                </div>
+                            </div>
+                        </div>
+                </div>
                 
             </div>
         </main>
@@ -173,32 +201,7 @@ $first_name = $_SESSION['first_name'];
         </div>
     </div>
     <script src="./scripts/index.js"></script>
-    <script>
-            var value = document.querySelectorAll('td');
-            $(document).ready(function() {
-            $('#search').off('keyup');
-            $('#search').on('keyup', function() {
-                var searchTerm = $('#search').val();
-                var tr = [];
-                $('#tableUser').find('td').each(function() {
-                    var value = $(this).html();
-                    if (value.includes(searchTerm)) {
-                        tr.push($(this).closest(".tr_clicks"));
-                    }
-                });
-
-                if ( searchTerm == '') {
-                    $(".tr_clicks").show();
-                } else {
-                    // Else, hide all rows except those added to the array
-                    $(".tr_clicks").not('thead tr').hide();
-                    tr.forEach(function(el) {
-                        el.show();
-                    });
-                }
-            });
-        });
-    </script>
+    
 </body>
 
 </html>

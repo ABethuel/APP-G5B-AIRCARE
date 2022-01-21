@@ -18,13 +18,14 @@ $first_name = $_SESSION['first_name'];
             $first_letter_lname = substr($last_name, 0, 1);
 
             if(isset($_POST['envoi'])){
-                if(!empty($_POST['question']) AND !empty($_POST['reponse'])){
-                    $question = htmlspecialchars($_POST['question']);
-                    $reponse = nl2br(htmlspecialchars($_POST['reponse']));
+                if(!empty($_POST['title']) AND !empty($_POST['image']) AND !empty($_POST['description'])){
+                    $title = htmlspecialchars($_POST['title']);
+                    $image = htmlspecialchars($_POST['image']);
+                    $description = nl2br(htmlspecialchars($_POST['description']));
         
-                    $insererFAQ = $database->prepare("INSERT INTO faq (question,reponse) VALUES (?,?)");
-                    $insererFAQ->execute(array($question, $reponse));
-                    $ajout = '<p class="success">FAQ bien ajouté !</p>';
+                    $insererNews = $database->prepare("INSERT INTO news (title,image,description) VALUES (?,?,?)");
+                    $insererNews->execute(array($title, $image, $description));
+                    $ajout = '<p class="success">Article bien ajouté !</p>';
                 }else{
                     echo "Veuillez compléter tous les champs...";
                 }
@@ -84,7 +85,7 @@ $first_name = $_SESSION['first_name'];
                     <span class="material-icons-sharp">cable</span>
                     <h3>Capteurs</h3>
                 </a>
-                <a href="a_news.php">
+                <a href="a_news.php" class="active">
                     <span class="material-icons-sharp">feed</span>
                     <h3>Actualités</h3>
                 </a>
@@ -97,7 +98,7 @@ $first_name = $_SESSION['first_name'];
                     <span class="material-icons-sharp">forum</span>
                     <h3>Forum</h3>
                 </a>
-                <a href="a_FAQ.php"  class="active">
+                <a href="a_FAQ.php"  >
                     <span class="material-icons-sharp">quiz</span>
                     <h3>FAQ</h3>
                 </a>
@@ -124,20 +125,22 @@ $first_name = $_SESSION['first_name'];
             
             <div class="users-list-main">
                 <h2>
-                    Gestion de la FAQ
+                    Gestion des articles
                 </h2>
 
                 <div class="recent-grids">
-                    <h1>Publication d'une FAQ</h1>
+                    <h1>Publication d'un article</h1>
                     <?php if(isset($ajout)){ echo $ajout;} ?>
                     <form action="" method="POST">
-                        <input type="text" name="question" style="width:100%;height:40px" placeholder="Question...">
+                        <input type="text" name="title" style="width:100%;height:40px" placeholder="Titre de l'article">
                         <br>
-                        <textarea name="reponse" style="width:100%; min-height:200px;" placeholder="Réponse..."></textarea>
+                        <input type="text" name="image" style="width:100%;height:40px" placeholder="Lien de l'image">
+                        <br>
+                        <textarea name="description" style="width:100%; min-height:200px;" placeholder="description"></textarea>
                         <br>
                         <input type="submit" name="envoi" style="width:100%; padding: 10px 20px; border-radius : 5px 5px; border:none; background-color: #213C70; color:white;">
                     </form>
-                    <a href="a_FAQ.php">Retournez sur la gestion de FAQ </a>
+                    <a href="a_news.php">Retournez sur la page de gestion des articles </a>
                 </div>
                             
                 

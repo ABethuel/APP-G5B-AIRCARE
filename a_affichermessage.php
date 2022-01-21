@@ -16,22 +16,30 @@ $first_name = $_SESSION['first_name'];
         
             $first_letter_fname = substr($first_name, 0, 1);
             $first_letter_lname = substr($last_name, 0, 1);
+            if(isset($_GET['id']) AND !empty($_GET['id'])){
+                $getid = $_GET['id'];
+                $recupMessage = $database->prepare('SELECT * FROM email WHERE id = ?');
+                $recupMessage->execute(array($getid));
 
-            if(isset($_POST['envoi'])){
-                if(!empty($_POST['question']) AND !empty($_POST['reponse'])){
-                    $question = htmlspecialchars($_POST['question']);
-                    $reponse = nl2br(htmlspecialchars($_POST['reponse']));
-        
-                    $insererFAQ = $database->prepare("INSERT INTO faq (question,reponse) VALUES (?,?)");
-                    $insererFAQ->execute(array($question, $reponse));
-                    $ajout = '<p class="success">FAQ bien ajouté !</p>';
+
+                if($recupMessage->rowCount()>0){
+                    $messageInfos = $recupMessage->fetch();
+                    if($messageInfos['status'] == 'unseen'){
+                        $updateStatus = $database->prepare("UPDATE `email` SET status = 'seen' WHERE id = ? ");
+                        $updateStatus->execute(array($getid));
+                    }
+                    $sujet = $messageInfos['sujet'];
+                    $email = $messageInfos['email'];
+                    $message = str_replace('<br />', '',$messageInfos['message']);
+                    
+                    
                 }else{
-                    echo "Veuillez compléter tous les champs...";
+            
                 }
+            }else{
+                echo "Aucun identifiant trouvé";
             }
 ?>
-<!DOCTYPE html>
-<html lang="fr">
 
 <head>
     <meta charset="UTF-8">
@@ -84,20 +92,20 @@ $first_name = $_SESSION['first_name'];
                     <span class="material-icons-sharp">cable</span>
                     <h3>Capteurs</h3>
                 </a>
-                <a href="a_news.php">
+                <a href="a_news.php" >
                     <span class="material-icons-sharp">feed</span>
                     <h3>Actualités</h3>
                 </a>
-                <a href="a_message.php">
+                <a href="a_message.php" class="active">
                     <span class="material-icons-sharp">email</span>
                     <h3>Messages</h3>
-                    <span class="message-count" id="count"></span>
+                    <span class="message-count">26</span>
                 </a>
                 <a href="#">
                     <span class="material-icons-sharp">forum</span>
                     <h3>Forum</h3>
                 </a>
-                <a href="a_FAQ.php"  class="active">
+                <a href="a_FAQ.php"  >
                     <span class="material-icons-sharp">quiz</span>
                     <h3>FAQ</h3>
                 </a>
@@ -128,16 +136,21 @@ $first_name = $_SESSION['first_name'];
                 </h2>
 
                 <div class="recent-grids">
-                    <h1>Publication d'une FAQ</h1>
-                    <?php if(isset($ajout)){ echo $ajout;} ?>
-                    <form action="" method="POST">
-                        <input type="text" name="question" style="width:100%;height:40px" placeholder="Question...">
-                        <br>
-                        <textarea name="reponse" style="width:100%; min-height:200px;" placeholder="Réponse..."></textarea>
-                        <br>
-                        <input type="submit" name="envoi" style="width:100%; padding: 10px 20px; border-radius : 5px 5px; border:none; background-color: #213C70; color:white;">
-                    </form>
-                    <a href="a_FAQ.php">Retournez sur la gestion de FAQ </a>
+                <div class="head-message">
+                                                    <a href="" title="Répondre"><span class="material-icons-outlined">reply</span></a>
+                                                    <form enctype="multipart/form-data" method="post" action="a_deletemessage.php?id=<?= $mes['id'] ?>">
+                                                        <button title="Supprimer" class="danger" style="background:none;" onclick="if(confirm('Etes-vous sûr de vouloir supprimer le message ?')){}else{return false;}">
+                                                            <span class="material-icons-outlined">delete</span></form>
+                                                        </button>
+                                                    </form>
+                                                </div>
+                            <input type="text" name="question" value="<?= $sujet; ?>" style="width:100%;height:40px" readonly><br>
+                            <br>
+                            <input type="email" name="question" value="<?= $email; ?>" style="width:100%;height:40px" readonly><br>
+                            <br>
+                            <textarea name="reponse" style="width:100%; min-height:200px;" readonly><?= $message; ?></textarea>
+                            <br>
+                            
                 </div>
                             
                 
@@ -163,17 +176,7 @@ $first_name = $_SESSION['first_name'];
                     </div>
                 </div>
             </div>
-            <div class="news-list" style="margin-top: 30rem;">
-                <a href="a_publierFAQ.php">
-                    <div class="item add-news">
-                        <div>
-                            <span class="material-icons-sharp">add</span>
-                            <h3>Ajouter</h3>
-                        </div>
-                    
-                    </div> 
-                </a>
-            </div>
+        
             
         </div>
     </div>

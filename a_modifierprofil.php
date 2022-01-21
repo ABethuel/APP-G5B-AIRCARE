@@ -17,109 +17,178 @@ $first_name = $_SESSION['first_name'];
         
             $first_letter_fname = substr($first_name, 0, 1);
             $first_letter_lname = substr($last_name, 0, 1);
+            if(isset($_GET['id']) AND !empty($_GET['id'])){
+                $getid = $_GET['id'];
+                $recupUser = $database->prepare('SELECT * FROM users WHERE id = ?');
+                $recupUser->execute(array($getid));
+                if($recupUser->rowCount()>0){
+                    $userInfos = $recupUser->fetch();
+                    $user_mail = $userInfos['email'];
+                    $user_last_name = $userInfos['last_name'];
+                    $user_first_name = $userInfos['first_name'];
+                    $user_role = $userInfos['role'];
+            
+                    
+                    if(isset($_POST['valider'])){
+                        $mail_saisie = htmlspecialchars($_POST['email']);
+                        $role_saisie = htmlspecialchars($_POST['role']);
+                        $nom_saisie = htmlspecialchars($_POST['nom']);
+                        $prenom_saisie = htmlspecialchars($_POST['prenom']);
+                
+                        $updateUser= $database->prepare('UPDATE users SET email = ?, role = ?, last_name= ?, first_name = ? WHERE id=?');
+                        $updateUser->execute(array($mail_saisie,$role_saisie,$nom_saisie,$prenom_saisie,$getid));
+                        
+                        header('Location: admin.php?msg=3');
+                    }
+                }else{
+        
+                }
+            }else{
+                echo "Aucun identifiant trouvé";
+            }
 ?>
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="utf-8" />
-        <link rel="icon" type="image/png" href="Assets/images/logo_inverse.png"/> <!-- icone du site onglet du navigateur -->
-        <link rel="stylesheet" href="style_index.css">
-        <link rel="stylesheet" href="admin.css">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
-        <title>Espace Administrateur</title>
-    </head>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width-device-width, initial-scale=1.0">
+    <title>Espace Administration</title>
+    <!-- ICONS -->
+    <link href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp" rel="stylesheet">
+    <!-- STYLESHEET  -->
+    <link rel="stylesheet" href="admin.css">
+    <!-- JQUERY -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function(){
+            setInterval(function(){
+                $.post("get.php", {data:'get'}, function (data){
+                    if(data>0){
+                        $("span#count").show();
+                        $("span#count").text(data);
+                    }
+                });
+            },1000);
+        });
+    </script>
+</head>
 
-    <body>
-    <div class="sidebar">
-
-<div class="sidebar-brand">
-    <a href="index.php"><img src="Assets/images/logo_inverse.png"></a>
-</div>
-
-<div class="sidebar-menu">
-    <ul>
-        <li>
-            <a href="admin.php"><span class="fas fa-igloo"></span>
-            <span>Tableau de bord</span></a>
-        </li>
-        <li>
-            <a href="a_law.php" class="active"><span class="fas fa-users"></span>
-            <span>Gérer les utilisateurs</span></a>
-        </li>   
-        <li>
-            <a href="a_capteur.php"><span class="fab fa-phabricator"></span>
-            <span>Gérer les Capteurs</span></a>
-        </li>
-        <li>
-            <a href="a_FAQ.php"><span class="fas fa-question"></span>
-            <span>FAQ</span></a>
-        </li>  
-        <li>
-            <a href="a_actu.php"><span class="fas fa-book"></span>
-            <span>Actualités</span></a>
-        </li>
-        <li>
-            <a href="a_forum.php"><span class="fas fa-comment-alt"></span>
-            <span>Forum</span></a>
-        </li> 
-    </ul>
-</div>
-
-<div class="sidebar-change">
-    
-    <li><a href="authentication/logout_action.php">Se déconnecter</a></li>
-</div>
-</div>
-<div class="main-content">
-<header>
-    <h1>
-        <label for="nav-toggle"><i class="fas fa-bars"></i></label>
-        Espace Admin
-    </h1>
-
-    <div class="search-wrapper">
-        <i class="fas fa-search"></i>
-        <input type="search" placeholder="Rechercher"/> 
-    </div>
-    <div class="user-wrapper">
-        <div class="connected">
-                <div class="profil_circle">
-                    <a class="first_letters"><?php echo $first_letter_fname, $first_letter_lname; ?></a>
+<body>
+    <div class="container">
+        <aside>
+            <div class="top">
+                <div class="logo">
+                    <img src="Assets/images/logo.png" alt="Logo">
+                    <h2>AirCare</h2>
                 </div>
-                <div class="dropdown">
-                    <a class="name_profile"><?php echo $first_name . ' '. $last_name; ?></a>
-                    <div class="dropdown-content">
-                        <?php if($_SESSION['role'] == 'administrator'){ ?>
-                        <a href="admin.php">Espace administrateur</a>
-                        <?php }?>
-                        <a href="authentication/logout_action.php">Se déconnecter</a>
-                        <a href="change_profile.php">Modifier son profil</a>
+                <div class="close" id="close-btn">
+                    <span class="material-icons-sharp">close</span>
+                </div>
+            </div>
+
+            <div class="sidebar">
+                <a href="admin.php">
+                    <span class="material-icons-sharp">grid_view</span>
+                    <h3>Dashboard</h3>
+                </a>
+                <a href="a_law.php"  class="active">
+                    <span class="material-icons-sharp">person_outline</span>
+                    <h3>Utilisateurs</h3>
+                </a>
+                <a href="#">
+                    <span class="material-icons-sharp">cable</span>
+                    <h3>Capteurs</h3>
+                </a>
+                <a href="a_news.php">
+                    <span class="material-icons-sharp">feed</span>
+                    <h3>Actualités</h3>
+                </a>
+                <a href="a_message.php">
+                    <span class="material-icons-sharp">email</span>
+                    <h3>Messages</h3>
+                    <span class="message-count" id="count"></span>
+                </a>
+                <a href="#">
+                    <span class="material-icons-sharp">forum</span>
+                    <h3>Forum</h3>
+                </a>
+                <a href="a_FAQ.php"  >
+                    <span class="material-icons-sharp">quiz</span>
+                    <h3>FAQ</h3>
+                </a>
+                <a href="#">
+                    <span class="material-icons-sharp">groups</span>
+                    <h3>Equipe</h3>
+                </a>
+                <a href="change_profile.php">
+                    <span class="material-icons-sharp">settings</span>
+                    <h3>Modifier son profil</h3>
+                </a>
+                <a href="authentication/logout_action.php">
+                    <span class="material-icons-sharp">logout</span>
+                    <h3>Se déconnecter</h3>
+                </a>
+            </div>
+        </aside>
+        <!-- MAIN CONTENT -->
+        <main>
+            <h1>Espace d'Administration</h1>
+            <div class="date">
+                <p class="date-p"><?php echo date("j/n/Y");?></p>
+            </div>
+            
+            <div class="users-list-main">
+                <h2>
+                    Modification d'un profil
+                </h2>
+
+                <div class="recent-grids">
+                    <h1>Modification du profil de l'utilisateur n°<?= $getid ?></h1>
+                    <form action="" method="POST">
+            <input type="mail" name="email" value="<?= $user_mail ?>" style="width:100%;height:40px"><br>
+            <br>
+            <select name="role" value="<?php $userInfos['role']; ?>" style="width:100%;height:40px">
+                <option value="user">user</option>
+                <option value="manager">manager</option>
+            </select><br>
+            <br>
+            <input type="text" name="nom" value="<?= $user_last_name ?>" style="width:100%;height:40px"><br>
+            <br>
+            <input type="text" name="prenom" value="<?= $user_first_name ?>" style="width:100%;height:40px"><br>
+            <br>
+            <input type="submit" name="valider" style="width:100%; padding: 10px 20px; border-radius : 5px 5px; border:none; background-color: #213C70; color:white;">
+        </form>
+                    <a href="a_law.php">Retournez sur la gestion d'utilisateurs </a>
+                </div>
+                            
+                
+            </div>
+        </main>
+        <!-- RIGHT -->
+        <div class="right">
+            <div class="top">
+                <button id="menu-btn">
+                    <span class="material-icons-sharp">menu</span>
+                </button>
+                <div class="theme-toggler">
+                    <span class="material-icons-sharp active">light_mode</span>
+                    <span class="material-icons-sharp">dark_mode</span>
+                </div>
+                <div class="profile">
+                    <div class="info">
+                        <p>Salut, <b>Admin</b></p>
+                        <small class="text-muted">Admin</small>
+                    </div>
+                    <div class="profile-photo">
+                        <span class="material-icons-sharp">account_circle</span>
                     </div>
                 </div>
             </div>
+
+            
+        </div>
     </div>
-</header>  
-    <body>  
-        <main>
-            <div class="recent-grids">
-                <form action="" method="POST">
-                    <input type="mail" name="mail" value="<?php $userInfos['mail']; ?>">
-                    <br>
+    <script src="./scripts/index.js"></script>
+    
+</body>
 
-                    <select name="role" value="<?php $userInfos['role']; ?>">
-                        <option value="user">user</option>
-                        <option value="manager">manager</option>
-                    </select>
-
-                    <input type="text" name="nom" value="<?php $userInfos['last_name']; ?>">
-                    <br>
-
-                    <input type="text" name="prenom" value="<?php $userInfos['first_name']; ?>">
-                    <br>
-                    
-                    <input type="submit" name="valider">
-                </form>
-            </div>
-        </main>
-    </body>
 </html>
