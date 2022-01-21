@@ -22,7 +22,6 @@ try{
             <div class="message">
                 <p><b>'. $message['email']. ' : </b> . '. $message['sujet'].' </p>
                 <small>'.$message['message'].'</small>
-                <small class="text-muted">Dates</small>
             </div>
         </div>';
         }
@@ -35,7 +34,6 @@ try{
             <div class="message">
                 <p><b>'. $message['email']. ' : </b> . '. $message['sujet'].' </p>
                 <small>'.$message['message'].'</small>
-                <small class="text-muted">Dates</small>
             </div>
         </div>';
         }
