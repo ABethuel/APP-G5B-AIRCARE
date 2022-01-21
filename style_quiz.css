@@ -71,16 +71,19 @@ body {
 }
 .titre11{
     text-decoration: underline solid #2254B5 3px;
-    text-underline-offset: 3px; 
+    text-underline-offset: 2px; 
+    font-size: 160%;
 }
 .text11{
-    font-size: large;
+    font-size: 100%;
     margin-top: 2%;
     text-align: justify;
 }
 .titre22{
     text-decoration: underline solid #2254B5 3px;
-    text-underline-offset: 3px; 
+    text-underline-offset: 2px; 
+    font-size: 140%;
+    
 }
 
 .titre{
@@ -99,7 +102,9 @@ body {
     padding-top: 4%;
     
 }
-
+section{
+    margin-top: -2%;
+}
 .bouton_quiz{
     display: flex;
     padding-top: 1% ;
@@ -587,6 +592,7 @@ footer{
     padding-left: 3%;
     padding-top: 1%;
     padding-bottom: 1%;
+    
     display: flex;
 }
 .sous_partie21{
@@ -597,16 +603,18 @@ footer{
 }
 .titre_enjeux{
     text-decoration: underline solid #2254B5 3px;
-    font-size: 180%;
-    text-underline-offset: 3px;
+    font-size: 160%;
+    text-underline-offset: 2px;
 }
 .text_enjeux{
-    font-size: 120%;
+    font-size: 100%;
     margin-top: 3%;
     text-align: justify;
 }
+
 .imageEnjeux{
     margin-top: 2.5%;
+    margin-bottom: 2%;
     border-radius: 4px;
     box-shadow: 0 7px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
 }
@@ -615,16 +623,30 @@ footer{
     margin-left: 5%;
 }
 .titre_liens{
-    font-size: 150%;
+    font-size: 140%;
     text-decoration: underline solid #2254B5 3px;
     text-underline-offset: 3px;
     
+}
+.Links{
+    margin-top: 10%;
 }
 .Link1 a{
     color: #4D88FC;
     
 }
-.clouds{
-    margin-left: 15%;
-    margin-top: 195%;
+.videos{
+    margin-top: 35%;
+    margin-bottom: 10%;
+}
+.titre_liensVideos{
+    font-size: 140%;
+    text-decoration: underline solid #2254B5 3px;
+    text-underline-offset: 3px;
+}
+.LinksVideo{
+    margin-top: 10%;
+}
+.Link1Video a{
+    color: #4D88FC;
 }
