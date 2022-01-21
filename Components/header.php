@@ -15,7 +15,7 @@ require('./config/database.php');
 function displayProfilOrConnexion(){
 
     try{
-        if ($_SESSION['auth'] == true){
+        if (isset($_SESSION["auth"]) && $_SESSION['auth'] == true){
             $first_name = $_SESSION['first_name'];
             $last_name = $_SESSION['last_name'];
         
@@ -43,7 +43,7 @@ function displayProfilOrConnexion(){
                 </div>
             </div>
             <?php
-        }else{
+        }else {
             ?>
             <div class="connexion">
                 <img class="profil" src="./Assets/images/profil_connexion.png">
