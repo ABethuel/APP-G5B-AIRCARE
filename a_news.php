@@ -136,7 +136,7 @@ $first_name = $_SESSION['first_name'];
                         <tr class="tr_clicks">
                             <td><?= $news['id'] ?></td>
                             <td><?= $news['title'] ?></td>
-                            <td><img src="<?= $news['image'] ?>" style="margin:auto;border-radius: 50%;width: 100px;"></td>
+                            <td><img src="<?= $news['image'] ?>" style="margin:auto;border-radius: 15px;width: 100px;  margin-left:5"></td>
 
                             <td><a href="<?= $news['link']?>"><?= $news['link']?></a></td>
 

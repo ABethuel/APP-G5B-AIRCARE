@@ -142,7 +142,7 @@ $display_captor = $display_captor->fetchAll();
                             <td><?= $dc['title'] ?></td>
                             <td><?= $dc['place'] ?></td>
                             <td><?= $dc['date'] ?></td>
-                            <td><?= $dc['image'] ?></td>
+                            <td><img src="<?= $dc['image'] ?>" style="margin:auto;border-radius: 15px;width: 100px; margin-left:5;"></td>
                             <td><?= $dc['user_name'] ?></td>
 
                             <td class="danger"><form enctype="multipart/form-data" method="post" action="a_deleteCaptor.php?id=<?= $dc['id'] ?>"><button class="danger" style="background:none;" href="a_deleteCaptor.php?id=<?= $dc['id'] ?>" onclick="if(confirm('Etes-vous sûr de vouloir supprimer le capteur ?')){}else{return false;}">Supprimer le Capteur</button></form></td>
