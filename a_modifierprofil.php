@@ -149,6 +149,7 @@ $first_name = $_SESSION['first_name'];
             <select name="role" value="<?php $userInfos['role']; ?>" style="width:100%;height:40px">
                 <option value="user">user</option>
                 <option value="manager">manager</option>
+                <option value="administrator">admin</option>
             </select><br>
             <br>
             <input type="text" name="nom" value="<?= $user_last_name ?>" style="width:100%;height:40px"><br>
