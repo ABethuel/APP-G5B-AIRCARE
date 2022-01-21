@@ -101,7 +101,7 @@ $first_name = $_SESSION['first_name'];
                     <h3>Messages</h3>
                     <span class="message-count">26</span>
                 </a>
-                <a href="#">
+                <a href="a_forum.php">
                     <span class="material-icons-sharp">forum</span>
                     <h3>Forum</h3>
                 </a>
