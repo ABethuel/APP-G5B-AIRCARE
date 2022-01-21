@@ -14,7 +14,7 @@
         if($recupmessages->rowCount()>0){
             $bannirmessages = $database->prepare('DELETE FROM messages WHERE id=?');
             $bannirmessages->execute(array($getid));
-            header('Location: a_messages.php?msg=1');
+            header('Location: a_response.php?msg=1');
         }else{
             var_dump($getid);
         }

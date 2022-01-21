@@ -8,15 +8,29 @@ if($_SESSION['role'] != 'administrator'){
     header('Location: index.php');
 }
 require("./config/database.php") ;
-$news_item = $database->query("SELECT * FROM news");
-$news_item = $news_item->fetchAll();
+$afficher_profil = $database->query("SELECT * FROM users WHERE role != 'administrator'");
+$afficher_profil = $afficher_profil->fetchAll();
+
 
 $first_name = $_SESSION['first_name'];
             $last_name = $_SESSION['last_name'];
         
             $first_letter_fname = substr($first_name, 0, 1);
             $first_letter_lname = substr($last_name, 0, 1);
+
+        
+$display_response = $database -> prepare("SELECT * FROM messages WHERE topic_id=?") ;
+$display_response -> execute(array($_GET['id'])) ;
+
+$display_topics=$database ->prepare("SELECT * FROM topics WHERE id = ?" );
+$display_topics -> execute(array($_GET['id']));
+
+if ($display_topics->rowCount() > 0){
+    $topics = $display_topics -> fetch();
+    $title_topics= $topics['title'];
+}
 ?>
+
 <!DOCTYPE html>
 <html lang="fr">
 
@@ -63,15 +77,15 @@ $first_name = $_SESSION['first_name'];
                     <span class="material-icons-sharp">grid_view</span>
                     <h3>Dashboard</h3>
                 </a>
-                <a href="a_law.php">
+                <a href="a_law.php" >
                     <span class="material-icons-sharp">person_outline</span>
                     <h3>Utilisateurs</h3>
                 </a>
-                <a href="a_capteur.php">
+                <a href="a_capteur" >
                     <span class="material-icons-sharp">cable</span>
                     <h3>Capteurs</h3>
                 </a>
-                <a href="a_news.php" class="active">
+                <a href="a_news.php">
                     <span class="material-icons-sharp">feed</span>
                     <h3>Actualités</h3>
                 </a>
@@ -80,7 +94,7 @@ $first_name = $_SESSION['first_name'];
                     <h3>Messages</h3>
                     <span class="message-count" id="count"></span>
                 </a>
-                <a href="a_forum.php">
+                <a href="a_forum" class="active">
                     <span class="material-icons-sharp">forum</span>
                     <h3>Forum</h3>
                 </a>
@@ -110,33 +124,31 @@ $first_name = $_SESSION['first_name'];
             </div>
             
             <div class="users-list-main">
-                <h2>
-                    Gestion des Actualités
-                </h2>
+               
+                <h2><?php echo $title_topics ?></h2>
+                
                 <div class="search-input">
                     <input type="text" name="search" id="search" placeholder="Rechercher..." style="float:right;"/>
                 </div>
                 
-                <table id="tableNews">
+                <table id="tableUser">
                     <thead>
                         <tr>
-                            <th>ID</th>
-                            <th>Titre</th>
-                            <th>Image</th>
-                            <th>Date de création de l'article</th>
-                            <th>Modifier</th>
-                            <th>Supprimer</th>
+                            <th>Id</th>
+                            <th>Contenu</th>      
+                            <th>Date</th>
+                            <th>Utilisateur</th>
+                            <th>Supprimer le messages</th>
                         </tr>
                     </thead>
                     <tbody>
-                    <?php foreach($news_item as $news){?>
+                    <?php foreach($display_response as $dr){?>
                         <tr class="tr_clicks">
-                            <td><?= $news['id'] ?></td>
-                            <td><?= $news['title'] ?></td>
-                            <td><img src="<?= $news['image'] ?>" style="margin:auto;border-radius: 50%;width: 100px;"></td>
-                            <td><?= $news['date_creation'] ?></td>
-                            <td class="success"><a href="a_modifierarticle.php?id=<?= $news['id'] ?>">Modifier</a></td>
-                            <td class="danger"><form enctype="multipart/form-data" method="post" action="a_deleteArticle.php?id=<?= $news['id'] ?>"><button class="danger" style="background:none;" onclick="if(confirm('Etes-vous sûr de vouloir supprimer cette article ?')){}else{return false;}">Supprimer</button></form></td>
+                            <th><?= $dr['id'] ?></th>        
+                            <th><?= $dr['content'] ?></th>
+                            <th><?= $dr['date'] ?></th>
+                            <th><?= $dr['user_name'] ?></th>
+                            <td class="danger"><form enctype="multipart/form-data" method="post" action="a_deleteRopics.php?id=<?= $dr['id'] ?>"><button class="danger" style="background:none;" href="a_deleteTopics.php?id=<?= $dr['id'] ?>" onclick="if(confirm('Etes-vous sûr de vouloir supprimer le message ?')){}else{return false;}">Supprimer le Message</button></form></td>
                         </tr>
                     <?php  } ?>
                     </tbody>
@@ -164,16 +176,8 @@ $first_name = $_SESSION['first_name'];
                     </div>
                 </div>
             </div>
-            <div class="news-list" style="margin-top: 30rem;">
-                <a href="a_ajoutarticle.php">
-                    <div class="item add-news">
-                        <div>
-                            <span class="material-icons-sharp">add</span>
-                            <h3>Ajouter une nouvelle actualité</h3>
-                        </div>
-                    
-                    </div> 
-                </a>
+            <div class="recent-updates">
+                
             </div>
             
         </div>
@@ -186,7 +190,7 @@ $first_name = $_SESSION['first_name'];
             $('#search').on('keyup', function() {
                 var searchTerm = $('#search').val();
                 var tr = [];
-                $('#tableNews').find('td').each(function() {
+                $('#tableUser').find('td').each(function() {
                     var value = $(this).html();
                     if (value.includes(searchTerm)) {
                         tr.push($(this).closest(".tr_clicks"));

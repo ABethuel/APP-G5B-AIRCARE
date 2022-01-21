@@ -50,8 +50,8 @@ $first_name = $_SESSION['first_name'];
         <aside>
             <div class="top">
                 <div class="logo">
-                    <img src="Assets/images/logo.png" alt="Logo">
-                    <h2>AirCare</h2>
+                    <a href="index.php"><img src="Assets/images/logo.png" alt="Logo"></a>
+                    <a href="index.php"><h2>AirCare</h2></a>
                 </div>
                 <div class="close" id="close-btn">
                     <span class="material-icons-sharp">close</span>
@@ -80,7 +80,7 @@ $first_name = $_SESSION['first_name'];
                     <h3>Messages</h3>
                     <span class="message-count"></span>
                 </a>
-                <a href="#">
+                <a href="a_forum.php">
                     <span class="material-icons-sharp">forum</span>
                     <h3>Forum</h3>
                 </a>

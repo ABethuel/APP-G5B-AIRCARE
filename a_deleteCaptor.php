@@ -14,7 +14,7 @@
         if($recupcaptors->rowCount()>0){
             $bannircaptors = $database->prepare('DELETE FROM captors WHERE id=?');
             $bannircaptors->execute(array($getid));
-            header('Location: admin.php?msg=1');
+            header('Location: a_capteur.php?msg=1');
         }else{
             var_dump($getid);
         }
