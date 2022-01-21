@@ -131,7 +131,7 @@ $first_name = $_SESSION['first_name'];
                     <span class="material-icons-sharp">analytics</span>
                     <div class="middle">
                         <div class="left">
-                            <h3>Nombres de Candidats</h3>
+                            <h3>Nombres d'utilisateurs</h3>
                             <h1><?= $user_count ?></h1>
                         </div>
                     </div>
