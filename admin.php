@@ -135,7 +135,7 @@ $first_name = $_SESSION['first_name'];
                             <h1><?= $user_count ?></h1>
                         </div>
                     </div>
-                    <small class="text-muted">Yeah</small>
+                    <small class="text-muted"></small>
                 </div>
                 <div class="manager-count">
                     <span class="material-icons-sharp">analytics</span>
