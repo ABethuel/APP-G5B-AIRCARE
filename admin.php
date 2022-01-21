@@ -8,8 +8,20 @@ if($_SESSION['role'] != 'administrator'){
     header('Location: index.php');
 }
 require("./config/database.php") ;
-$afficher_profil = $database->query("SELECT * FROM users WHERE role != 'administrator' LIMIT 8");
+$afficher_profil = $database->query("SELECT * FROM users LIMIT 8");
 $afficher_profil = $afficher_profil->fetchAll();
+
+$user = $database->query("SELECT * FROM users WHERE role='user' ");
+$user= $user->fetchAll();
+$user_count = count($user);
+
+$manager = $database->query("SELECT * FROM users WHERE role='manager' ");
+$manager= $manager->fetchAll();
+$manager_count = count($manager);
+
+$message = $database->query("SELECT * FROM email WHERE status='unseen' ");
+$message= $message->fetchAll();
+$message_count = count($message);
 
 $news_item = $database->query("SELECT * FROM news LIMIT 3");
 $news_item = $news_item->fetchAll();
@@ -120,16 +132,7 @@ $first_name = $_SESSION['first_name'];
                     <div class="middle">
                         <div class="left">
                             <h3>Nombres de Candidats</h3>
-                            <h1>5</h1>
-                        </div>
-                    
-                        <div class="progress">
-                            <svg>
-                                <circle cx='38' cy='38' r='36'></circle>
-                            </svg>
-                            <div class="number">
-                                <p>81%</p>
-                            </div>
+                            <h1><?= $user_count ?></h1>
                         </div>
                     </div>
                     <small class="text-muted">Yeah</small>
@@ -138,38 +141,23 @@ $first_name = $_SESSION['first_name'];
                     <span class="material-icons-sharp">analytics</span>
                     <div class="middle">
                         <div class="left">
-                            <h3>Nombres de Candidats</h3>
-                            <h1>5</h1>
+                            <h3>Nombres de Gestionnaires</h3>
+                            <h1><?= $manager_count ?></h1>
                         </div>
-                        <div class="progress">
-                            <svg>
-                                <circle cx='38' cy='38' r='36'></circle>
-                            </svg>
-                            <div class="number">
-                                <p>81%</p>
-                            </div>
-                        </div>
+                      
                     </div>
-                    <small class="text-muted">Yeah</small>
+                    <small class="text-muted"></small>
                 </div>
                 <div class="message-counts">
                     <span class="material-icons-sharp">message</span>
                     <div class="middle">
                         <div class="left">
-                            <h3>Nombres de Candidats</h3>
-                            <h1>5</h1>
+                            <h3>Messages non lus</h3>
+                            <h1><?= $message_count ?></h1>
                         </div>
                     
-                        <div class="progress">
-                            <svg>
-                                <circle cx='38' cy='38' r='36'></circle>
-                            </svg>
-                            <div class="number">
-                                <p>81%</p>
-                            </div>
-                        </div>
                     </div>
-                    <small class="text-muted">Yeah</small>
+                    <small class="text-muted"></small>
                 </div>
             </div>
             <div class="users-list-main">
@@ -234,24 +222,28 @@ $first_name = $_SESSION['first_name'];
             <div class="news-list">
                 <h2>Actualités</h2>
                 <?php foreach($news_item as $news){?>
-                    <div class="item">
-                       <div class="icon">
-                           <img src="<?= $news['image'] ?>">
-                       </div>
-                       <div class="right">
-                           <div class="info">
-                               <h3><?= $news['title'] ?></h3>
-                               <small class="text-muted"><?= $news['date_creation'] ?></small>
-                           </div>
-                       </div>
-                    </div>
+                    <a href="a_modifierarticle.php?id=<?= $news['id'] ?>">
+                        <div class="item">
+                            <div class="icon">
+                                <img src="<?= $news['image'] ?>">
+                            </div>
+                            <div class="right">
+                                <div class="info">
+                                    <h3><?= $news['title'] ?></h3>
+                                    <small class="text-muted"><?= $news['date_creation'] ?></small>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
                 <?php  } ?>
-                <div class="item add-news">
-                    <div>
-                        <span class="material-icons-sharp">add</span>
-                        <h3>Ajouter une nouvelle actualité</h3>
+                <a href="a_ajoutarticle.php">
+                    <div class="item add-news">
+                        <div>
+                            <span class="material-icons-sharp">add</span>
+                            <h3>Ajouter une nouvelle actualité</h3>
+                        </div>
                     </div>
-                </div>
+                </a>
             </div>
         </div>
     </div>
