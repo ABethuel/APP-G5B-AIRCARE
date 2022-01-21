@@ -9,12 +9,12 @@
 	}
     if(isset($_GET['id']) AND !empty($_GET['id'])){
         $getid = $_GET['id'];
-        $recupmessages = $database->prepare('SELECT * FROM messages WHERE id=?');
+        $recupmessages = $database->prepare('SELECT * FROM email WHERE id=?');
         $recupmessages->execute(array($getid));
         if($recupmessages->rowCount()>0){
-            $bannirmessages = $database->prepare('DELETE FROM messages WHERE id=?');
+            $bannirmessages = $database->prepare('DELETE FROM email WHERE id=?');
             $bannirmessages->execute(array($getid));
-            header('Location: a_messages.php?msg=1');
+            header('Location: a_message.php?msg=1');
         }else{
             var_dump($getid);
         }
