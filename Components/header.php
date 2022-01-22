@@ -1,4 +1,4 @@
-)=<!-- header.php 
+<!-- header.php 
 Header à ajouter sur chaque page le nécéssitant-->
 
 <?php 
