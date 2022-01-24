@@ -4,7 +4,7 @@
 try{
     // On initialise la base de données dans le projet
     $database = new PDO(
-        'mysql:host=https://herogu.garageisep.com/;dbname=gywulo_aircare;charset=utf8;',
+        'mysql:host=herogu.garageisep.com;dbname=gywulo_aircare;charset=utf8;',
         'ismtlw_aircare',
         'kaejhptlokifzcpd'
     );
