@@ -4,9 +4,9 @@
 try{
     // On initialise la base de données dans le projet
     $database = new PDO(
-        'mysql:host=herogu.garageisep.com;dbname=jsjebl_aircare;charset=utf8;',
-        'uhqrme_aircare',
-        'aswxkqevxariodoz'
+        'mysql:host=herogu.garageisep.com;dbname=vtjjph_aircare;charset=utf8;',
+        'hwdvoq_aircare',
+        'urchlsecxgpjqaon'
     );
 }catch(Exception $e){
     die('Erreur : ' . $e->getMessage());
