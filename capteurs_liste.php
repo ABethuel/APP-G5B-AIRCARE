@@ -1,5 +1,7 @@
 <?php
 
+session_start();
+
 function displayCaptors(){
     require("./config/database.php");
 
