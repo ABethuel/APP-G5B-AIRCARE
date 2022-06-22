@@ -2,6 +2,8 @@
 
 // On importe l'initialisaton de la database
 require('./config/database.php');
+require('./data/decodeTram.php');
+
 session_start();
 
 if(isset($_GET['id']) && !empty($_GET['id'])){
@@ -26,15 +28,23 @@ if(isset($_GET['id']) && !empty($_GET['id'])){
         $captor_date = $captorInfos['date'];
         $captor_image = $captorInfos['image'];
 
-        // On séléctionne le dernier élément pour un capteur donné
+                // On séléctionne le dernier élément pour un capteur donné
         $checkParticles = $database->prepare("SELECT * FROM fine_particles WHERE captor_id = ? ORDER BY id DESC LIMIT 1");
         $checkParticles->execute(array($idCaptor)); 
 
-        $checkMonoxide = $database->prepare("SELECT * FROM carbon_monoxide WHERE captor_id = ? ORDER BY id DESC LIMIT 1");
-        $checkMonoxide->execute(array($idCaptor)); 
-
         $checkNitrogen = $database->prepare("SELECT * FROM nitrogen_dioxide WHERE captor_id = ? ORDER BY id DESC LIMIT 1");
         $checkNitrogen->execute(array($idCaptor)); 
+
+        // Détection de gaz
+        if($typeSensor == 3){ 
+            $valuePercentage = ($value / 300) * 100; 
+        
+            $insertGazFromTramOnDb = $database->prepare("INSERT INTO carbon_monoxide(captor_id, value, percentage) VALUES(?, ?, ?)");
+            $insertGazFromTramOnDb->execute(array($idCaptor, $value, $valuePercentage));
+        }
+
+        $checkMonoxide = $database->prepare("SELECT * FROM carbon_monoxide WHERE captor_id = ? ORDER BY id DESC LIMIT 1");
+        $checkMonoxide->execute(array($idCaptor)); 
 
         // On vérifie qu'il existe des données de gaz pour un capteur en particulier
         if ($checkParticles->rowCount() > 0 && $checkMonoxide->rowCount() > 0 && $checkNitrogen->rowCount() > 0 ) {
@@ -62,6 +72,26 @@ if(isset($_GET['id']) && !empty($_GET['id'])){
             $nitrogen_value = $nitrogenInfos['value'];
             $nitrogen_percentage = $nitrogenInfos['percentage'];
 
+            $idMonaoxide = $database->prepare("SELECT * FROM carbon_monoxide WHERE captor_id = ? ORDER BY id DESC LIMIT 1");
+            $checkMonoxide->execute(); 
+
+            if ($typeSensor == 3){
+                
+                $quality = "";
+                $air_quality_percentage = ($monoxide_percentage + $particle_percentage + $nitrogen_percentage) / 3;
+                if ($air_quality_percentage > 90 && $air_quality_percentage < 110){
+                    $quality = "Mauvaise";
+                }else if ($air_quality_percentage >= 111){
+                    $quality = "Très mauvaise";
+                }else if ($air_quality_percentage <= 89){
+                    $quality = "Bonne";
+                }
+                $date = date("d/m"); // Affiche la date du jour
+
+                $insertNewAirQuality = $database->prepare("INSERT INTO air_quality(id_captor, place, result, quality, date) VALUES(?, ?, ?, ?, ?)");
+                $insertNewAirQuality-> execute(array($idCaptor, "Salle d'hospitalisation", $air_quality_percentage, $quality, $date));
+            
+            }     
             //On récupère la qualité globale de l'air
             $checkQuality = $database->prepare('SELECT * FROM air_quality WHERE id_captor = ? ORDER BY id DESC LIMIT 1');
             $checkQuality->execute(array($idCaptor));

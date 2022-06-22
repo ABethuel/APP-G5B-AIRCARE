@@ -7,6 +7,7 @@ require('./captors/showDetailCaptorAction.php')
     <head>
         <meta charset="utf-8" />
         <link rel="stylesheet" href="style_detailcaptor.css">
+        <!-- CSS only -->
         <link rel="icon" type="image/png" href="./Assets/images/logo.png"/> <!-- icone du site onglet du navigateur -->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
         <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
@@ -181,6 +182,11 @@ require('./captors/showDetailCaptorAction.php')
                     <?php
             } ?>
              
+        </div>
+
+        
+        <div class="button_test">
+            <a href="http://projets-tomcat.isep.fr:8080/appService/?ACTION=COMMAND&TEAM=G5B1&TRAME=1G5B121010012" target="_blank"> <button class="button" style="vertical-align:middle"><span>Test du capteur</span></button> </a>
         </div>
 
         <?php include_once('./Components/footer.php'); ?>
