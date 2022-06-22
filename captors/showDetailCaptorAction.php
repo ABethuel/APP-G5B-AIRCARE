@@ -6,7 +6,7 @@ require('./data/decodeTram.php');
 
 session_start();
 
-if(isset($_GET['id']) && !empty($_GET['id'])){
+if(isset($_GET['id']) && !empty($_GET['id']) && isset($_SESSION['id'])){
 
     $idCaptor = $_GET['id'];
     $_SESSION['id_captor'] = $_GET['id'];
